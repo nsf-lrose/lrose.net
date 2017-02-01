@@ -1,1 +1,159 @@
-Hello World
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" version="XHTML+RDFa 1.0" dir="ltr">
+
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+<div id="wrap">
+  <div id="container" class="clear-block">
+
+
+      <!-- div class="internal-header" class="clear-block">
+      <div class="breadcrumbs"><h2 class="element-invisible">You are here</h2><div class="breadcrumb"><a href="/">Home</a> » <a href="/content/lrose">LROSE</a></div></div>
+      <h1></h1>
+    </div -->
+
+    <div id="center-wrapper" class="clear-block">
+
+
+
+        <div id="center"><div id="squeeze"><div class="right-corner"><div class="left-corner">
+
+                <div id="tabs-wrapper" class="clear-block"></div>
+
+
+
+
+
+
+					<style>
+					h2 {
+						color: #a51901 !important;
+						border-bottom: 1px solid #a51901 !important;
+					}
+
+					.block h2 {
+						color: #a51901 !important;
+						border-bottom: 2px solid #a51901 !important;
+					}
+
+
+
+					h1.title {
+						color: #a51901 !important;
+					}
+
+
+					h2 a {
+						color: #a51901 !important;
+						text-decoration: none !important;
+					}
+
+					h3 {
+						color: #a51901 !important;
+					}
+
+					#parent-page-title a{
+						color: #a51901 !important;
+					}
+
+					.group-s-c-file-attachments, .group-f-p-files {
+						margin-bottom: 15px;
+						border: 2px solid #a51901;
+						border-color: #a51901;
+					}
+
+					.footer_column .block {
+						background-color: #ddd;
+					}
+
+					</style>
+
+					<style>
+						#titlebar {
+							padding-bottom: 7px !important;
+							border-bottom: 1px solid #a51901 !important;
+						}
+					</style>
+
+
+
+
+
+
+        <h1 class="title" id="page-title">
+          LIDAR RADAR Open Software Environment        </h1>
+
+
+
+
+
+
+
+
+
+
+          <div id="titlebar"></div>
+
+          <a id="main-content"></a>
+          <div class="clear-block">
+            <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+
+  <div class="content">
+    <div id="node-3517" class="node node-sidebar-content node-full clearfix">
+
+
+
+  <div class="content clearfix">
+<div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even"><p><a class="colorbox colorbox-insert-image" href="https://www.eol.ucar.edu/system/files/airborne_bcs1.png" rel="gallery-all" title="Example radar analysis"><img alt="" class="image-large" src="radar_analysis.png" style="width: 350px; height: 182px; float: right;" title="Example radar analysis" /></a></p>
+<p><strong>What is LROSE?</strong></p>
+<ul>
+	<li>LROSE is an NSF-backed project to develop common software for the LIDAR, RADAR and PROFILER community.</li>
+	<li>It is based on collaborative, open source development. The code is freely available on the web.</li>
+	<li>The core package is being jointly developed by Colorado State University (CSU) and the Earth Observing Laboratory at the National Center for Atmospheric Research (NCAR/EOL).</li>
+	<li>Additional algorithms and analysis tools will developed and supported by the community.</li>
+	<li>Data will be stored in portable data formats, based on UNIDATA NetCDF, following the Climate and Forecasting (CF) conventions to facilitate data assimilation by models.</li>
+</ul>
+<p>LROSE was first proposed to the National Science Foundation (NSF), in a white paper, in 2011. After revisions, this <a href="http://www.eol.ucar.edu/system/files/RadarSoftwareRequestForComment.20120918.pdf">white paper</a> was released to the user community in September 2012 to obtain feedback and comments.</p>
+<p>NSF provided seed funding in 2012 and 2013 to help start LROSE development.</p>
+<p>A 4-year SI2-SSI grant from NSF was awarded in 2016 to CSU and NCAR/EOL to further develop LROSE.</p>
+<h3 class="content-header-h3" style=""><strong><img alt="Radial RHI display" src="http://www.eol.ucar.edu/system/files/spol_rhi.png" style="width: 250px; height: 164px; float: right;" /></strong></h3>
+<p><strong>What problem are we trying to solve?</strong></p>
+<ul>
+	<li>We support users in the scientific community, but we are finding it increasingly difficult to provide good quality support for aging legacy applications.</li>
+</ul>
+<ul>
+	<li>The scientific community has needs that are not supported by our current software.</li>
+</ul>
+<ul>
+	<li>We have a large code base of software,&nbsp; of varying ages and maintainability.</li>
+</ul>
+<ul>
+	<li>We have inherited data formats that are not optimal for scientific data exchange.</li>
+</ul>
+<h3 class="content-header-h3" style="">&nbsp;</h3>
+<h3 class="content-header-h3" style="">LROSE components</h3>
+<p>LROSE is intended to handle information at all stages, from time series right at the instrument, to moments in radial format, to products in Cartesian coordinates, displays that integrate the data for visualization, to provision of data to models for data assimilation.</p>
+<p>The intention is that NCAR will develop the so-called &#39;core&#39; functionality, while the community would be encouraged to contribute aspects specific to their needs, that could then be shared by other researchers.</p>
+<p>The components fall into the following categories:</p>
+<ul>
+	<li>Core data exchange formats (EOL/UNIDATA): files and data streams in standardized formats &ndash; mostly NetCDF using the Climate and Forecasting (CF) conventions, suitable for exporting to models for data assimilation.</li>
+</ul>
+<ul>
+	<li>Core infrastructure (CSU and NCAR/EOL): applications that provide the &lsquo;glue&rsquo; to hold the system together.</li>
+</ul>
+<ul>
+	<li>Community algorithms and tools: analysis, research, generating derived products.</li>
+</ul>
+<ul>
+	<li>Core displays for data visualization, and editing as appropriate. For example, see ArtView from the Nick Guy at&nbsp;<a href="http://nguy.github.io/artview/">http://nguy.github.io/artview/</a>.</li>
+</ul>
+<p>&nbsp;</p>
+<p>These components are depicted in the following schematic.</p>
+<p><img alt="" src="LROSE_flowchart.png"/></p>
+</div></div></div>  </div>
+</body>
+</html>
