@@ -1,0 +1,154 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>HawkEye &#8212; NSF LROSE Blaze documentation</title>
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Radx2Grid" href="howtorun_radx2grid.html" />
+    <link rel="prev" title="RadxConvert" href="howtorun_radxconvert.html" />
+<link href="_static/templatemo_lite.css" rel="stylesheet" type="text/css" />
+
+  </head><body>
+<div id="templatemo_wrapper">
+    <div id="templatemo_header">
+    	<div id="site_title"><a href="http://nsf-lrose.github.io">Lidar Radar Open Software Environment</a></div>
+        <div id="templatemo_menu">
+            <ul>
+                <li><a href="index.html" class="selected home">Home</a></li>
+                <li><a href="software.html" class="services">Software</a></li>
+                <li><a href="docs.html" class="gallery">Documentation</a></li>
+                <li class="last"><a href="help.html" class="news">Help</a></li>
+            </ul>
+        </div> <!-- end of templatemo_menu -->
+    </div>
+</div> <!-- END of templatemo_wrapper -->
+
+      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
+          <span>NSF LROSE Blaze documentation</span></a></h1>
+        <h2 class="heading"><span>HawkEye</span></h2>
+      </div>
+      <div class="topnav" role="navigation" aria-label="top navigation">
+      
+        <p>
+        «&#160;&#160;<a href="howtorun_radxconvert.html">RadxConvert</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="docs.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="howtorun_radx2grid.html">Radx2Grid</a>&#160;&#160;»
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="hawkeye">
+<h1>HawkEye<a class="headerlink" href="#hawkeye" title="Permalink to this headline">¶</a></h1>
+<p>The HawkEye application is available for the user to display real-time
+data and previously stored data either in BSCAN-type display or
+polar-typle display.</p>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<p>The following item are required: - HawkEye - RadxConvert output files
+(CfRadial)</p>
+</div>
+<div class="section" id="parameter-file">
+<h2>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
+<p>The parameter file will need to be updated to change the display mode
+set by the user.</p>
+<div class="section" id="ensure-parameter-file-is-up-to-date">
+<h3>Ensure parameter file is up to date<a class="headerlink" href="#ensure-parameter-file-is-up-to-date" title="Permalink to this headline">¶</a></h3>
+<p>To obtain the default parameter file, use the following command:</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lrose</span> <span class="o">--</span> <span class="n">HawkEye</span> <span class="o">-</span><span class="n">print_params</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">param_file_name</span>
+</pre></div>
+</div>
+<p>If you already have a parameter file and simply want to check for (and
+add) updated parameters while retaining current parameters, use the
+following command:</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lrose</span> <span class="o">--</span> <span class="n">HawkEye</span> <span class="o">-</span><span class="n">params</span> <span class="n">orig_param_file_name</span> <span class="o">-</span><span class="n">print_params</span> <span class="o">&gt;</span> <span class="n">new_param_file_name</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="specific-parameters-to-edit">
+<h3>Specific parameters to edit<a class="headerlink" href="#specific-parameters-to-edit" title="Permalink to this headline">¶</a></h3>
+<p>Caution: this is not an exhaustive list. We urge each user to read
+through the entire parameter file carefully.</p>
+<ul class="simple">
+<li>display mode: specify the display mode. It supports POLAR_DISPLAY for
+normal PPI and RHI display and BSCAN_DISPLAY for BSCAN mode.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="running-hawkeye">
+<h2>Running HawkEye<a class="headerlink" href="#running-hawkeye" title="Permalink to this headline">¶</a></h2>
+<p>To check all command line options for HawkEye, type the following
+command into a bash.</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lrose</span> <span class="o">--</span> <span class="n">HawkEye</span> <span class="o">-</span><span class="n">h</span>
+</pre></div>
+</div>
+<p>Once your parameter file is complete, specify the location of CfRadial
+files to run the application:</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lrose</span> <span class="o">--</span> <span class="n">HawkEye</span> <span class="o">-</span><span class="n">params</span> <span class="n">param_file_name</span> <span class="o">-</span><span class="n">f</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">CfRadial_files</span>
+</pre></div>
+</div>
+<p>One thing worth noticing is that it’s not necessarily to create a
+parameter file. If the user have no specific requirement and no day
+directory in the path, you can start HawkEye without a param file and
+specified timeframe:</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lrose</span> <span class="o">--</span> <span class="n">HawkEye</span> <span class="o">-</span><span class="n">f</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">CfRadial_files</span>
+</pre></div>
+</div>
+<p>If the user store the data under the day directory in the path (You can
+obtain the default directory setting by performing RadxConvert), the
+user can specify specific time span to display:</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lrose</span> <span class="o">--</span> <span class="n">HawkEye</span> <span class="o">-</span><span class="n">archive_url</span> <span class="o">/</span><span class="n">scr</span><span class="o">/</span><span class="n">rain1</span><span class="o">/</span><span class="n">rsfdata</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">pecan</span><span class="o">/</span><span class="n">CfRadial</span><span class="o">/</span><span class="n">kddc</span><span class="o">/</span><span class="n">moments</span> <span class="o">-</span><span class="n">start_time</span> <span class="s2">&quot;2015 06 26 00 00 00&quot;</span> <span class="o">-</span><span class="n">time_span</span> <span class="mi">7200</span>
+</pre></div>
+</div>
+<p>This command would start it up to look at the specified data location,
+from the specified start time, for a time span of 2 hours.</p>
+<p>In this case, since we are searching by time, you are required to have a
+day directory in the path, so that actual data would be in:</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">scr</span><span class="o">/</span><span class="n">rain1</span><span class="o">/</span><span class="n">rsfdata</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">pecan</span><span class="o">/</span><span class="n">CfRadial</span><span class="o">/</span><span class="n">kddc</span><span class="o">/</span><span class="n">moments</span><span class="o">/</span><span class="mi">20150626</span><span class="o">/</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+      
+        <p>
+        «&#160;&#160;<a href="howtorun_radxconvert.html">RadxConvert</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="docs.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="howtorun_radx2grid.html">Radx2Grid</a>&#160;&#160;»
+        </p>
+
+      </div>
+
+
+<div id="templatemo_footer_wrapper">
+	<div id="templatemo_footer">
+
+        <div class="clear"></div>
+        <div id="templatemo_copyright">
+			Copyright © 2018 Colorado State University <!-- Credit: www.templatemo.com -->
+		</div>
+    </div> <!-- END of templatemo_footer -->
+</div> <!-- END of templatemo_footer_wrapper -->
+
+  </body>
+</html>

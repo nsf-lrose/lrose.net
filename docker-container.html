@@ -1,0 +1,364 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>The Lrose-Blaze Docker image &#8212; NSF LROSE Blaze documentation</title>
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Installing an LROSE Source Release (Linux)" href="README_source_linux.html" />
+    <link rel="prev" title="Radx2Grid" href="howtorun_radx2grid.html" />
+<link href="_static/templatemo_lite.css" rel="stylesheet" type="text/css" />
+
+  </head><body>
+<div id="templatemo_wrapper">
+    <div id="templatemo_header">
+    	<div id="site_title"><a href="http://nsf-lrose.github.io">Lidar Radar Open Software Environment</a></div>
+        <div id="templatemo_menu">
+            <ul>
+                <li><a href="index.html" class="selected home">Home</a></li>
+                <li><a href="software.html" class="services">Software</a></li>
+                <li><a href="docs.html" class="gallery">Documentation</a></li>
+                <li class="last"><a href="help.html" class="news">Help</a></li>
+            </ul>
+        </div> <!-- end of templatemo_menu -->
+    </div>
+</div> <!-- END of templatemo_wrapper -->
+
+      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
+          <span>NSF LROSE Blaze documentation</span></a></h1>
+        <h2 class="heading"><span>The Lrose-Blaze Docker image</span></h2>
+      </div>
+      <div class="topnav" role="navigation" aria-label="top navigation">
+      
+        <p>
+        «&#160;&#160;<a href="howtorun_radx2grid.html">Radx2Grid</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="docs.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="README_source_linux.html">Installing an LROSE Source Release (Linux)</a>&#160;&#160;»
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="the-lrose-blaze-docker-image">
+<h1>The Lrose-Blaze Docker image<a class="headerlink" href="#the-lrose-blaze-docker-image" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="what-is-it">
+<h2>What is it?<a class="headerlink" href="#what-is-it" title="Permalink to this headline">¶</a></h2>
+<p>Lrose-Blaze allows you to run Lrose applications without having to
+compile and install lrose binaries and libraries.</p>
+<p>It is a Ubuntu 14.04 image, with lrose-core installed in
+/usr/local/lrose.</p>
+<p>It has one user named <strong>lrose</strong> so if you don’t want to run commands as
+root, you can specify <strong>-u lrose</strong> when you <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span></code> or
+<code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">exec</span></code></p>
+</div>
+<div class="section" id="installing-and-running">
+<h2>Installing and running<a class="headerlink" href="#installing-and-running" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="getting-the-lrose-blaze-image">
+<h3>Getting the lrose-blaze image<a class="headerlink" href="#getting-the-lrose-blaze-image" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p class="first">From hub.docker.com (the default repository for the docker command)</p>
+<p><code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">pull</span> <span class="pre">nsflrose/lrose-blaze</span></code></p>
+<p>This should pull the <strong>latest</strong> tag.</p>
+</li>
+<li><p class="first">If you want to test a different image. For example ifyou have access
+to a tar file of the image</p>
+<p><code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">import</span> <span class="pre">lroze-blaze.tgz</span></code></p>
+</li>
+</ul>
+<p>Verify it is there with <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">images</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ docker images
+REPOSITORY                   TAG                 IMAGE ID
+nsflrose/lrose-blaze         04132018            0a2ce9c9ae0f
+ubuntu_apache2               latest              4b5eefbe9c6c
+ncareol/soloii               latest              baa1ee4c3541
+</pre></div>
+</div>
+<p>Chances are that instead of a name and tag, you will see <strong>none</strong>. Since
+the <strong>lrose</strong> wrapper assumes an image name of <em>lrose-blaze</em> you want to
+tag the image. Use the <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">tag</span></code> command to do that. (Replace
+<strong>0a2ce9c9ae0f</strong> with the image ID <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">images</span></code> shows you)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">tag</span> <span class="n">lrose</span><span class="o">-</span><span class="n">blaze</span><span class="p">:</span><span class="mi">04112018</span> <span class="mi">0</span><span class="n">a2ce9c9ae0f</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-the-lrose-wrapper">
+<h3>Using the lrose wrapper<a class="headerlink" href="#using-the-lrose-wrapper" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">lrose</span></code> wrapper is a bash script that tries to make running and
+managing docker containers a bit easier. Instead of having to provide a
+lot of docker arguments (image name, container name, display variable,
+volume mounts…) an lrose command invocation is reduced to something like
+this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lrose</span> <span class="o">&lt;</span><span class="n">few_options</span><span class="o">&gt;</span> <span class="o">--</span> <span class="o">&lt;</span><span class="n">command</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">options</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>You can run <code class="docutils literal notranslate"><span class="pre">lrose</span> <span class="pre">-h</span></code> to see what options the wrapper supports.</p>
+<p>For example, to run <code class="docutils literal notranslate"><span class="pre">HawkEye</span></code> in archive mode.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lrose</span> <span class="o">--</span> <span class="n">HawkEye</span> <span class="o">-</span><span class="n">archive_url</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">KHGX</span> <span class="o">-</span><span class="n">start_time</span> <span class="s2">&quot;2017 08 00 00 00&quot;</span> <span class="o">-</span><span class="n">time_span</span> <span class="mi">7200</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">lrose</span></code> wrapper reads in ~/.lroseargs which allows you to specify
+additional options to the <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span></code> command. It supports volume,
+environment, and raw arguments. Add any combination, one option per
+line.</p>
+<ul class="simple">
+<li>Comments start with <strong>#</strong></li>
+<li>/from:to is passed as <strong>-v /from:/to</strong></li>
+<li>var=value is passed as <strong>-e var=value</strong></li>
+<li>–anything is pased unchanged <strong>–anything</strong></li>
+</ul>
+<p>For the example above, you’d add an entry to map your data directory to
+/tmp/KHGX in the container.</p>
+<p>You can also add entries for other folders you might need in the
+container. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Location of HawkEye input radar files</span>
+<span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">some</span><span class="o">/</span><span class="n">folder</span><span class="o">/</span><span class="n">KHGX</span><span class="p">:</span><span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">KHGX</span>
+<span class="c1"># Output directory for lrose commands. Make sure I have write access</span>
+<span class="o">/</span><span class="n">my</span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">large</span><span class="o">/</span><span class="n">disk</span><span class="p">:</span><span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">output</span><span class="p">:</span><span class="n">rw</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">lrose</span></code> wrapper will convert all of these to <code class="docutils literal notranslate"><span class="pre">--volume</span></code> options
+when running a container.</p>
+<p>By default, your $HOME is mapped to $HOME (either /home/user on Linux,
+or /Users/user on a mac)</p>
+<div class="section" id="a-few-gotchas-with-volume-mounting">
+<h4>A few gotchas with volume mounting<a class="headerlink" href="#a-few-gotchas-with-volume-mounting" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Docker will try to mount volumes exactly as requested. The following
+will fail because you are trying to replace /tmp, not mount /somedir
+under /tmp: <code class="docutils literal notranslate"><span class="pre">-v</span> <span class="pre">/somedir:/tmp</span></code>. If you want to mount a directory
+somewhere, you have to specify an absolute path. For example
+<code class="docutils literal notranslate"><span class="pre">/somedir:/tmp/somedir</span></code>.</li>
+<li><em>/tmp</em>, <em>/</em>, and probably other crucial directories can’t be
+overwritten. So this won’t work: <code class="docutils literal notranslate"><span class="pre">-v</span> <span class="pre">/:/</span></code> (trying to replace /
+inside the container)</li>
+</ul>
+</div>
+<div class="section" id="a-few-gotchas-with-the-lrose-wrapper">
+<h4>A few gotchas with the lrose wrapper<a class="headerlink" href="#a-few-gotchas-with-the-lrose-wrapper" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>The lrose wrapper is meant do run commands in <strong>batch</strong> bode. It
+doesn’t handle the I/O required for interactive mode. So if you were
+to do something like this: <code class="docutils literal notranslate"><span class="pre">./lrose</span> <span class="pre">--</span> <span class="pre">/bin/bash</span></code>, the container
+would be started and run /bin/bash, but you would never get a shell
+prompt, and any command you enter would not be passed on. You would
+have to stop and remove the container before being able to run the
+lrose wrapper again.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="dealing-with-graphic-accelerators">
+<h3>Dealing with graphic accelerators<a class="headerlink" href="#dealing-with-graphic-accelerators" title="Permalink to this headline">¶</a></h3>
+<p>This is only needed for X11 graphic programs such as HawkEye, if you
+care about hardware acceleration. If the performance is good enough you
+can skip this section.</p>
+<p>You might get this error message when running <em>HawkEye</em>: <em>libGL error:
+failed to open drm device: No such file or directory</em></p>
+<p>Follow <a class="reference external" href="http://wiki.ros.org/docker/Tutorials/Hardware%20Acceleration">this
+guide</a>
+if you want to use graphic acceleration</p>
+<p>If your machine is using Intel graphics, adding the following to your
+<strong>~/.lroseargs</strong> would do the trick.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">device</span><span class="o">=/</span><span class="n">dev</span><span class="o">/</span><span class="n">dri</span><span class="p">:</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">dri</span><span class="p">:</span><span class="n">rw</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="starting-an-lrose-blaze-container">
+<h3>Starting an lrose-blaze container<a class="headerlink" href="#starting-an-lrose-blaze-container" title="Permalink to this headline">¶</a></h3>
+<p>If you decide to manage your containers yourself instead of using the
+<code class="docutils literal notranslate"><span class="pre">lrose</span></code> wrapper, you have a few scenarios to choose from:</p>
+<ol class="arabic">
+<li><p class="first">One time command run</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">--</span><span class="n">rm</span> <span class="o">-</span><span class="n">it</span> <span class="o">...</span> <span class="n">lrose</span><span class="o">-</span><span class="n">blaze</span> \
+           <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">lrose</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">RadxCheck</span> <span class="o">...</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Keep the container running and execute multiple commands</p>
+</li>
+</ol>
+<p>First, start the contanier in <em>detached</em> mode (the -d option). Give the
+container a name (the -n option) so that it is easier to reference than
+the container id you get from <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">ps</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span> <span class="pre">-d</span> <span class="pre">...</span> <span class="pre">lrose-blaze</span> <span class="pre">-n</span> <span class="pre">my_container</span></code></p>
+<p>Then you can <em>exec</em> commands in this container.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">exec</span> <span class="o">-</span><span class="n">it</span> <span class="n">my_container</span> <span class="o">...</span> \
+            <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">lrose</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">RadxCheck</span> <span class="o">...</span>
+</pre></div>
+</div>
+<ol class="arabic" start="3">
+<li><p class="first">Get a interactive shell in the container and run multiple commands
+from inside the container</p>
+<p><code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span> <span class="pre">-it</span> <span class="pre">...</span> <span class="pre">/bin/bash</span></code></p>
+</li>
+</ol>
+<div class="section" id="mapping-volumes-directories-folders">
+<h4>Mapping volumes (directories, folders)<a class="headerlink" href="#mapping-volumes-directories-folders" title="Permalink to this headline">¶</a></h4>
+<p>You want to give commands in the container access to your data files.
+You do that by mapping <strong>volumes</strong> when starting your container with the
+run command.</p>
+<p>The general format for the volume option is</p>
+<p><code class="docutils literal notranslate"><span class="pre">-v</span> <span class="pre">machine_folder:container_folder</span></code></p>
+<p>You can have multiple <strong>-v</strong> options if you want access to multiple
+folders.</p>
+<p>So for example if your data resides in
+<strong>:math:`HOME/mydata</strong>, and you want to run run lrose commands that will write the output files to <strong>`HOME/myoutput</strong>,
+you could use the following options</p>
+<p><code class="docutils literal notranslate"><span class="pre">-v</span> <span class="pre">$HOME/mydata:/data</span> <span class="pre">-v</span> <span class="pre">$HOME/myoutput:output</span></code></p>
+<p>Note that you need to use <strong>absolute paths</strong>. So in this example, there
+will be <strong>/mydata</strong> and <strong>/myoutput</strong> directories accessible from inside
+your container.</p>
+<p>If the options you give the command running inside the container direct
+it to find data from <strong>/data</strong> and to write output to <strong>/output</strong>, you
+should see the output in <strong>$HOME/mydata</strong> from outside the container
+once the command is done.</p>
+<p>Also note that volume mapping must be done at the time you <strong>run</strong> a
+container. You can’t add volume mapping when you <strong>exec</strong> a command on a
+running container. (TODO check if this is true)</p>
+</div>
+<div class="section" id="running-x11-programs-such-as-hawkeye">
+<h4>Running X11 programs (such as HawkEye)<a class="headerlink" href="#running-x11-programs-such-as-hawkeye" title="Permalink to this headline">¶</a></h4>
+<p>Mac OS and Linux require sligtly different invocations to be able to
+display on your host machine.</p>
+<div class="section" id="mac-os">
+<h5>Mac OS<a class="headerlink" href="#mac-os" title="Permalink to this headline">¶</a></h5>
+<p>Find the ip address of your machine, for example if your machine is
+called <em>my_machine</em> use this command: <code class="docutils literal notranslate"><span class="pre">host</span> <span class="pre">my_machine</span></code></p>
+<p>Let’s say your address is 192.168.0.10 you can then invoke the docker
+run command with the following option: <code class="docutils literal notranslate"><span class="pre">-e</span> <span class="pre">DISPLAY=192.168.0.10</span></code></p>
+<p>To run <em>HawkEye</em>, you can start the container this way: (you will of
+course have to add a couple of -v mappings for the input and output
+folders)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">--</span><span class="n">name</span> <span class="n">lrose_container</span> <span class="o">--</span><span class="n">user</span> <span class="n">lrose</span> \
+           <span class="o">-</span><span class="n">e</span> <span class="n">DISPLAY</span><span class="o">=</span><span class="mf">192.168</span><span class="o">.</span><span class="mf">0.10</span><span class="p">:</span><span class="mi">0</span>  <span class="o">-</span><span class="n">v</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/.</span><span class="n">X11</span><span class="o">-</span><span class="n">unix</span><span class="p">:</span><span class="o">/</span><span class="n">tmp</span><span class="o">/.</span><span class="n">X11</span><span class="o">-</span><span class="n">unix</span><span class="p">:</span><span class="n">rw</span> <span class="o">-</span><span class="n">it</span> \
+           <span class="o">-</span><span class="n">w</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">lrose</span> <span class="n">lrose</span><span class="o">-</span><span class="n">blaze</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">lrose</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">HawkEye</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="linux">
+<h5>Linux<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h5>
+<p>You just have to use the `–env=“DISPLAY” option to the docker run
+command. You might have to set QT_X11_MITSHM to 1. MIT-SHM is an
+extension that allows faster transaction by using shared memory. This is
+blocked by docker isolation, so if the flag is not set you will get
+permission errors.</p>
+<p>To run <em>HawkEye</em>, you can start the container this way: (you will of
+course have to add a couple of -v mappings for the input and output
+folders)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">--</span><span class="n">name</span> <span class="n">lrose_container</span> <span class="o">--</span><span class="n">user</span> <span class="n">lrose</span> \
+           <span class="o">--</span><span class="n">env</span><span class="o">=</span><span class="s2">&quot;DISPLAY&quot;</span> <span class="o">--</span><span class="n">env</span> <span class="n">QT_X11_NO_MITSHM</span><span class="o">=</span><span class="mi">1</span> \
+           <span class="o">-</span><span class="n">v</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/.</span><span class="n">X11</span><span class="o">-</span><span class="n">unix</span><span class="p">:</span><span class="o">/</span><span class="n">tmp</span><span class="o">/.</span><span class="n">X11</span><span class="o">-</span><span class="n">unix</span><span class="p">:</span><span class="n">rw</span> \
+           <span class="o">-</span><span class="n">w</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">lrose</span> <span class="n">lrose</span><span class="o">-</span><span class="n">blaze</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">lrose</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">HawkEye</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="other-useful-options">
+<h4>Other useful options<a class="headerlink" href="#other-useful-options" title="Permalink to this headline">¶</a></h4>
+<p>talk about environment variables</p>
+<p>… what else?</p>
+</div>
+</div>
+</div>
+<div class="section" id="some-useful-commands-to-manage-containers-and-images">
+<h2>Some useful commands to manage containers and images<a class="headerlink" href="#some-useful-commands-to-manage-containers-and-images" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="list-images-available-on-your-machine">
+<h3>List images available on your machine<a class="headerlink" href="#list-images-available-on-your-machine" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">images</span></code></p>
+<p>This will list all images available to run, including their name and
+unique id.</p>
+</div>
+<div class="section" id="stopping-an-lrose-blaze-container">
+<h3>Stopping an lrose-blaze container<a class="headerlink" href="#stopping-an-lrose-blaze-container" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>If you were in an interactive shell, just <code class="docutils literal notranslate"><span class="pre">exit</span></code> That should get
+you out and stop the container</li>
+<li>If you want to stop a running container from outside of it</li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">stop</span> <span class="pre">...</span></code></p>
+<p>Where … is either the container name, or its unique id.</p>
+</div>
+<div class="section" id="list-running-containers">
+<h3>List running containers<a class="headerlink" href="#list-running-containers" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">ps</span></code></p>
+<p>This will list all running containers. You can use this command to get a
+container unique id.</p>
+</div>
+<div class="section" id="list-non-running-containers">
+<h3>List non-running containers<a class="headerlink" href="#list-non-running-containers" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">ps</span> <span class="pre">-a</span></code></p>
+<p>This will show when a container exited.</p>
+<p>Unless you provided the <code class="docutils literal notranslate"><span class="pre">-rm</span></code> option to the <strong>*run*</strong> command, a
+container that exited is still available on your machine. You could
+restart it with the <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">restart</span></code> command.</p>
+<p>If you make any change inside the container, for example install more
+packages, add users, …, these changes will persist if you restart the
+container. But once you remove it, all is lost.</p>
+</div>
+<div class="section" id="permanently-saving-changes-made-to-a-container">
+<h3>Permanently saving changes made to a container<a class="headerlink" href="#permanently-saving-changes-made-to-a-container" title="Permalink to this headline">¶</a></h3>
+<p>You can preserve changes you have made by <em>comitting</em> a container to a
+new image. This can be very useful to customize your environment.</p>
+<p><strong>Note</strong> It is much safer to commit a non-running container. So stop the
+container first <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">stop</span> <span class="pre">...</span></code> first, before using
+<code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">commit</span> <span class="pre">...</span></code></p>
+<p>This is outside the scope of this document, but you could for example
+install additional packages (ubuntu is debian based, so use the apt-get
+install command to do so). You could add users, and customize their
+startup files (.bashrc, .chsrc, …) to add aliases for commands…</p>
+<p>Once the container is comitted, you can then start a new containers from
+that new image.</p>
+</div>
+<div class="section" id="removing-old-containers">
+<h3>Removing old containers<a class="headerlink" href="#removing-old-containers" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">rm</span> <span class="pre">...</span></code></p>
+<p>Where … is either a container name, or its unique id.</p>
+</div>
+<div class="section" id="removing-an-image">
+<h3>Removing an image<a class="headerlink" href="#removing-an-image" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">rmi</span> <span class="pre">...</span></code></p>
+<p>Here again, … is either the image name, or its unique id.</p>
+</div>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+      
+        <p>
+        «&#160;&#160;<a href="howtorun_radx2grid.html">Radx2Grid</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="docs.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="README_source_linux.html">Installing an LROSE Source Release (Linux)</a>&#160;&#160;»
+        </p>
+
+      </div>
+
+
+<div id="templatemo_footer_wrapper">
+	<div id="templatemo_footer">
+
+        <div class="clear"></div>
+        <div id="templatemo_copyright">
+			Copyright © 2018 Colorado State University <!-- Credit: www.templatemo.com -->
+		</div>
+    </div> <!-- END of templatemo_footer -->
+</div> <!-- END of templatemo_footer_wrapper -->
+
+  </body>
+</html>

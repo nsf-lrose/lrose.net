@@ -1,0 +1,157 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>LROSE Blaze Quick Start &#8212; NSF LROSE Blaze documentation</title>
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Introduction" href="Introduction.html" />
+    <link rel="prev" title="Welcome to NSF-LROSE’s documentation!" href="docs.html" />
+<link href="_static/templatemo_lite.css" rel="stylesheet" type="text/css" />
+
+  </head><body>
+<div id="templatemo_wrapper">
+    <div id="templatemo_header">
+    	<div id="site_title"><a href="http://nsf-lrose.github.io">Lidar Radar Open Software Environment</a></div>
+        <div id="templatemo_menu">
+            <ul>
+                <li><a href="index.html" class="selected home">Home</a></li>
+                <li><a href="software.html" class="services">Software</a></li>
+                <li><a href="docs.html" class="gallery">Documentation</a></li>
+                <li class="last"><a href="help.html" class="news">Help</a></li>
+            </ul>
+        </div> <!-- end of templatemo_menu -->
+    </div>
+</div> <!-- END of templatemo_wrapper -->
+
+      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
+          <span>NSF LROSE Blaze documentation</span></a></h1>
+        <h2 class="heading"><span>LROSE Blaze Quick Start</span></h2>
+      </div>
+      <div class="topnav" role="navigation" aria-label="top navigation">
+      
+        <p>
+        «&#160;&#160;<a href="docs.html">Welcome to NSF-LROSE’s documentation!</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="docs.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="Introduction.html">Introduction</a>&#160;&#160;»
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="lrose-blaze-quick-start">
+<h1>LROSE Blaze Quick Start<a class="headerlink" href="#lrose-blaze-quick-start" title="Permalink to this headline">¶</a></h1>
+<p>Follow these steps to get up and running quickly with LROSE, and then continue through the documentation for more details about LROSE software.</p>
+<div class="section" id="install">
+<h2>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Complete the free <a class="reference external" href="../../../software.html">registration</a> and follow the install instructions</li>
+</ul>
+</div>
+<div class="section" id="get-some-data">
+<h2>Get some data<a class="headerlink" href="#get-some-data" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>A sample NEXRAD level II file is available <a class="reference external" href="../../../assets/Level2_KAMX_20161006_1906.ar2v">here</a> for use with this quick start guide</li>
+</ul>
+<p>If you have your own data, just replace the filename in all the subsequent examples with your data</p>
+<p>Open a terminal on Mac or Linux, and change the directory to where your data resides</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">my</span><span class="o">/</span><span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="inspect-the-data">
+<h2>Inspect the data<a class="headerlink" href="#inspect-the-data" title="Permalink to this headline">¶</a></h2>
+<p>LROSE can handle 24 radar and lidar formats (and counting).
+To see if your data works with LROSE, first use RadxPrint to print the metadata.</p>
+<p>The following instructions assume you are using the Virtual Toolbox and the sample NEXRAD file.
+For native apps installed in your executable path, just drop ‘lrose – ‘
+or replace with the absolute path to the location where the binaries are installed.
+If you are using your own data, replace the name of the file.</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span>lrose -- RadxPrint -f $PWD/Level2_KAMX_20161006_1906.ar2v
+</pre></div>
+</div>
+<p>If the program returns ‘File format not recognized’ then it is not a file format that LROSE currently supports.
+Otherwise, you should see text output with all the metadata from your file.</p>
+</div>
+<div class="section" id="convert-the-data-to-cfradial">
+<h2>Convert the data to CfRadial<a class="headerlink" href="#convert-the-data-to-cfradial" title="Permalink to this headline">¶</a></h2>
+<p>The LROSE workflow relies on the CfRadial format for all subsequent display and analysis.
+Use RadxConvert to convert your file(s) to CfRadial.
+It will work on any file that is recognized by RadxPrint from the first step through the Radx engine backend.</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span>lrose -- RadxConvert -f $PWD/Level2_KAMX_20161006_1906.ar2v -outdir $PWD
+</pre></div>
+</div>
+</div>
+<div class="section" id="display-the-data-in-hawkeye">
+<h2>Display the data in HawkEye<a class="headerlink" href="#display-the-data-in-hawkeye" title="Permalink to this headline">¶</a></h2>
+<p>HawkEye is a next generation data display that will eventually include editing capabilities.
+Use HawkEye to view the CfRadial files generated by RadxConvert:</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span>lrose -- HawkEye -f $PWD/output/20161006/*
+</pre></div>
+</div>
+</div>
+<div class="section" id="grid-the-data-into-cartesian-space">
+<h2>Grid the data into Cartesian space<a class="headerlink" href="#grid-the-data-into-cartesian-space" title="Permalink to this headline">¶</a></h2>
+<p>A common first step for working with NEXRAD data is to interpolate the data from its native radial coordinate to a regular grid.
+Radx2Grid can grid ground-based and some airborne lidar and radar data in spherical and Cartesian space.
+While there are many options for Radx2Grid, a basic gridding technique can be accomplished simply:</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span>lrose -- Radx2Grid -f $PWD/output/20161006/* -outdir $PWD/grid
+</pre></div>
+</div>
+</div>
+<div class="section" id="quick-start-complete">
+<h2>Quick Start Complete!<a class="headerlink" href="#quick-start-complete" title="Permalink to this headline">¶</a></h2>
+<p>If you have successfully run the previous steps then you should now have a Cartesian gridded NetCDF file to use for further analysis called ncf_20161006_191339.nc in the
+grid’ subdirectory.
+From here, you can read in the CfRadial or gridded netCDF file using Julia, Python, or other programming language for further analysis.
+Continue with the documentation to find out more about LROSE and the many options and parameters available in the LROSE-Blaze software suite.</p>
+</div>
+<div class="section" id="jupyter-notebook-starter-kit">
+<h2>Jupyter Notebook Starter Kit<a class="headerlink" href="#jupyter-notebook-starter-kit" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>All of the following steps are available in Jupyter Notebook tutorials in Julia and Python. You can clone or download the starter kit from our webpage.</li>
+</ul>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+      
+        <p>
+        «&#160;&#160;<a href="docs.html">Welcome to NSF-LROSE’s documentation!</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="docs.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="Introduction.html">Introduction</a>&#160;&#160;»
+        </p>
+
+      </div>
+
+
+<div id="templatemo_footer_wrapper">
+	<div id="templatemo_footer">
+
+        <div class="clear"></div>
+        <div id="templatemo_copyright">
+			Copyright © 2018 Colorado State University <!-- Credit: www.templatemo.com -->
+		</div>
+    </div> <!-- END of templatemo_footer -->
+</div> <!-- END of templatemo_footer_wrapper -->
+
+  </body>
+</html>

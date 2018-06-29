@@ -1,0 +1,92 @@
+/*
+Blue Tech Template
+http://www.templatemo.com/preview/templatemo_377_blue_tech
+*/
+
+html {
+	background-image: url(images/templatemo_body.jpg);
+	background-repeat: no-repeat;
+	background-position: center top;
+}
+
+#templatemo_wrapper {
+	width: 980px;
+	margin: 0 auto;
+	padding: 40px 10px 0;
+}
+#templatemo_header {
+	position: relative;
+	width: 100%;
+	height: 75px;
+	background: url(images/templatemo_header2.png);
+	z-index: 3;
+}
+
+#templatemo_footer_wrapper {
+	clear: both;
+	width: 100%;
+	background: #efefef;
+}
+#templatemo_footer {
+	width: 900px;
+	margin: 0 auto;
+	padding: 50px;
+}
+
+ul.nobullet { margin: 0; padding: 0; list-style: none }
+ul.nobullet li { margin: 0; padding: 0 }
+
+ul.list_bullet { margin: 10px 0 10px 15px; padding: 0; list-style: none }
+ul.list_bullet li { color:#fff; margin: 0 0 7px 0; padding: 0 0 0 20px; background: url(images/templatemo_bullet.png) no-repeat scroll 0 5px  }
+ul.list_bullet li a { color: #fff; font-weight: normal; text-decoration: none }
+ul.list_bullet li a:hover { color: #fff }
+
+#templatemo_menu { float: left; width: 660px; }
+#templatemo_menu ul { margin: 0; padding: 4px 0; list-style: none }
+#templatemo_menu ul li { display: block; float: left; margin: 0; padding: 8px 12px 8px 10px; background: url(images/templatemo_menu_divider.png) no-repeat right center }
+#templatemo_menu ul li a {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	display: block;
+	float: left;
+	width: 100px;
+	height: 16px;
+	padding-top: 35px;
+	text-align: center;
+	color: #999;
+	background-position: center top;
+	background-repeat: no-repeat
+}
+
+#templatemo_menu ul li a:hover, #templatemo_menu ul li a.selected { color: #333 }
+#templatemo_menu ul li a.home { background-image: url(images/home.png) }
+#templatemo_menu ul li a.services { background-image: url(images/radar.png) }
+#templatemo_menu ul li a.gallery { background-image: url(images/edit.png) }
+#templatemo_menu ul li a.news { background-image: url(images/screen.png) }
+#templatemo_menu ul li a.contact { background-image: url(images/email.png) }
+#templatemo_menu ul li.last { background: none }
+
+#site_title { float: left; margin: 25px 20px 0 0 }
+#site_title a {
+	display: block;
+	font-size: 12px;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	width: 240px;
+	height: 30px;
+	color: #acacac;
+	text-indent: -10000px;
+	background: url(images/templatemo_logo.png) no-repeat center center
+}
+
+#templatemo_footer { color: #5d676e; font-size: 11px; }
+#templatemo_footer a { color: #5d676e; }
+#templatemo_footer h4 { color: #333333 }
+#templatemo_copyright {
+	margin-top: 40px;
+	color: #999999;
+	text-align: center;
+	width: 900px;
+	height: 52px;
+	line-height: 52px;
+	background: url(images/templatemo_copyright.png) center
+}
