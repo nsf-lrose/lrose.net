@@ -52,7 +52,7 @@ It will work on any file that is recognized by RadxPrint from the first step thr
 
 .. code:: bash
 
-    lrose -- RadxConvert -f $PWD/Level2_KAMX_20161006_1906.ar2v -outdir $PWD
+    lrose -- RadxConvert -f $PWD/Level2_KAMX_20161006_1906.ar2v -outdir $PWD/output
 
 Display the data in HawkEye
 ---------------------------
@@ -86,4 +86,8 @@ Continue with the documentation to find out more about LROSE and the many option
 Jupyter Notebook Starter Kit
 ----------------------------
 
-- All of the following steps are available in Jupyter Notebook tutorials in Julia and Python. You can clone or download the starter kit from our webpage.
+- All of the following steps are available in Jupyter Notebook tutorials in Julia and Python. You can clone_ the notebook or download_ the whole starter kit with input and expected output files.
+
+.. _clone: https://github.com/nsf-lrose/lrose-blaze/tree/master/docs/starter_kit
+
+.. _download: https://github.com/nsf-lrose/lrose-blaze/releases/download/lrose-blaze-alpha/lrose-blaze-starter-kit.tgz
