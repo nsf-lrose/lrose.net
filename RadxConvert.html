@@ -1,0 +1,2040 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>RadxConvert Parameter Descriptions &#8212; NSF LROSE Blaze documentation</title>
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="HawkEye" href="howtorun_HawkEye.html" />
+    <link rel="prev" title="RadxConvert" href="howtorun_radxconvert.html" />
+<link href="_static/templatemo_lite.css" rel="stylesheet" type="text/css" />
+
+  </head><body>
+<div id="templatemo_wrapper">
+    <div id="templatemo_header">
+    	<div id="site_title"><a href="http://nsf-lrose.github.io">Lidar Radar Open Software Environment</a></div>
+        <div id="templatemo_menu">
+            <ul>
+                <li><a href="index.html" class="selected home">Home</a></li>
+                <li><a href="software.html" class="services">Software</a></li>
+                <li><a href="docs.html" class="gallery">Documentation</a></li>
+                <li class="last"><a href="help.html" class="news">Help</a></li>
+            </ul>
+        </div> <!-- end of templatemo_menu -->
+    </div>
+</div> <!-- END of templatemo_wrapper -->
+
+      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
+          <span>NSF LROSE Blaze documentation</span></a></h1>
+        <h2 class="heading"><span>RadxConvert Parameter Descriptions</span></h2>
+      </div>
+      <div class="topnav" role="navigation" aria-label="top navigation">
+      
+        <p>
+        «&#160;&#160;<a href="howtorun_radxconvert.html">RadxConvert</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="docs.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="howtorun_HawkEye.html">HawkEye</a>&#160;&#160;»
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <p><strong>======================================================================</strong></p>
+<p><strong>======================================================================</strong></p>
+<div class="section" id="radxconvert-parameter-descriptions">
+<h1>RadxConvert Parameter Descriptions<a class="headerlink" href="#radxconvert-parameter-descriptions" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div>Converts files between CfRadial and other radial formats.</div></blockquote>
+<div class="section" id="debugging">
+<h2>DEBUGGING<a class="headerlink" href="#debugging" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="debug">
+<h3>debug<a class="headerlink" href="#debug" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Debug option.</p>
+<p>If set, debug messages will be printed appropriately.</p>
+<p>Type: enum</p>
+</div></blockquote>
+<p>Options:</p>
+<ul class="simple">
+<li>DEBUG_OFF</li>
+<li>DEBUG_NORM</li>
+<li>DEBUG_VERBOSE</li>
+<li>DEBUG_EXTRA</li>
+</ul>
+<p><strong>debug = DEBUG_OFF;</strong></p>
+</div>
+<div class="section" id="instance">
+<h3>instance<a class="headerlink" href="#instance" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Program instance for process registration.</p>
+<dl class="docutils">
+<dt>This application registers with procmap. This is the instance used</dt>
+<dd>for registration.</dd>
+</dl>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>instance = “test”;</strong></p>
+</div>
+</div>
+<div class="section" id="data-input">
+<h2>DATA INPUT<a class="headerlink" href="#data-input" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="input-dir">
+<h3>input_dir<a class="headerlink" href="#input-dir" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Input directory for searching for files.</p>
+<p>Files will be searched for in this directory.</p>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>input_dir = “.”;</strong></p>
+</div>
+<div class="section" id="mode">
+<h3>mode<a class="headerlink" href="#mode" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Operating mode.</p>
+<dl class="docutils">
+<dt>In REALTIME mode, the program waits for a new input file.  In ARCHIVE</dt>
+<dd>mode, it moves through the data between the start and end times set
+on the command line. In FILELIST mode, it moves through the list of
+file names specified on the command line. Paths (in ARCHIVE mode, at
+least) MUST contain a day-directory above the data file –
+./data_file.ext will not work as a file path, but
+./yyyymmdd/data_file.ext will.</dd>
+</dl>
+<p>Type: enum</p>
+</div></blockquote>
+<p>Options:</p>
+<ul class="simple">
+<li>REALTIME</li>
+<li>ARCHIVE</li>
+<li>FILELIST</li>
+</ul>
+<p><strong>mode = FILELIST;</strong></p>
+</div>
+<div class="section" id="max-realtime-data-age-secs">
+<h3>max_realtime_data_age_secs<a class="headerlink" href="#max-realtime-data-age-secs" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Maximum age of realtime data (secs).</p>
+<p>Only data less old than this will be used.</p>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>max_realtime_data_age_secs = 300;</strong></p>
+</div>
+<div class="section" id="latest-data-info-avail">
+<h3>latest_data_info_avail<a class="headerlink" href="#latest-data-info-avail" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Is _latest_data_info file available?.</p>
+<dl class="docutils">
+<dt>If TRUE, will watch the latest_data_info file. If FALSE, will scan</dt>
+<dd>the input directory for new files.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>latest_data_info_avail = TRUE;</strong></p>
+</div>
+<div class="section" id="search-recursively">
+<h3>search_recursively<a class="headerlink" href="#search-recursively" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to recurse to subdirectories while looking for new files.</p>
+<dl class="docutils">
+<dt>If TRUE, all subdirectories with ages less than max_dir_age will be</dt>
+<dd>searched. This may take considerable CPU, so be careful in its use.
+Only applies if latest_data_info_avail is FALSE.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>search_recursively = TRUE;</strong></p>
+</div>
+<div class="section" id="max-recursion-depth">
+<h3>max_recursion_depth<a class="headerlink" href="#max-recursion-depth" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Maximum depth for recursive directory scan.</p>
+<dl class="docutils">
+<dt>Only applies search_recursively is TRUE. This is the max depth, below</dt>
+<dd>input_dir, to which the recursive directory search will be carried
+out. A depth of 0 will search the top-level directory only. A depth
+of 1 will search the level below the top directory, etc.</dd>
+</dl>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>max_recursion_depth = 5;</strong></p>
+</div>
+<div class="section" id="wait-between-checks">
+<h3>wait_between_checks<a class="headerlink" href="#wait-between-checks" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Sleep time between checking directory for input - secs.</p>
+<dl class="docutils">
+<dt>If a directory is large and files do not arrive frequently, set this</dt>
+<dd>to a higher value to reduce the CPU load from checking the directory.
+Only applies if latest_data_info_avail is FALSE.</dd>
+</dl>
+<p>Minimum val: 1</p>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>wait_between_checks = 2;</strong></p>
+</div>
+<div class="section" id="file-quiescence">
+<h3>file_quiescence<a class="headerlink" href="#file-quiescence" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>File quiescence when checking for files - secs.</p>
+<dl class="docutils">
+<dt>This allows you to make sure that a file coming from a remote machine</dt>
+<dd>is complete before reading it. Only applies if latest_data_info_avail
+is FALSE.</dd>
+</dl>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>file_quiescence = 5;</strong></p>
+</div>
+<div class="section" id="search-ext">
+<h3>search_ext<a class="headerlink" href="#search-ext" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>File name extension.</p>
+<p>If set, only files with this extension will be processed.</p>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>search_ext = “”;</strong></p>
+</div>
+<div class="section" id="gematronik-realtime-mode">
+<h3>gematronik_realtime_mode<a class="headerlink" href="#gematronik-realtime-mode" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Set to TRUE if we are watching for Gematronik XML volumes.</p>
+<dl class="docutils">
+<dt>Gematronik volumes (for a given time) are stored in multiple files,</dt>
+<dd>one for each field. Therefore, after the time on a volume changes and
+a new field file is detected, we need to wait a while to ensure that
+all of the files have had a chance to be writted to disk. You need to
+set gematronik_realtime_wait_secs to a value in excess of the time it
+takes for all of the files to be written.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>gematronik_realtime_mode = FALSE;</strong></p>
+</div>
+<div class="section" id="gematronik-realtime-wait-secs">
+<h3>gematronik_realtime_wait_secs<a class="headerlink" href="#gematronik-realtime-wait-secs" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="docutils">
+<dt>Number of seconds to wait, so that all field files can be written to</dt>
+<dd>disk before we start to read.</dd>
+</dl>
+<p>See ‘gematronik_realtime_mode’.</p>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>gematronik_realtime_wait_secs = 5;</strong></p>
+</div>
+</div>
+<div class="section" id="optional-fixed-angle-or-sweep-number-limits">
+<h2>OPTIONAL FIXED ANGLE OR SWEEP NUMBER LIMITS<a class="headerlink" href="#optional-fixed-angle-or-sweep-number-limits" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div>Fixed angles are elevation in PPI mode and azimuth in RHI mode.</div></blockquote>
+<div class="section" id="set-fixed-angle-limits">
+<h3>set_fixed_angle_limits<a class="headerlink" href="#set-fixed-angle-limits" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to set fixed angle limits.</p>
+<p>Only use sweeps within the specified fixed angle limits.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>set_fixed_angle_limits = FALSE;</strong></p>
+</div>
+<div class="section" id="lower-fixed-angle-limit">
+<h3>lower_fixed_angle_limit<a class="headerlink" href="#lower-fixed-angle-limit" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Lower fixed angle limit - degrees.</p>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>lower_fixed_angle_limit = 0;</strong></p>
+</div>
+<div class="section" id="upper-fixed-angle-limit">
+<h3>upper_fixed_angle_limit<a class="headerlink" href="#upper-fixed-angle-limit" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Upper fixed angle limit - degrees.</p>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>upper_fixed_angle_limit = 90;</strong></p>
+</div>
+<div class="section" id="set-sweep-num-limits">
+<h3>set_sweep_num_limits<a class="headerlink" href="#set-sweep-num-limits" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to set sweep number limits.</p>
+<dl class="docutils">
+<dt>If ‘apply_strict_angle_limits’ is set, only read sweeps within the</dt>
+<dd>specified limits. If strict checking is false and no data lies within
+the limits, return the closest applicable sweep.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>set_sweep_num_limits = FALSE;</strong></p>
+</div>
+<div class="section" id="lower-sweep-num">
+<h3>lower_sweep_num<a class="headerlink" href="#lower-sweep-num" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Lower sweep number limit.</p>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>lower_sweep_num = 0;</strong></p>
+</div>
+<div class="section" id="upper-sweep-num">
+<h3>upper_sweep_num<a class="headerlink" href="#upper-sweep-num" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Upper sweep number limit.</p>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>upper_sweep_num = 0;</strong></p>
+</div>
+<div class="section" id="apply-strict-angle-limits">
+<h3>apply_strict_angle_limits<a class="headerlink" href="#apply-strict-angle-limits" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="docutils">
+<dt>Option to apply strict checking for angle or sweep number limits on</dt>
+<dd>read.</dd>
+<dt>If true, an error will occur if the fixed angle limits or sweep num</dt>
+<dd>limits are outside the bounds of the data. If false, a read is
+guaranteed to return at least 1 sweep - if no sweep lies within the
+angle limits set, the nearest sweep will be returned.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>apply_strict_angle_limits = TRUE;</strong></p>
+</div>
+</div>
+<div class="section" id="read-options">
+<h2>READ OPTIONS<a class="headerlink" href="#read-options" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="read-set-radar-num">
+<h3>read_set_radar_num<a class="headerlink" href="#read-set-radar-num" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to set the radar number.</p>
+<p>See read_radar_num.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>read_set_radar_num = FALSE;</strong></p>
+</div>
+<div class="section" id="read-radar-num">
+<h3>read_radar_num<a class="headerlink" href="#read-radar-num" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Set the radar number for the data to be extracted.</p>
+<dl class="docutils">
+<dt>Most files have data from a single radar, so this does not apply. The</dt>
+<dd>NOAA HRD files, however, have data from both the lower fuselage (LF,
+radar_num = 1) and tail (TA, radar_num = 2) radars. For HRD files, by
+default the TA radar will be used, unless the radar num is set to 1
+for the LF radar. If this is set to 1, it will force the convert to
+assume a lower fuselage radar. If set to 2, it will assume a tail
+radar.</dd>
+</dl>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>read_radar_num = -1;</strong></p>
+</div>
+<div class="section" id="aggregate-sweep-files-on-read">
+<h3>aggregate_sweep_files_on_read<a class="headerlink" href="#aggregate-sweep-files-on-read" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to aggregate sweep files into a volume on read.</p>
+<dl class="docutils">
+<dt>If true, and the input data is in sweeps rather than volumes (e.g.</dt>
+<dd>DORADE), the sweep files from a volume will be aggregated into a
+volume.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>aggregate_sweep_files_on_read = FALSE;</strong></p>
+</div>
+<div class="section" id="aggregate-all-files-on-read">
+<h3>aggregate_all_files_on_read<a class="headerlink" href="#aggregate-all-files-on-read" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to aggregate all files in the file list on read.</p>
+<dl class="docutils">
+<dt>If true, all of the files specified with the ‘-f’ arg will be</dt>
+<dd>aggregated into a single volume as they are read in. This only
+applies to FILELIST mode. Overrides ‘aggregate_sweep_files_on_read’.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>aggregate_all_files_on_read = FALSE;</strong></p>
+</div>
+<div class="section" id="ignore-idle-scan-mode-on-read">
+<h3>ignore_idle_scan_mode_on_read<a class="headerlink" href="#ignore-idle-scan-mode-on-read" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to ignore data taken in IDLE mode.</p>
+<p>If true, on read will ignore files with an IDLE scan mode.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>ignore_idle_scan_mode_on_read = TRUE;</strong></p>
+</div>
+<div class="section" id="remove-rays-with-all-data-missing">
+<h3>remove_rays_with_all_data_missing<a class="headerlink" href="#remove-rays-with-all-data-missing" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to remove rays for which all data is missing.</p>
+<dl class="docutils">
+<dt>If true, ray data will be checked. If all fields have missing data at</dt>
+<dd>all gates, the ray will be removed after reading.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>remove_rays_with_all_data_missing = FALSE;</strong></p>
+</div>
+<div class="section" id="clear-transition-flag-on-all-rays">
+<h3>clear_transition_flag_on_all_rays<a class="headerlink" href="#clear-transition-flag-on-all-rays" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to clear the transition flag on all rays.</p>
+<dl class="docutils">
+<dt>If true, for all rays on which the transition flag is set, this flag</dt>
+<dd>will be removed, so that all rays are considered to be NOT in
+transition.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>clear_transition_flag_on_all_rays = FALSE;</strong></p>
+</div>
+<div class="section" id="remove-rays-with-antenna-transitions">
+<h3>remove_rays_with_antenna_transitions<a class="headerlink" href="#remove-rays-with-antenna-transitions" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to remove rays taken while the antenna was in transition.</p>
+<dl class="docutils">
+<dt>If true, rays with the transition flag set will not be used. The</dt>
+<dd>transiton flag is set when the antenna is in transtion between one
+sweep and the next.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>remove_rays_with_antenna_transitions = FALSE;</strong></p>
+</div>
+<div class="section" id="transition-nrays-margin">
+<h3>transition_nrays_margin<a class="headerlink" href="#transition-nrays-margin" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Number of transition rays to include as a margin.</p>
+<dl class="docutils">
+<dt>Sometimes the transition flag is turned on too early in a transition,</dt>
+<dd>on not turned off quickly enough after a transition. If you set this
+to a number greater than 0, that number of rays will be included at
+each end of the transition, i.e. the transition will effectively be
+shorter at each end by this number of rays.</dd>
+</dl>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>transition_nrays_margin = 0;</strong></p>
+</div>
+<div class="section" id="trim-surveillance-sweeps-to-360deg">
+<h3>trim_surveillance_sweeps_to_360deg<a class="headerlink" href="#trim-surveillance-sweeps-to-360deg" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="docutils">
+<dt>Option to trip surveillance sweeps so that they only cover 360</dt>
+<dd>degrees.</dd>
+<dt>Some sweeps will have rays which cover more than a 360-degree</dt>
+<dd>rotation. Often these include antenna transitions. If this is set to
+true, rays are trimmed off either end of the sweep to limit the
+coverage to 360 degrees. The median elevation angle is computed and
+the end ray which deviates from the median in elevation is trimmed
+first.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>trim_surveillance_sweeps_to_360deg = FALSE;</strong></p>
+</div>
+<div class="section" id="set-max-range">
+<h3>set_max_range<a class="headerlink" href="#set-max-range" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to set the max range for any ray.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>set_max_range = FALSE;</strong></p>
+</div>
+<div class="section" id="max-range-km">
+<h3>max_range_km<a class="headerlink" href="#max-range-km" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Specified maximim range - km.</p>
+<p>Gates beyond this range are removed.</p>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>max_range_km = 9999;</strong></p>
+</div>
+<div class="section" id="preserve-sweeps">
+<h3>preserve_sweeps<a class="headerlink" href="#preserve-sweeps" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Preserve sweeps just as they are in the file.</p>
+<dl class="docutils">
+<dt>Applies generally to NEXRAD data. If true, the sweep details are</dt>
+<dd>preserved. If false, we consolidate sweeps from split cuts into a
+single sweep.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>preserve_sweeps = FALSE;</strong></p>
+</div>
+<div class="section" id="remove-long-range-rays">
+<h3>remove_long_range_rays<a class="headerlink" href="#remove-long-range-rays" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to remove long range rays.</p>
+<dl class="docutils">
+<dt>Applies to NEXRAD data. If true, data from the non-Doppler long-range</dt>
+<dd>sweeps will be removed.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>remove_long_range_rays = TRUE;</strong></p>
+</div>
+<div class="section" id="remove-short-range-rays">
+<h3>remove_short_range_rays<a class="headerlink" href="#remove-short-range-rays" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to remove short range rays.</p>
+<dl class="docutils">
+<dt>Applies to NEXRAD data. If true, data from the Doppler short-range</dt>
+<dd>sweeps will be removed.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>remove_short_range_rays = FALSE;</strong></p>
+</div>
+<div class="section" id="set-ngates-constant">
+<h3>set_ngates_constant<a class="headerlink" href="#set-ngates-constant" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to force the number of gates to be constant.</p>
+<dl class="docutils">
+<dt>If TRUE, the number of gates on all rays will be set to the maximum,</dt>
+<dd>and gates added to shorter rays will be filled with missing values.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>set_ngates_constant = FALSE;</strong></p>
+</div>
+<div class="section" id="remap-to-predominant-range-geometry">
+<h3>remap_to_predominant_range_geometry<a class="headerlink" href="#remap-to-predominant-range-geometry" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to remap all rays to the predominant range geometry.</p>
+<dl class="docutils">
+<dt>If TRUE, all rays will be remapped onto the same range geometry,</dt>
+<dd>determined as the most common geometry amongst all of the rays read
+in.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>remap_to_predominant_range_geometry = FALSE;</strong></p>
+</div>
+<div class="section" id="remap-to-finest-range-geometry">
+<h3>remap_to_finest_range_geometry<a class="headerlink" href="#remap-to-finest-range-geometry" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to remap all rays to the finest range geometry.</p>
+<dl class="docutils">
+<dt>If TRUE, all rays will be remapped onto the same range geometry,</dt>
+<dd>determined as that with the finest resolution in range - i.e. with
+the minimum gate spacing.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>remap_to_finest_range_geometry = FALSE;</strong></p>
+</div>
+</div>
+<div class="section" id="option-to-override-gate-geometry">
+<h2>OPTION TO OVERRIDE GATE GEOMETRY<a class="headerlink" href="#option-to-override-gate-geometry" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="override-start-range">
+<h3>override_start_range<a class="headerlink" href="#override-start-range" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to override the start range.</p>
+<dl class="docutils">
+<dt>If true, the specified start range in this file will be used. If not,</dt>
+<dd>the start range in the data file will be used.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>override_start_range = FALSE;</strong></p>
+</div>
+<div class="section" id="start-range-km">
+<h3>start_range_km<a class="headerlink" href="#start-range-km" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Specified start range (km).</p>
+<p>See override_start_range.</p>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>start_range_km = 0;</strong></p>
+</div>
+<div class="section" id="override-gate-spacing">
+<h3>override_gate_spacing<a class="headerlink" href="#override-gate-spacing" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to override the gate spacing.</p>
+<dl class="docutils">
+<dt>If true, the specified gate spacing in this file will be used. If</dt>
+<dd>not, the gate spacing in the data file will be used.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>override_gate_spacing = FALSE;</strong></p>
+</div>
+<div class="section" id="gate-spacing-km">
+<h3>gate_spacing_km<a class="headerlink" href="#gate-spacing-km" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Specified gate spacing (km).</p>
+<p>See override_gate_spacing.</p>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>gate_spacing_km = 0.0075;</strong></p>
+</div>
+</div>
+<div class="section" id="option-to-override-instrument-and-or-site-name">
+<h2>OPTION TO OVERRIDE INSTRUMENT AND/OR SITE NAME<a class="headerlink" href="#option-to-override-instrument-and-or-site-name" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="override-instrument-name">
+<h3>override_instrument_name<a class="headerlink" href="#override-instrument-name" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to override the instrument name.</p>
+<p>If true, the name provided will be used.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>override_instrument_name = FALSE;</strong></p>
+</div>
+<div class="section" id="instrument-name">
+<h3>instrument_name<a class="headerlink" href="#instrument-name" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Instrument name.</p>
+<p>See override_instrument_name.</p>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>instrument_name = “unknown”;</strong></p>
+</div>
+<div class="section" id="override-site-name">
+<h3>override_site_name<a class="headerlink" href="#override-site-name" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to override the site name.</p>
+<p>If true, the name provided will be used.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>override_site_name = FALSE;</strong></p>
+</div>
+<div class="section" id="site-name">
+<h3>site_name<a class="headerlink" href="#site-name" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Site name.</p>
+<p>See override_site_name.</p>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>site_name = “unknown”;</strong></p>
+</div>
+</div>
+<div class="section" id="option-to-override-volume-number-or-autoincrement">
+<h2>OPTION TO OVERRIDE VOLUME NUMBER, OR AUTOINCREMENT<a class="headerlink" href="#option-to-override-volume-number-or-autoincrement" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="override-volume-number">
+<h3>override_volume_number<a class="headerlink" href="#override-volume-number" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to override the volume number in the file.</p>
+<p>Useful is there is no volume number in the data.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>override_volume_number = FALSE;</strong></p>
+</div>
+<div class="section" id="starting-volume-number">
+<h3>starting_volume_number<a class="headerlink" href="#starting-volume-number" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Volume number at startup.</p>
+<p>Applies if ‘override_volume_number’ is true.</p>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>starting_volume_number = 1;</strong></p>
+</div>
+<div class="section" id="autoincrement-volume-number">
+<h3>autoincrement_volume_number<a class="headerlink" href="#autoincrement-volume-number" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to automatically increment the volume number.</p>
+<p>Starts at ‘starting_volume_number’ and increments from there.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>autoincrement_volume_number = FALSE;</strong></p>
+</div>
+</div>
+<div class="section" id="option-to-override-radar-location">
+<h2>OPTION TO OVERRIDE RADAR LOCATION<a class="headerlink" href="#option-to-override-radar-location" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="override-radar-location">
+<h3>override_radar_location<a class="headerlink" href="#override-radar-location" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to override the radar location.</p>
+<dl class="docutils">
+<dt>If true, the location in this file will be used. If not, the location</dt>
+<dd>in the time series data will be used.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>override_radar_location = FALSE;</strong></p>
+</div>
+<div class="section" id="radar-latitude-deg">
+<h3>radar_latitude_deg<a class="headerlink" href="#radar-latitude-deg" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Radar latitude (deg).</p>
+<p>See override_radar_location.</p>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>radar_latitude_deg = -999;</strong></p>
+</div>
+<div class="section" id="radar-longitude-deg">
+<h3>radar_longitude_deg<a class="headerlink" href="#radar-longitude-deg" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Radar longitude (deg).</p>
+<p>See override_radar_location.</p>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>radar_longitude_deg = -999;</strong></p>
+</div>
+<div class="section" id="radar-altitude-meters">
+<h3>radar_altitude_meters<a class="headerlink" href="#radar-altitude-meters" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Radar altitude (meters).</p>
+<p>See override_radar_location.</p>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>radar_altitude_meters = -999;</strong></p>
+</div>
+<div class="section" id="change-radar-latitude-sign">
+<h3>change_radar_latitude_sign<a class="headerlink" href="#change-radar-latitude-sign" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to negate the latitude.</p>
+<dl class="docutils">
+<dt>Mainly useful for RAPIC files. In RAPIC, latitude is always positive,</dt>
+<dd>so mostly you need to set the latitiude to the negative value of
+itself.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>change_radar_latitude_sign = FALSE;</strong></p>
+</div>
+<div class="section" id="apply-georeference-corrections">
+<h3>apply_georeference_corrections<a class="headerlink" href="#apply-georeference-corrections" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to apply the georeference info for moving platforms.</p>
+<dl class="docutils">
+<dt>For moving platforms, measured georeference information is sometimes</dt>
+<dd>available. If this is set to true, the georeference data is applied
+and appropriate corrections made. If possible, Earth-centric azimuth
+and elevation angles will be computed.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>apply_georeference_corrections = FALSE;</strong></p>
+</div>
+</div>
+<div class="section" id="option-to-correct-time">
+<h2>OPTION TO CORRECT TIME<a class="headerlink" href="#option-to-correct-time" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="apply-time-offset">
+<h3>apply_time_offset<a class="headerlink" href="#apply-time-offset" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to apply an offset to the ray times.</p>
+<dl class="docutils">
+<dt>If TRUE, this offset will be ADDED to the existing ray times. This is</dt>
+<dd>useful, for example, for correcting time errors, or converting from
+local time to UTC.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>apply_time_offset = FALSE;</strong></p>
+</div>
+<div class="section" id="time-offset-secs">
+<h3>time_offset_secs<a class="headerlink" href="#time-offset-secs" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Time offset (secs).</p>
+<dl class="docutils">
+<dt>See ‘apply_time_offset’. This value will be ADDED to the existing ray</dt>
+<dd>times.</dd>
+</dl>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>time_offset_secs = 0;</strong></p>
+</div>
+</div>
+<div class="section" id="option-to-correct-antenna-angles">
+<h2>OPTION TO CORRECT ANTENNA ANGLES<a class="headerlink" href="#option-to-correct-antenna-angles" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="apply-azimuth-offset">
+<h3>apply_azimuth_offset<a class="headerlink" href="#apply-azimuth-offset" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to apply an offset to the azimuth values.</p>
+<dl class="docutils">
+<dt>If TRUE, this offset will be ADDED to the measured azimuth angles.</dt>
+<dd>This is useful, for example, in the case of a mobile platform which
+is not set up oriented to true north. Suppose you have a truck (like
+the DOWs) which is oriented off true north. Then if you add in the
+truck HEADING relative to true north, the measured azimuth angles
+will be adjusted by the heading, to give azimuth relative to TRUE
+north.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>apply_azimuth_offset = FALSE;</strong></p>
+</div>
+<div class="section" id="azimuth-offset">
+<h3>azimuth_offset<a class="headerlink" href="#azimuth-offset" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Azimuth offset (degrees).</p>
+<dl class="docutils">
+<dt>See ‘apply_azimuth_offset’. This value will be ADDED to the measured</dt>
+<dd>azimuths.</dd>
+</dl>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>azimuth_offset = 0;</strong></p>
+</div>
+<div class="section" id="apply-elevation-offset">
+<h3>apply_elevation_offset<a class="headerlink" href="#apply-elevation-offset" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to apply an offset to the elevation values.</p>
+<dl class="docutils">
+<dt>If TRUE, this offset will be ADDED to the measured elevation angles.</dt>
+<dd>This is useful to correct for a systematic bias in measured elevation
+angles.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>apply_elevation_offset = FALSE;</strong></p>
+</div>
+<div class="section" id="elevation-offset">
+<h3>elevation_offset<a class="headerlink" href="#elevation-offset" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Elevation offset (degrees).</p>
+<dl class="docutils">
+<dt>See ‘apply_elevation_offset’. This value will be ADDED to the</dt>
+<dd>measured elevations.</dd>
+</dl>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>elevation_offset = 0;</strong></p>
+</div>
+</div>
+<div class="section" id="option-to-override-instrument-type-platform-type-and-primary-axis">
+<h2>OPTION TO OVERRIDE INSTRUMENT TYPE, PLATFORM TYPE AND PRIMARY AXIS<a class="headerlink" href="#option-to-override-instrument-type-platform-type-and-primary-axis" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div>This applies to read operations.</div></blockquote>
+<div class="section" id="override-instrument-type">
+<h3>override_instrument_type<a class="headerlink" href="#override-instrument-type" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to override instrument type on read.</p>
+<dl class="docutils">
+<dt>If true, the file will be read in, the instrument type will be</dt>
+<dd>changed, and then any post-read processing will be performed.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>override_instrument_type = FALSE;</strong></p>
+</div>
+<div class="section" id="instrument-type">
+<h3>instrument_type<a class="headerlink" href="#instrument-type" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Specify the instrument type. See override_instrument_type.</p>
+<p>Type: enum</p>
+</div></blockquote>
+<p>Options:</p>
+<ul class="simple">
+<li>INSTRUMENT_RADAR</li>
+<li>INSTRUMENT_LIDAR</li>
+</ul>
+<p><strong>instrument_type = INSTRUMENT_RADAR;</strong></p>
+</div>
+<div class="section" id="override-platform-type">
+<h3>override_platform_type<a class="headerlink" href="#override-platform-type" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="docutils">
+<dt>Option to override platform type on read. If true, the file will be</dt>
+<dd><p class="first">read in, the platform type will be changed, and then any post-read
+processing will be performed.</p>
+<blockquote class="last">
+<div>PLATFORM_FIXED  - radar is in a fixed location
+PLATFORM_VEHICLE -  radar is mounted on a land vehicle
+PLATFORM_SHIP - radar is mounted on a ship
+PLATFORM_AIRCRAFT_FORE - forward-looking on aircraft
+PLATFORM_AIRCRAFT_AFT - backward-looking on aircraft
+PLATFORM_AIRCRAFT_TAIL - tail - e.g. ELDORA
+PLATFORM_AIRCRAFT_BELLY -  belly radar on aircraft
+PLATFORM_AIRCRAFT_ROOF - roof radar on aircraft
+PLATFORM_AIRCRAFT_NOSE - radar in nose radome on aircraft
+PLATFORM_SATELLITE_ORBIT - orbiting satellite
+PLATFORM_SATELLITE_GEOSTAT - geostationary satellite.</div></blockquote>
+</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>override_platform_type = FALSE;</strong></p>
+</div>
+<div class="section" id="platform-type">
+<h3>platform_type<a class="headerlink" href="#platform-type" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Platform type.</p>
+<p>See override_platform_type.</p>
+<p>Type: enum</p>
+</div></blockquote>
+<p>Options:</p>
+<ul class="simple">
+<li>PLATFORM_FIXED</li>
+<li>PLATFORM_VEHICLE</li>
+<li>PLATFORM_SHIP</li>
+<li>PLATFORM_AIRCRAFT_FORE</li>
+<li>PLATFORM_AIRCRAFT_AFT</li>
+<li>PLATFORM_AIRCRAFT_TAIL</li>
+<li>PLATFORM_AIRCRAFT_BELLY</li>
+<li>PLATFORM_AIRCRAFT_ROOF</li>
+<li>PLATFORM_AIRCRAFT_NOSE</li>
+<li>PLATFORM_SATELLITE_ORBIT</li>
+<li>PLATFORM_SATELLITE_GEOSTAT</li>
+</ul>
+<p><strong>platform_type = PLATFORM_FIXED;</strong></p>
+</div>
+<div class="section" id="override-primary-axis">
+<h3>override_primary_axis<a class="headerlink" href="#override-primary-axis" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="docutils">
+<dt>Option to override primary axis on read. If true, the file will be</dt>
+<dd><p class="first">read in, the primary axis will be changed, and then any post-read
+processing will be performed.</p>
+<blockquote class="last">
+<div>PRIMARY_AXIS_Z - vertical
+PRIMARY_AXIS_Y - longitudinal axis of platform
+PRIMARY_AXIS_X - lateral axis of platform
+PRIMARY_AXIS_Z_PRIME - inverted vertical
+PRIMARY_AXIS_Y_PRIME - ELDORA, HRD tail
+PRIMARY_AXIS_X_PRIME - translated lateral.</div></blockquote>
+</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>override_primary_axis = FALSE;</strong></p>
+</div>
+<div class="section" id="primary-axis">
+<h3>primary_axis<a class="headerlink" href="#primary-axis" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Platform type.</p>
+<p>See override_primary_axis.</p>
+<p>Type: enum</p>
+</div></blockquote>
+<p>Options:</p>
+<ul class="simple">
+<li>PRIMARY_AXIS_Z</li>
+<li>PRIMARY_AXIS_Y</li>
+<li>PRIMARY_AXIS_X</li>
+<li>PRIMARY_AXIS_Z_PRIME</li>
+<li>PRIMARY_AXIS_Y_PRIME</li>
+<li>PRIMARY_AXIS_X_PRIME</li>
+</ul>
+<p><strong>primary_axis = PRIMARY_AXIS_Z;</strong></p>
+</div>
+</div>
+<div class="section" id="option-to-force-reload-of-sweep-and-or-volume-info-or-recompute">
+<h2>OPTION TO FORCE RELOAD OF SWEEP AND/OR VOLUME INFO, or RECOMPUTE<a class="headerlink" href="#option-to-force-reload-of-sweep-and-or-volume-info-or-recompute" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div>SWEEP FIXED ANGLE.</div></blockquote>
+<div class="section" id="reload-sweep-info-from-rays">
+<h3>reload_sweep_info_from_rays<a class="headerlink" href="#reload-sweep-info-from-rays" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to force a reload of sweep info from rays.</p>
+<dl class="docutils">
+<dt>If TRUE, this forces the app to call</dt>
+<dd>RadxVol::loadSweepInfoFromRays(), which reads through the rays and
+reloads the sweep info appropriately.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>reload_sweep_info_from_rays = FALSE;</strong></p>
+</div>
+<div class="section" id="reload-volume-info-from-rays">
+<h3>reload_volume_info_from_rays<a class="headerlink" href="#reload-volume-info-from-rays" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to force a reload of volume info from rays.</p>
+<dl class="docutils">
+<dt>If TRUE, this forces the app to call</dt>
+<dd>RadxVol::loadVolumeInfoFromRays(), which reads through the rays and
+reloads the volume summary info appropriately.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>reload_volume_info_from_rays = FALSE;</strong></p>
+</div>
+<div class="section" id="recompute-sweep-fixed-angles">
+<h3>recompute_sweep_fixed_angles<a class="headerlink" href="#recompute-sweep-fixed-angles" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to recompute sweep fixed angles using the angles in the data.</p>
+<dl class="docutils">
+<dt>Normally the sweep angles are set using the scan strategy angles -</dt>
+<dd>i.e., the theoretically perfect angles. This option allows you to
+recompute the sweep angles using the measured elevation angles (in
+PPI mode) or azimuth angles (in RHI mode).</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>recompute_sweep_fixed_angles = FALSE;</strong></p>
+</div>
+<div class="section" id="optimize-surveillance-transitions">
+<h3>optimize_surveillance_transitions<a class="headerlink" href="#optimize-surveillance-transitions" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Optimize the transitions in surveillance mode.</p>
+<dl class="docutils">
+<dt>If true, we check the transitions between sweeps in surveillance</dt>
+<dd>mode, and move problem rays into the correct sweep. We also set the
+transition flag on/off based on the max elevation error speficied.
+See below.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>optimize_surveillance_transitions = FALSE;</strong></p>
+</div>
+<div class="section" id="optimized-transitions-max-elev-error">
+<h3>optimized_transitions_max_elev_error<a class="headerlink" href="#optimized-transitions-max-elev-error" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="docutils">
+<dt>Max elevation angle error when optimizing surveillance transitions</dt>
+<dd>(degrees).</dd>
+<dt>If the difference between the fixed angle and measured angle exceeds</dt>
+<dd>this value, the transition flag will be set. If not, it will be
+cleared.</dd>
+</dl>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>optimized_transitions_max_elev_error = 0.25;</strong></p>
+</div>
+</div>
+<div class="section" id="option-to-adjust-sweep-limits-using-fixed-and-measured-angles">
+<h2>OPTION TO ADJUST SWEEP LIMITS USING FIXED AND MEASURED ANGLES<a class="headerlink" href="#option-to-adjust-sweep-limits-using-fixed-and-measured-angles" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="adjust-sweep-limits-using-angles">
+<h3>adjust_sweep_limits_using_angles<a class="headerlink" href="#adjust-sweep-limits-using-angles" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="docutils">
+<dt>Adjust the limits of sweeps, by comparing the measured angles to the</dt>
+<dd>fixed angles.</dd>
+<dt>Sometimes the transitions from one fixed angle to another are not</dt>
+<dd>accurately described by the scan flags, and as a result rays are not
+correctly assigned to the sweeps. This option goes through the volume
+in ray order, and adjusts the way rays are associated with each
+sweep. It does this by comparing the actual angle with the fixed
+angle, and minimizes the angular difference.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>adjust_sweep_limits_using_angles = FALSE;</strong></p>
+</div>
+</div>
+<div class="section" id="option-to-sort-sweeps-by-fixed-angle">
+<h2>OPTION TO SORT SWEEPS BY FIXED ANGLE<a class="headerlink" href="#option-to-sort-sweeps-by-fixed-angle" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="sort-sweeps-by-fixed-angle">
+<h3>sort_sweeps_by_fixed_angle<a class="headerlink" href="#sort-sweeps-by-fixed-angle" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Sort the sweeps by fixed angle.</p>
+<dl class="docutils">
+<dt>For some volumes, the sweep fixed angles may not be in increasing</dt>
+<dd>order. This option allows you to reorder the sweeps, and rays, into
+the correct order.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>sort_sweeps_by_fixed_angle = FALSE;</strong></p>
+</div>
+</div>
+<div class="section" id="option-to-override-selected-global-attributes">
+<h2>OPTION TO OVERRIDE SELECTED GLOBAL ATTRIBUTES<a class="headerlink" href="#option-to-override-selected-global-attributes" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="version-override">
+<h3>version_override<a class="headerlink" href="#version-override" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to override the version global attribute.</p>
+<dl class="docutils">
+<dt>If empty, no effect. If not empty, this string is used to override</dt>
+<dd>the version attribute.</dd>
+</dl>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>version_override = “”;</strong></p>
+</div>
+<div class="section" id="title-override">
+<h3>title_override<a class="headerlink" href="#title-override" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to override the title global attribute.</p>
+<dl class="docutils">
+<dt>If empty, no effect. If not empty, this string is used to override</dt>
+<dd>the title attribute.</dd>
+</dl>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>title_override = “”;</strong></p>
+</div>
+<div class="section" id="institution-override">
+<h3>institution_override<a class="headerlink" href="#institution-override" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to override the institution global attribute.</p>
+<dl class="docutils">
+<dt>If empty, no effect. If not empty, this string is used to override</dt>
+<dd>the institution attribute.</dd>
+</dl>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>institution_override = “”;</strong></p>
+</div>
+<div class="section" id="references-override">
+<h3>references_override<a class="headerlink" href="#references-override" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to override the references global attribute.</p>
+<dl class="docutils">
+<dt>If empty, no effect. If not empty, this string is used to override</dt>
+<dd>the references attribute.</dd>
+</dl>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>references_override = “”;</strong></p>
+</div>
+<div class="section" id="source-override">
+<h3>source_override<a class="headerlink" href="#source-override" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to override the source global attribute.</p>
+<dl class="docutils">
+<dt>If empty, no effect. If not empty, this string is used to override</dt>
+<dd>the source attribute.</dd>
+</dl>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>source_override = “”;</strong></p>
+</div>
+<div class="section" id="history-override">
+<h3>history_override<a class="headerlink" href="#history-override" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to override the history global attribute.</p>
+<dl class="docutils">
+<dt>If empty, no effect. If not empty, this string is used to override</dt>
+<dd>the history attribute.</dd>
+</dl>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>history_override = “”;</strong></p>
+</div>
+<div class="section" id="comment-override">
+<h3>comment_override<a class="headerlink" href="#comment-override" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to override the comment global attribute.</p>
+<dl class="docutils">
+<dt>If empty, no effect. If not empty, this string is used to override</dt>
+<dd>the comment attribute.</dd>
+</dl>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>comment_override = “”;</strong></p>
+</div>
+<div class="section" id="author-override">
+<h3>author_override<a class="headerlink" href="#author-override" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to override the author global attribute.</p>
+<dl class="docutils">
+<dt>If empty, no effect. If not empty, this string is used to override</dt>
+<dd>the author attribute.</dd>
+</dl>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>author_override = “”;</strong></p>
+</div>
+</div>
+<div class="section" id="option-to-add-user-specified-global-attributes-to-output-file">
+<h2>OPTION TO ADD USER-SPECIFIED GLOBAL ATTRIBUTES to output file<a class="headerlink" href="#option-to-add-user-specified-global-attributes-to-output-file" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div>Only applies to CfRadial output format.</div></blockquote>
+<div class="section" id="add-user-specified-global-attributes">
+<h3>add_user_specified_global_attributes<a class="headerlink" href="#add-user-specified-global-attributes" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Add user-specified global attributes to output file.</p>
+<p>Only applies to CfRadial files. See below for details.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>add_user_specified_global_attributes = FALSE;</strong></p>
+</div>
+<div class="section" id="user-defined-global-attributes">
+<h3>user_defined_global_attributes<a class="headerlink" href="#user-defined-global-attributes" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>User-defined global attributes.</p>
+<dl class="docutils">
+<dt>Applies if ‘add_user_specified_global_attributes’ is true. Array</dt>
+<dd>attributes are comma-delimited.</dd>
+<dt>Type: struct</dt>
+<dd><dl class="first last docutils">
+<dt>typedef struct {</dt>
+<dd>string name;
+attr_type_t attrType;</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+<p>Options:</p>
+<ul class="simple">
+<li>ATTR_STRING</li>
+<li>ATTR_INT</li>
+<li>ATTR_DOUBLE</li>
+<li>ATTR_INT_ARRAY</li>
+<li>ATTR_DOUBLE_ARRAY</li>
+<li>1D array - variable length.</li>
+</ul>
+<p><strong>user_defined_global_attributes = {</strong></p>
+<p><strong>name = “attr_string”,</strong></p>
+<p><strong>attrType = ATTR_STRING,</strong></p>
+<p><strong>val = “user-attribute”</strong></p>
+<p><strong>name = “attr_int”,</strong></p>
+<p><strong>attrType = ATTR_INT,</strong></p>
+<p><strong>val = “99”</strong></p>
+<p><strong>name = “attr_double”,</strong></p>
+<p><strong>attrType = ATTR_DOUBLE,</strong></p>
+<p><strong>val = “99.99”</strong></p>
+<p><strong>name = “attr_int_array”,</strong></p>
+<p><strong>attrType = ATTR_INT_ARRAY,</strong></p>
+<p><strong>val = “1,2,3,4,5”</strong></p>
+<p><strong>name = “attr_double_array”,</strong></p>
+<p><strong>attrType = ATTR_DOUBLE_ARRAY,</strong></p>
+<p><strong>val = “1.1,2.2,3.3,4.4,5.5”</strong></p>
+<p><strong>};</strong></p>
+</div>
+</div>
+<div class="section" id="option-to-specify-field-names-and-output-encoding">
+<h2>OPTION TO SPECIFY FIELD NAMES AND OUTPUT ENCODING<a class="headerlink" href="#option-to-specify-field-names-and-output-encoding" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="set-output-fields">
+<h3>set_output_fields<a class="headerlink" href="#set-output-fields" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Set the field names and output encoding.</p>
+<p>If false, all fields will be used.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>set_output_fields = FALSE;</strong></p>
+</div>
+<div class="section" id="output-fields">
+<h3>output_fields<a class="headerlink" href="#output-fields" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Output field details.</p>
+<dl class="docutils">
+<dt>Set the details for the output fields. The output_field_name is the</dt>
+<dd>ndtCDF variable name. Set the long name to a more descriptive name.
+Set the standard name to the CF standard name for this field. If the
+long name or standard name are empty, the existing names are used. If
+SCALING_SPECIFIED, then the scale and offset is used.</dd>
+<dt>Type: struct</dt>
+<dd><dl class="first last docutils">
+<dt>typedef struct {</dt>
+<dd>string input_field_name;
+string output_field_name;
+string long_name;
+string standard_name;
+string output_units;
+output_encoding_t encoding;</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+<p>Options:</p>
+<ul class="simple">
+<li>OUTPUT_ENCODING_ASIS</li>
+<li>OUTPUT_ENCODING_FLOAT32</li>
+<li>OUTPUT_ENCODING_INT32</li>
+<li>OUTPUT_ENCODING_INT16</li>
+<li>OUTPUT_ENCODING_INT08</li>
+</ul>
+<p>Options:</p>
+<ul class="simple">
+<li>SCALING_DYNAMIC</li>
+<li>SCALING_SPECIFIED</li>
+<li>1D array - variable length.</li>
+</ul>
+<p><strong>output_fields = {</strong></p>
+<p><strong>input_field_name = “DBZ”,</strong></p>
+<p><strong>output_field_name = “DBZ”,</strong></p>
+<p><strong>long_name = “reflectivity”,</strong></p>
+<p><strong>standard_name = “equivalent_reflectivity_factor”,</strong></p>
+<p><strong>output_units = “dBZ”,</strong></p>
+<p><strong>encoding = OUTPUT_ENCODING_ASIS,</strong></p>
+<p><strong>output_scaling = SCALING_DYNAMIC,</strong></p>
+<p><strong>output_scale = 0.01,</strong></p>
+<p><strong>output_offset = 0</strong></p>
+<p><strong>input_field_name = “VEL”,</strong></p>
+<p><strong>output_field_name = “VEL”,</strong></p>
+<p><strong>long_name = “radial_velocity”,</strong></p>
+<p><strong>standard_name = “radial_velocity_of_scatterers_away_from_instrument”,</strong></p>
+<p><strong>output_units = “m/s”,</strong></p>
+<p><strong>encoding = OUTPUT_ENCODING_ASIS,</strong></p>
+<p><strong>output_scaling = SCALING_DYNAMIC,</strong></p>
+<p><strong>output_scale = 0.01,</strong></p>
+<p><strong>output_offset = 0</strong></p>
+<p><strong>};</strong></p>
+</div>
+<div class="section" id="write-other-fields-unchanged">
+<h3>write_other_fields_unchanged<a class="headerlink" href="#write-other-fields-unchanged" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to write out the unspecified fields as they are.</p>
+<dl class="docutils">
+<dt>If false, only the fields listed in output_fields will be written. If</dt>
+<dd>this is true, all other fields will be written unchanged.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>write_other_fields_unchanged = FALSE;</strong></p>
+</div>
+<div class="section" id="exclude-specified-fields">
+<h3>exclude_specified_fields<a class="headerlink" href="#exclude-specified-fields" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to exclude fields in the specified list.</p>
+<dl class="docutils">
+<dt>If true, the specified fields will be excluded. This may be easier</dt>
+<dd>than specifiying all of the fields to be included, if that list is
+very long.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>exclude_specified_fields = FALSE;</strong></p>
+</div>
+<div class="section" id="excluded-fields">
+<h3>excluded_fields<a class="headerlink" href="#excluded-fields" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>List of fields to be excluded.</p>
+<p>List the names to be excluded.</p>
+<p>Type: string
+1D array - variable length.</p>
+</div></blockquote>
+<p><strong>excluded_fields = {</strong></p>
+<p><strong>};</strong></p>
+</div>
+</div>
+<div class="section" id="option-to-specify-output-encoding-for-all-fields">
+<h2>OPTION TO SPECIFY OUTPUT ENCODING FOR ALL FIELDS<a class="headerlink" href="#option-to-specify-output-encoding-for-all-fields" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="set-output-encoding-for-all-fields">
+<h3>set_output_encoding_for_all_fields<a class="headerlink" href="#set-output-encoding-for-all-fields" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to set output encoding for all fields.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>set_output_encoding_for_all_fields = FALSE;</strong></p>
+</div>
+<div class="section" id="output-encoding">
+<h3>output_encoding<a class="headerlink" href="#output-encoding" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Output encoding for all fields, if requested.</p>
+<p>Type: enum</p>
+</div></blockquote>
+<p>Options:</p>
+<ul class="simple">
+<li>OUTPUT_ENCODING_ASIS</li>
+<li>OUTPUT_ENCODING_FLOAT32</li>
+<li>OUTPUT_ENCODING_INT32</li>
+<li>OUTPUT_ENCODING_INT16</li>
+<li>OUTPUT_ENCODING_INT08</li>
+</ul>
+<p><strong>output_encoding = OUTPUT_ENCODING_ASIS;</strong></p>
+</div>
+</div>
+<div class="section" id="censoring">
+<h2>CENSORING<a class="headerlink" href="#censoring" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="docutils">
+<dt>You have the option of censoring the data fields - i.e. setting the</dt>
+<dd>fields to missing values - at gates which meet certain criteria. If
+this is done correctly, it allows you to preserve the valid data and
+discard the noise, thereby improving compression.</dd>
+</dl>
+</div></blockquote>
+<div class="section" id="apply-censoring">
+<h3>apply_censoring<a class="headerlink" href="#apply-censoring" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Apply censoring based on field values and thresholds.</p>
+<dl class="docutils">
+<dt>If TRUE, censoring will be performed. See ‘censoring_fields’ for</dt>
+<dd>details on how the censoring is applied.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>apply_censoring = FALSE;</strong></p>
+</div>
+<div class="section" id="censoring-fields">
+<h3>censoring_fields<a class="headerlink" href="#censoring-fields" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Fields to be used for censoring.</p>
+<dl class="docutils">
+<dt>Specify the fields to be used to determine whether a gate should be</dt>
+<dd>censored. The name refers to the input data field names. Valid field
+values lie in the range from min_valid_value to max_valid_value
+inclusive. If the value of a field at a gate lies within this range,
+it is considered valid. Each specified field is examined at each
+gate, and is flagged as valid if its value lies in the valid range.
+These field flags are then combined as follows: first, all of the
+LOGICAL_OR flags are combined, yielding a single combined_or flag
+which is true if any of the LOGICAL_OR fields is true. The
+combined_or flag is then combined with all of the LOGICAL_AND fields,
+yielding a true value only if the combined_or flag and the
+LOGICAL_AND fields are all true. If this final flag is true, then the
+data at the gate is regarded as valid and is retained. If the final
+flag is false, the data at the gate is censored, and all of the
+fields at the gate are set to missing.</dd>
+<dt>Type: struct</dt>
+<dd><dl class="first last docutils">
+<dt>typedef struct {</dt>
+<dd>string name;
+double min_valid_value;
+double max_valid_value;
+logical_t combination_method;</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+<p>Options:</p>
+<ul class="simple">
+<li>LOGICAL_AND</li>
+<li>LOGICAL_OR</li>
+<li>1D array - variable length.</li>
+</ul>
+<p><strong>censoring_fields = {</strong></p>
+<p><strong>name = “SNR”,</strong></p>
+<p><strong>min_valid_value = 0,</strong></p>
+<p><strong>max_valid_value = 1000,</strong></p>
+<p><strong>combination_method = LOGICAL_OR</strong></p>
+<p><strong>name = “NCP”,</strong></p>
+<p><strong>min_valid_value = 0.15,</strong></p>
+<p><strong>max_valid_value = 1000,</strong></p>
+<p><strong>combination_method = LOGICAL_OR</strong></p>
+<p><strong>};</strong></p>
+</div>
+<div class="section" id="censoring-min-valid-run">
+<h3>censoring_min_valid_run<a class="headerlink" href="#censoring-min-valid-run" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Minimum valid run of non-censored gates.</p>
+<dl class="docutils">
+<dt>Only active if set to 2 or greater. A check is made to remove short</dt>
+<dd>runs of noise. Looking along the radial, we compute the number of
+contiguous gates (a ‘run’) with uncensored data. For the gates in
+this run to be accepted the length of the run must exceed
+censoring_min_valid_run. If the number of gates in a run is less than
+this, then all gates in the run are censored.</dd>
+</dl>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>censoring_min_valid_run = 1;</strong></p>
+</div>
+</div>
+<div class="section" id="option-to-apply-linear-transform-to-specified-fields">
+<h2>OPTION TO APPLY LINEAR TRANSFORM TO SPECIFIED FIELDS<a class="headerlink" href="#option-to-apply-linear-transform-to-specified-fields" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="docutils">
+<dt>These transforms are fixed. The same transform is applied to all</dt>
+<dd>files.</dd>
+</dl>
+</div></blockquote>
+<div class="section" id="apply-linear-transforms">
+<h3>apply_linear_transforms<a class="headerlink" href="#apply-linear-transforms" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Apply linear transform to specified fields.</p>
+<p>If true, we will apply a linear transform to selected fields.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>apply_linear_transforms = FALSE;</strong></p>
+</div>
+<div class="section" id="transform-fields">
+<h3>transform_fields<a class="headerlink" href="#transform-fields" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>transform field details.</p>
+<dl class="docutils">
+<dt>Set the field name, scale and offset to be applied to the selected</dt>
+<dd>fields. NOTE: the field name is the INPUT field name.</dd>
+<dt>Type: struct</dt>
+<dd><dl class="first docutils">
+<dt>typedef struct {</dt>
+<dd>string input_field_name;
+double transform_scale;
+double transform_offset;</dd>
+</dl>
+<p class="last">}</p>
+</dd>
+</dl>
+<p>1D array - variable length.</p>
+</div></blockquote>
+<p><strong>transform_fields = {</strong></p>
+<p><strong>input_field_name = “DBZ”,</strong></p>
+<p><strong>transform_scale = 1,</strong></p>
+<p><strong>transform_offset = 0</strong></p>
+<p><strong>input_field_name = “VEL”,</strong></p>
+<p><strong>transform_scale = 1,</strong></p>
+<p><strong>transform_offset = 0</strong></p>
+<p><strong>};</strong></p>
+</div>
+</div>
+<div class="section" id="option-to-apply-variable-linear-transform-to-specified-fields">
+<h2>OPTION TO APPLY VARIABLE LINEAR TRANSFORM TO SPECIFIED FIELDS<a class="headerlink" href="#option-to-apply-variable-linear-transform-to-specified-fields" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="docutils">
+<dt>These transforms vary from file to file, controlled by specific</dt>
+<dd>metadata.</dd>
+</dl>
+</div></blockquote>
+<div class="section" id="apply-variable-transforms">
+<h3>apply_variable_transforms<a class="headerlink" href="#apply-variable-transforms" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Apply linear transforms that vary based on specific metadata.</p>
+<p>If true, we will apply variable linear transform to selected fields.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>apply_variable_transforms = FALSE;</strong></p>
+</div>
+<div class="section" id="variable-transform-fields">
+<h3>variable_transform_fields<a class="headerlink" href="#variable-transform-fields" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Details for variable transforms.</p>
+<dl class="docutils">
+<dt>We based the field decision off the input_field_name. You need to</dt>
+<dd>pick the method of control: STATUS_XML_FIELD - based on the value
+associated with an XML tag in the status block; ELEVATION_DEG - based
+on the elevation in degrees; PULSE_WIDTH_US - based on the pulse with
+in microsecs. For STATUS_XML_FIELD Set the relevant status_xml_tag,
+which will be used to find the relevant value. The lookup table is a
+series of entries specifying the metadata_value and the scale and
+offset to be appied for that given metadata value. Each entry is
+enclosed in parentheses, and is of the form (metadata_value, scale,
+offset). The entries themselves are also are comma-separated.
+Interpolation is used for metadata values that lie between those
+specified in the lookup table. The enries in the lookup table should
+have metadata_values that are monotonically increasing.</dd>
+<dt>Type: struct</dt>
+<dd><dl class="first last docutils">
+<dt>typedef struct {</dt>
+<dd>string input_field_name;
+variable_transform_control_t control;</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+<p>Options:</p>
+<ul class="simple">
+<li>STATUS_XML_FIELD</li>
+<li>ELEVATION_DEG</li>
+<li>PULSE_WIDTH_US</li>
+<li>1D array - variable length.</li>
+</ul>
+<p><strong>variable_transform_fields = {</strong></p>
+<p><strong>input_field_name = “dBZ”,</strong></p>
+<p><strong>control = STATUS_XML_FIELD,</strong></p>
+<p><strong>xml_tag = “gdrxanctxfreq”,</strong></p>
+<p><strong>lookup_table = “(57.0, 1.0, -0.7), (60.0, 1.0, -0.2), (64.0, 1.0, -0.3), (67.0, 1.0, -1.8), (68.0, 1.0, -1.2), (69.0, 1.0, -1.3)”</strong></p>
+<p><strong>input_field_name = “dBZv”,</strong></p>
+<p><strong>control = STATUS_XML_FIELD,</strong></p>
+<p><strong>xml_tag = “gdrxanctxfreq”,</strong></p>
+<p><strong>lookup_table = “(57.0, 1.0, 0.1), (58.0, 1.0, 0.3), (60.0, 1.0, -0.3), (67.0, 1.0, -2.3), (69.0, 1.0, -2.0)”</strong></p>
+<p><strong>input_field_name = “ZDR”,</strong></p>
+<p><strong>control = STATUS_XML_FIELD,</strong></p>
+<p><strong>xml_tag = “gdrxanctxfreq”,</strong></p>
+<p><strong>lookup_table = “(56.0, 1.0, -0.75), (58.0, 1.0, -0.75), (61.0, 1.0, 0.1), (63.5, 1.0, 0.2), (64.0, 1.0, 0.6), (69.0, 1.0, 0.6)”</strong></p>
+<p><strong>};</strong></p>
+</div>
+</div>
+<div class="section" id="output-format">
+<h2>OUTPUT FORMAT<a class="headerlink" href="#output-format" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>output_format<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Format for the output files.</p>
+<p>Type: enum</p>
+</div></blockquote>
+<p>Options:</p>
+<ul class="simple">
+<li>OUTPUT_FORMAT_CFRADIAL</li>
+<li>OUTPUT_FORMAT_CFRADIAL2</li>
+<li>OUTPUT_FORMAT_NCXX</li>
+<li>OUTPUT_FORMAT_DORADE</li>
+<li>OUTPUT_FORMAT_FORAY</li>
+<li>OUTPUT_FORMAT_NEXRAD</li>
+<li>OUTPUT_FORMAT_UF</li>
+<li>OUTPUT_FORMAT_MDV_RADIAL</li>
+<li>OUTPUT_FORMAT_NSSL_MRD</li>
+<li>OUTPUT_FORMAT_ODIM_HDF5</li>
+</ul>
+<p><strong>output_format = OUTPUT_FORMAT_CFRADIAL;</strong></p>
+</div>
+<div class="section" id="netcdf-style">
+<h3>netcdf_style<a class="headerlink" href="#netcdf-style" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>NetCDF style - if output_format is CFRADIAL.</p>
+<dl class="docutils">
+<dt>netCDF classic format, netCDF 64-bit offset format, netCDF4 using</dt>
+<dd>HDF5 format, netCDF4 using HDF5 format but only netCDF3 calls.</dd>
+</dl>
+<p>Type: enum</p>
+</div></blockquote>
+<p>Options:</p>
+<ul class="simple">
+<li>CLASSIC</li>
+<li>NC64BIT</li>
+<li>NETCDF4</li>
+<li>NETCDF4_CLASSIC</li>
+</ul>
+<p><strong>netcdf_style = NETCDF4;</strong></p>
+</div>
+</div>
+<div class="section" id="output-byte-swapping-and-compression">
+<h2>OUTPUT BYTE-SWAPPING and COMPRESSION<a class="headerlink" href="#output-byte-swapping-and-compression" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="output-native-byte-order">
+<h3>output_native_byte_order<a class="headerlink" href="#output-native-byte-order" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to leave data in native byte order.</p>
+<p>If false, data will be byte-swapped as appropriate on output.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>output_native_byte_order = FALSE;</strong></p>
+</div>
+<div class="section" id="output-compressed">
+<h3>output_compressed<a class="headerlink" href="#output-compressed" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to compress data fields on output.</p>
+<p>Applies to netCDF and Dorade. UF does not support compression.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>output_compressed = TRUE;</strong></p>
+</div>
+</div>
+<div class="section" id="output-options-for-cfradial-files">
+<h2>OUTPUT OPTIONS FOR CfRadial FILES<a class="headerlink" href="#output-options-for-cfradial-files" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="output-force-ngates-vary">
+<h3>output_force_ngates_vary<a class="headerlink" href="#output-force-ngates-vary" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to force the use of ragged arrays for CfRadial files.</p>
+<dl class="docutils">
+<dt>Only applies to CfRadial. If true, forces the use of ragged arrays</dt>
+<dd>even if the number of gates for all rays is constant.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>output_force_ngates_vary = FALSE;</strong></p>
+</div>
+<div class="section" id="compression-level">
+<h3>compression_level<a class="headerlink" href="#compression-level" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Compression level for output, if compressed.</p>
+<dl class="docutils">
+<dt>Applies to netCDF only. Dorade compression is run-length encoding,</dt>
+<dd>and has not options..</dd>
+</dl>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>compression_level = 4;</strong></p>
+</div>
+</div>
+<div class="section" id="output-directory-and-file-name">
+<h2>OUTPUT DIRECTORY AND FILE NAME<a class="headerlink" href="#output-directory-and-file-name" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="output-dir">
+<h3>output_dir<a class="headerlink" href="#output-dir" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Output directory path.</p>
+<p>Files will be written to this directory.</p>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>output_dir = “./output”;</strong></p>
+</div>
+<div class="section" id="output-filename-mode">
+<h3>output_filename_mode<a class="headerlink" href="#output-filename-mode" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Mode for computing output file name.</p>
+<dl class="docutils">
+<dt>START_AND_END_TIMES: include both start and end times in file name.</dt>
+<dd>START_TIME_ONLY: include only start time in file name. END_TIME_ONLY:
+include only end time in file name. SPECIFY_FILE_NAME: file of this
+name will be written to output_dir.</dd>
+</dl>
+<p>Type: enum</p>
+</div></blockquote>
+<p>Options:</p>
+<ul class="simple">
+<li>START_AND_END_TIMES</li>
+<li>START_TIME_ONLY</li>
+<li>END_TIME_ONLY</li>
+<li>SPECIFY_FILE_NAME</li>
+</ul>
+<p><strong>output_filename_mode = START_AND_END_TIMES;</strong></p>
+</div>
+<div class="section" id="output-filename-prefix">
+<h3>output_filename_prefix<a class="headerlink" href="#output-filename-prefix" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Optional prefix for output filename.</p>
+<dl class="docutils">
+<dt>If empty, the standard prefix will be used. Only applies to CfRadial</dt>
+<dd>files. Standard prefix is ‘cfrad.’.</dd>
+</dl>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>output_filename_prefix = “”;</strong></p>
+</div>
+<div class="section" id="output-filename-suffix">
+<h3>output_filename_suffix<a class="headerlink" href="#output-filename-suffix" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Optional suffix for output filename.</p>
+<dl class="docutils">
+<dt>If not empty, the suffix will be inserted immediately prior to the</dt>
+<dd>extension.</dd>
+</dl>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>output_filename_suffix = “”;</strong></p>
+</div>
+<div class="section" id="include-instrument-name-in-file-name">
+<h3>include_instrument_name_in_file_name<a class="headerlink" href="#include-instrument-name-in-file-name" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to include the instrument name in the file name.</p>
+<dl class="docutils">
+<dt>Default is true. Only applies to CfRadial files. If true, the</dt>
+<dd>instrument name will be included just before the volume number in the
+output file name.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>include_instrument_name_in_file_name = TRUE;</strong></p>
+</div>
+<div class="section" id="include-site-name-in-file-name">
+<h3>include_site_name_in_file_name<a class="headerlink" href="#include-site-name-in-file-name" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to include the site name in the file name.</p>
+<dl class="docutils">
+<dt>Only applies to CfRadial files. If true, the site name will be</dt>
+<dd>included just before the volume number in the output file name.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>include_site_name_in_file_name = FALSE;</strong></p>
+</div>
+<div class="section" id="include-subsecs-in-file-name">
+<h3>include_subsecs_in_file_name<a class="headerlink" href="#include-subsecs-in-file-name" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to include sub-seconds in date-time part of file name.</p>
+<dl class="docutils">
+<dt>Default is true. Only applies to CfRadial files. If true, the</dt>
+<dd>millisecs of the start and end time will be included in the file
+name.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>include_subsecs_in_file_name = TRUE;</strong></p>
+</div>
+<div class="section" id="include-scan-type-in-file-name">
+<h3>include_scan_type_in_file_name<a class="headerlink" href="#include-scan-type-in-file-name" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to include the scan type in the file name.</p>
+<dl class="docutils">
+<dt>Default is true. Only applies to CfRadial files. If true, the scan</dt>
+<dd>type (SUR, SEC, RHI, VER etc) will be included in the file name.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>include_scan_type_in_file_name = TRUE;</strong></p>
+</div>
+<div class="section" id="include-vol-num-in-file-name">
+<h3>include_vol_num_in_file_name<a class="headerlink" href="#include-vol-num-in-file-name" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to include the volume number in the file name.</p>
+<dl class="docutils">
+<dt>Default is false. Only applies to CfRadial files. If true, the volume</dt>
+<dd>number is included in the file name, preceded by ‘_v’.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>include_vol_num_in_file_name = FALSE;</strong></p>
+</div>
+<div class="section" id="use-hyphen-in-file-name-datetime-part">
+<h3>use_hyphen_in_file_name_datetime_part<a class="headerlink" href="#use-hyphen-in-file-name-datetime-part" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to use a hyphen between date and time in filename.</p>
+<dl class="docutils">
+<dt>Default is false. Only applies to CfRadial files. Normally an</dt>
+<dd>underscore is used.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>use_hyphen_in_file_name_datetime_part = FALSE;</strong></p>
+</div>
+<div class="section" id="output-filename">
+<h3>output_filename<a class="headerlink" href="#output-filename" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Name of output file.</p>
+<dl class="docutils">
+<dt>Applies only if output_filename_mode is SPECIFY_FILE_NAME. File of</dt>
+<dd>this name will be written to output_dir.</dd>
+</dl>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>output_filename = “cfradial.test.nc”;</strong></p>
+</div>
+<div class="section" id="append-day-dir-to-output-dir">
+<h3>append_day_dir_to_output_dir<a class="headerlink" href="#append-day-dir-to-output-dir" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Add the day directory to the output directory.</p>
+<p>Path will be output_dir/yyyymmdd/filename.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>append_day_dir_to_output_dir = TRUE;</strong></p>
+</div>
+<div class="section" id="append-year-dir-to-output-dir">
+<h3>append_year_dir_to_output_dir<a class="headerlink" href="#append-year-dir-to-output-dir" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Add the year directory to the output directory.</p>
+<p>Path will be output_dir/yyyy/yyyymmdd/filename.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>append_year_dir_to_output_dir = FALSE;</strong></p>
+</div>
+<div class="section" id="write-individual-sweeps">
+<h3>write_individual_sweeps<a class="headerlink" href="#write-individual-sweeps" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to write out individual sweeps if appropriate.</p>
+<dl class="docutils">
+<dt>If true, the volume is split into individual sweeps for writing.</dt>
+<dd>Applies to CfRadial format. This is always true for DORADE format
+files.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>write_individual_sweeps = FALSE;</strong></p>
+</div>
+<div class="section" id="write-latest-data-info">
+<h3>write_latest_data_info<a class="headerlink" href="#write-latest-data-info" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to write out _latest_data_info files.</p>
+<dl class="docutils">
+<dt>If true, the _latest_data_info files will be written after the</dt>
+<dd>converted file is written.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>write_latest_data_info = FALSE;</strong></p>
+</div>
+<div class="section" id="write-using-proposed-standard-name-attr">
+<h3>write_using_proposed_standard_name_attr<a class="headerlink" href="#write-using-proposed-standard-name-attr" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="docutils">
+<dt>Option to write CfRadial files using ‘proposed_standard_name’</dt>
+<dd>attribute.</dd>
+<dt>Default is false. Only applies to CfRadial files. Normally we use the</dt>
+<dd>‘standard_name’ attribute. However, some organizations reject these
+as valid files since the standard names are not yet accepted. Using
+proposed_standard_name’ instead avoids this issue.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>write_using_proposed_standard_name_attr = FALSE;</strong></p>
+</div>
+</div>
+<div class="section" id="separating-volumes-by-type">
+<h2>SEPARATING VOLUMES BY TYPE<a class="headerlink" href="#separating-volumes-by-type" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="separate-output-dirs-by-scan-type">
+<h3>separate_output_dirs_by_scan_type<a class="headerlink" href="#separate-output-dirs-by-scan-type" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to separate the files based on scan type.</p>
+<dl class="docutils">
+<dt>Sometimes a scan strategy will switch between surveillance scans,</dt>
+<dd>sector scans, rhi scans, vertically-pointing scans and sun scans. If
+true, the files will be separated into subdirectories based on scan
+type.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>separate_output_dirs_by_scan_type = FALSE;</strong></p>
+</div>
+<div class="section" id="surveillance-subdir">
+<h3>surveillance_subdir<a class="headerlink" href="#surveillance-subdir" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>The directory path for surveillance scan files.</p>
+<dl class="docutils">
+<dt>See ‘separate_by_scan_type’. If the scan mode is surveillance, this</dt>
+<dd>subdirectory will be created under the ouput dir.</dd>
+</dl>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>surveillance_subdir = “sur”;</strong></p>
+</div>
+<div class="section" id="sector-subdir">
+<h3>sector_subdir<a class="headerlink" href="#sector-subdir" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>The directory path for sector scan files.</p>
+<dl class="docutils">
+<dt>See ‘separate_by_scan_type’. If the scan mode is sector, this</dt>
+<dd>subdirectory will be created under the ouput dir.</dd>
+</dl>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>sector_subdir = “sec”;</strong></p>
+</div>
+<div class="section" id="rhi-subdir">
+<h3>rhi_subdir<a class="headerlink" href="#rhi-subdir" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>The directory path for rhi files.</p>
+<dl class="docutils">
+<dt>See ‘separate_by_scan_type’. If the scan mode is rhi, this</dt>
+<dd>subdirectory will be created under the ouput dir.</dd>
+</dl>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>rhi_subdir = “rhi”;</strong></p>
+</div>
+<div class="section" id="vert-subdir">
+<h3>vert_subdir<a class="headerlink" href="#vert-subdir" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>The directory path for vert scan files.</p>
+<dl class="docutils">
+<dt>See ‘separate_by_scan_type’. If the scan mode is vert, this</dt>
+<dd>subdirectory will be created under the ouput dir.</dd>
+</dl>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>vert_subdir = “vert”;</strong></p>
+</div>
+<div class="section" id="sun-subdir">
+<h3>sun_subdir<a class="headerlink" href="#sun-subdir" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>The directory path for sun scan files.</p>
+<dl class="docutils">
+<dt>See ‘separate_by_scan_type’. If the scan mode is sun, this</dt>
+<dd>subdirectory will be created under the ouput dir.</dd>
+</dl>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>sun_subdir = “sun”;</strong></p>
+</div>
+</div>
+<div class="section" id="option-to-override-missing-values">
+<h2>OPTION TO OVERRIDE MISSING VALUES<a class="headerlink" href="#option-to-override-missing-values" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="docutils">
+<dt>Missing values are applicable to both metadata and field data. The</dt>
+<dd>default values should be satisfactory for most purposes. However, you
+can choose to override these if you are careful with the selected
+values.</dd>
+<dt>The default values for metadata are:</dt>
+<dd>missingMetaDouble = -9999.0
+missingMetaFloat = -9999.0
+missingMetaInt = -9999
+missingMetaChar = -128</dd>
+<dt>The default values for field data are:</dt>
+<dd>missingFl64 = -9.0e33
+missingFl32 = -9.0e33
+missingSi32 = -2147483647
+missingSi16 = -32768
+missingSi08 = -128.</dd>
+</dl>
+</div></blockquote>
+<div class="section" id="override-missing-metadata-values">
+<h3>override_missing_metadata_values<a class="headerlink" href="#override-missing-metadata-values" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to override the missing values for meta-data.</p>
+<p>See following parameter options.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>override_missing_metadata_values = FALSE;</strong></p>
+</div>
+<div class="section" id="missing-metadata-double">
+<h3>missing_metadata_double<a class="headerlink" href="#missing-metadata-double" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Missing value for metadata of type double.</p>
+<p>Only applies if override_missing_metadata_values is TRUE.</p>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>missing_metadata_double = -9999;</strong></p>
+</div>
+<div class="section" id="missing-metadata-float">
+<h3>missing_metadata_float<a class="headerlink" href="#missing-metadata-float" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Missing value for metadata of type float.</p>
+<p>Only applies if override_missing_metadata_values is TRUE.</p>
+<p>Type: float</p>
+</div></blockquote>
+<p><strong>missing_metadata_float = -9999;</strong></p>
+</div>
+<div class="section" id="missing-metadata-int">
+<h3>missing_metadata_int<a class="headerlink" href="#missing-metadata-int" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Missing value for metadata of type int.</p>
+<p>Only applies if override_missing_metadata_values is TRUE.</p>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>missing_metadata_int = -9999;</strong></p>
+</div>
+<div class="section" id="missing-metadata-char">
+<h3>missing_metadata_char<a class="headerlink" href="#missing-metadata-char" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Missing value for metadata of type char.</p>
+<p>Only applies if override_missing_metadata_values is TRUE.</p>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>missing_metadata_char = -128;</strong></p>
+</div>
+<div class="section" id="override-missing-field-values">
+<h3>override_missing_field_values<a class="headerlink" href="#override-missing-field-values" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to override the missing values for field data.</p>
+<p>See following parameter options.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>override_missing_field_values = FALSE;</strong></p>
+</div>
+<div class="section" id="missing-field-fl64">
+<h3>missing_field_fl64<a class="headerlink" href="#missing-field-fl64" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Missing value for field data of type 64-bit float.</p>
+<p>Only applies if override_missing_field_values is TRUE.</p>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>missing_field_fl64 = -9e+33;</strong></p>
+</div>
+<div class="section" id="missing-field-fl32">
+<h3>missing_field_fl32<a class="headerlink" href="#missing-field-fl32" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Missing value for field data of type 32-bit float.</p>
+<p>Only applies if override_missing_field_values is TRUE.</p>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>missing_field_fl32 = -9e+33;</strong></p>
+</div>
+<div class="section" id="missing-field-si32">
+<h3>missing_field_si32<a class="headerlink" href="#missing-field-si32" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Missing value for field data of type 32-bit integer.</p>
+<p>Only applies if override_missing_field_values is TRUE.</p>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>missing_field_si32 = -2147483647;</strong></p>
+</div>
+<div class="section" id="missing-field-si16">
+<h3>missing_field_si16<a class="headerlink" href="#missing-field-si16" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Missing value for field data of type 16-bit integer.</p>
+<p>Only applies if override_missing_field_values is TRUE.</p>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>missing_field_si16 = -232768;</strong></p>
+</div>
+<div class="section" id="missing-field-si08">
+<h3>missing_field_si08<a class="headerlink" href="#missing-field-si08" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Missing value for field data of type 8-bit integer.</p>
+<p>Only applies if override_missing_field_values is TRUE.</p>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>missing_field_si08 = -128;</strong></p>
+</div>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+      
+        <p>
+        «&#160;&#160;<a href="howtorun_radxconvert.html">RadxConvert</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="docs.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="howtorun_HawkEye.html">HawkEye</a>&#160;&#160;»
+        </p>
+
+      </div>
+
+
+<div id="templatemo_footer_wrapper">
+	<div id="templatemo_footer">
+
+        <div class="clear"></div>
+        <div id="templatemo_copyright">
+			Copyright © 2018 Colorado State University <!-- Credit: www.templatemo.com -->
+		</div>
+    </div> <!-- END of templatemo_footer -->
+</div> <!-- END of templatemo_footer_wrapper -->
+
+  </body>
+</html>

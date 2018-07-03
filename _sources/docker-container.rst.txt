@@ -1,13 +1,13 @@
-The Lrose-Blaze Docker image
-============================
+The Lrose-Blaze Virtual Toolbox
+===============================
 
 What is it?
 -----------
 
-Lrose-Blaze allows you to run Lrose applications without having to
+LROSE Blaze allows you to run LROSE applications without having to
 compile and install lrose binaries and libraries.
 
-It is a Ubuntu 14.04 image, with lrose-core installed in
+The 'Virtual Toolbox' is a Ubuntu 14.04 image running inside a Docker container, with LROSE Blaze installed in
 /usr/local/lrose.
 
 It has one user named **lrose** so if you don’t want to run commands as
@@ -36,9 +36,9 @@ Verify it is there with ``docker images``
 ::
 
     $ docker images
-    REPOSITORY                   TAG                 IMAGE ID     
-    nsflrose/lrose-blaze         04132018            0a2ce9c9ae0f 
-    ubuntu_apache2               latest              4b5eefbe9c6c 
+    REPOSITORY                   TAG                 IMAGE ID
+    nsflrose/lrose-blaze         04132018            0a2ce9c9ae0f
+    ubuntu_apache2               latest              4b5eefbe9c6c
     ncareol/soloii               latest              baa1ee4c3541
 
 Chances are that instead of a name and tag, you will see **none**. Since
@@ -254,13 +254,6 @@ folders)
                --env="DISPLAY" --env QT_X11_NO_MITSHM=1 \
                -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
                -w /home/lrose lrose-blaze /usr/local/lrose/bin/HawkEye
-
-Other useful options
-^^^^^^^^^^^^^^^^^^^^
-
-talk about environment variables
-
-… what else?
 
 Some useful commands to manage containers and images
 ----------------------------------------------------

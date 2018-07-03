@@ -16,8 +16,8 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="HawkEye" href="howtorun_HawkEye.html" />
-    <link rel="prev" title="RadxPrint" href="howtorun_radxprint.html" />
+    <link rel="next" title="RadxConvert Parameter Descriptions" href="RadxConvert.html" />
+    <link rel="prev" title="RadxPrint Parameter Descriptions" href="RadxPrint.html" />
 <link href="_static/templatemo_lite.css" rel="stylesheet" type="text/css" />
 
   </head><body>
@@ -42,11 +42,11 @@
       <div class="topnav" role="navigation" aria-label="top navigation">
       
         <p>
-        «&#160;&#160;<a href="howtorun_radxprint.html">RadxPrint</a>
+        «&#160;&#160;<a href="RadxPrint.html">RadxPrint Parameter Descriptions</a>
         &#160;&#160;::&#160;&#160;
         <a class="uplink" href="docs.html">Contents</a>
         &#160;&#160;::&#160;&#160;
-        <a href="howtorun_HawkEye.html">HawkEye</a>&#160;&#160;»
+        <a href="RadxConvert.html">RadxConvert Parameter Descriptions</a>&#160;&#160;»
         </p>
 
       </div>
@@ -56,7 +56,9 @@
   <div class="section" id="radxconvert">
 <h1>RadxConvert<a class="headerlink" href="#radxconvert" title="Permalink to this headline">¶</a></h1>
 <p>RadxConvert allows you to convert data stored in one format to a
-different format. It can support in the following formats:</p>
+different format.</p>
+<div class="section" id="supported-lidar-and-radar-data-formats">
+<h2>Supported Lidar and Radar Data Formats<a class="headerlink" href="#supported-lidar-and-radar-data-formats" title="Permalink to this headline">¶</a></h2>
 <table border="1" class="docutils">
 <colgroup>
 <col width="57%" />
@@ -70,114 +72,169 @@ different format. It can support in the following formats:</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>CfRadial - NCAR/EOL/UNIDATA</td>
+<tr class="row-even"><td>CfRadial-1</td>
 <td>Yes</td>
 <td>Yes</td>
 </tr>
-<tr class="row-odd"><td>DORADE - NCAR/EOL</td>
+<tr class="row-odd"><td>CfRadial-2 (WMO) (in development)</td>
 <td>Yes</td>
 <td>Yes</td>
+</tr>
+<tr class="row-even"><td>BUFR (in development)</td>
+<td>Yes(partial)</td>
+<td>No</td>
+</tr>
+<tr class="row-odd"><td>CFARR</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr class="row-even"><td>DORADE - NCAR/EOL</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr class="row-odd"><td>D23R</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr class="row-even"><td>DOE ARM netCDF (precedes CfRadial)</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr class="row-odd"><td>EEC-Edge</td>
+<td>Yes(partial)</td>
+<td>No</td>
+</tr>
+<tr class="row-even"><td>Foray-1 netCDF - NCAR/EOL</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr class="row-odd"><td>GAMIC</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr class="row-even"><td>Gematronik Rainbow</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr class="row-odd"><td>HSRL (Lidar)</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr class="row-even"><td>HRD (Hurricane Research Division)</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr class="row-odd"><td>Leosphere (LIDAR ASCII format)</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr class="row-even"><td>MDV radial - NCAR/RAL</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr class="row-odd"><td>NEXRAD Level 2</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr class="row-even"><td>NEXRAD Level 1, 3</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr class="row-odd"><td>NOXP</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr class="row-even"><td>NSSL-MRD</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr class="row-odd"><td>ODIM-H5 (in development)</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr class="row-even"><td>RAPIC - BOM Australia</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr class="row-odd"><td>SIGMET - raw format (Vaisala)</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr class="row-even"><td>TDWR</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr class="row-odd"><td>TWOLF</td>
+<td>Yes</td>
+<td>No</td>
 </tr>
 <tr class="row-even"><td>UF - Universal Format</td>
 <td>Yes</td>
 <td>Yes</td>
 </tr>
-<tr class="row-odd"><td>Foray-1 netCDF - NCAR/EOL</td>
-<td>Yes</td>
-<td>Yes</td>
-</tr>
-<tr class="row-even"><td>DOE ARM netcdf - precedes CfRadial</td>
-<td>Yes</td>
-<td>No</td>
-</tr>
-<tr class="row-odd"><td>MDV radial - NCAR/RAL</td>
-<td>Yes</td>
-<td>Yes</td>
-</tr>
-<tr class="row-even"><td>NEXRAD msg31 level 2 archive</td>
-<td>Yes</td>
-<td>Yes</td>
-</tr>
-<tr class="row-odd"><td>NEXRAD msg1 level 2 archive</td>
-<td>Yes</td>
-<td>No</td>
-</tr>
-<tr class="row-even"><td>SIGMET - raw format (Vaisala)</td>
-<td>Yes</td>
-<td>No</td>
-</tr>
-<tr class="row-odd"><td>RAPIC - BOM Australia</td>
-<td>Yes</td>
-<td>No</td>
-</tr>
-<tr class="row-even"><td>HRD - HRD NOAA</td>
-<td>Yes</td>
-<td>No</td>
-</tr>
-<tr class="row-odd"><td>LEOSPHERE LIDAR, ASCII format</td>
-<td>Yes</td>
-<td>No</td>
-</tr>
-<tr class="row-even"><td>EEC - now supports CfRadial</td>
-<td>Yes</td>
-<td>N/A</td>
-</tr>
 </tbody>
 </table>
+</div>
 <div class="section" id="running-radxconvert">
 <h2>Running RadxConvert<a class="headerlink" href="#running-radxconvert" title="Permalink to this headline">¶</a></h2>
-<p>To check all command line options for RadxConvert, type the following
-command into a terminal.</p>
+<p>RadxConvert uses the Radx engine as a backend to convert between many different data formats.
+Since RadxPrint, RadxConvert, and Radx2Grid all have the same backend engine, they work seamlessly together.
+Many researchers spend a lot of time writing code just to get their data into a format they can use with their analysis software, and RadxConvert solves that problem for many common lidar and radar data formats.
+At a basic level, RadxConvert can do a simple conversion from one format to another, but it has a lot of flexibility and power options for advanced use cases.
+To see all command line options for RadxConvert, type the following command into a terminal:</p>
 <div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lrose</span> <span class="o">--</span> <span class="n">RadxConvert</span> <span class="o">-</span><span class="n">h</span>
 </pre></div>
 </div>
-<p>There are two different ways to specify the output file format. It can
-be specified either in parameter file or in command line.</p>
-<ol class="arabic simple">
-<li>Creat run-time parameter file</li>
-</ol>
-<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lrose</span> <span class="o">--</span> <span class="n">RadxConvert</span> <span class="o">-</span><span class="n">print_params</span> <span class="o">&gt;</span> <span class="n">RadxConvert</span><span class="o">.</span><span class="n">params</span>
+<p><strong>Important Note:</strong> If you just type ‘RadxConvert’ on the command line without any options it goes into ‘REALTIME’ mode and waits for streaming data to come in.
+For most use cases with data files stored locally the preferred mode of operation is to use command line arguments or a parameter file.
+This can be a little confusing for first time users.
+If you forget the ‘-f’ or ‘-params’ flag then this can also trigger REALTIME mode, and can appear like the conversion is taking a long time when in fact it is just waiting for data.
+While accidentally using REALTIME mode can occasionally cause some confusion, it allows for a powerful streaming capability to convert data directly from an instrument into a different format in real time.</p>
+<p>For most applications, user’s will have the data stored locally and want to convert to CfRadial or another data format.
+There are two different ways to specify the output file format, either on the command line or in a parameter file.
+If you don’t have specific requirements for the conversion settings, the easiest way to convert data to CfRadial format is to just use the command line ‘-f’ option, which specifies a list of files:</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lrose</span> <span class="o">--</span> <span class="n">RadxConvert</span> <span class="o">-</span><span class="n">f</span> <span class="o">&lt;</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">file_name</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-<p>The user can specify the specific output format in RadxConvert.params
-file.</p>
-<p>For example:</p>
-<p>Open RadxConvert.params in the terminal and find the line with
-“output_format”</p>
-<ul class="simple">
-<li>Convert Level II data to CfRadial format</li>
-</ul>
+<p>For example, to convert a NEXRAD Level 2 file from the Miami radar into CfRadial and place the file in an ‘output’ subdirectory:</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span>lrose -- RadxConvert -f $PWD/Level2_KAMX_20161006_1906.ar2v -outdir $PWD/output
+</pre></div>
+</div>
+<p>Note that RadxConvert will create the output subdirectory if it doesn’t exist.</p>
+<p><strong>Important Note:</strong> We encourage users to not move the converted data from the date subdirectory directory or rename the files.
+Many data file formats (such as both CfRadial and DORADE) keep metadata in the filename, and other LROSE tools such as HawkEye will work better when the data is organized by date at the subdirectory level.
+RadxConvert will automatically name and sort the files chronologically, and will organize the converted data by date into subdirectories with a YYYYMMDD naming convention.</p>
+<p>We recommend migrating your workflow to use the CfRadial netCDF format for your data analysis.
+CfRadial has well defined metadata standards and version 2.0 has been selected by the World Meteorological Organization (WMO) as the new international standard for lidar and radar data.
+The format has many advantages over older formats such as UF or DORADE, and works well with other open source radar packages such as PyART.
+Users are also encouraged to compile their CfRadial files as an aggregation of sweep files that make up a single volume scan.
+This is the default for file types that the Radx engine can recognize as volume scans (such as NEXRAD Level 2 archives), and can prescribed via the parameter file in other cases.</p>
+<p>RadxConvert does support the conversion to DORADE sweep format which can still be utilized by Solo users.
+CfRadial files can be displayed by HawkEye, but cannot yet be directly edited in that program.
+Editing capability for HawkEye is currently in development and will continue to add more functionality to eventually replace soloii and solo3.
+In the meantime, data can be converted to sweepfiles for interactive editing using:</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lrose</span> <span class="o">--</span> <span class="n">RadxConvert</span> <span class="o">-</span><span class="n">dorade</span> <span class="o">-</span><span class="n">f</span> <span class="o">&lt;</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">file_name</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>A parameter file can also be generated and modified similarly to the other LROSE tools.</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span>lrose -- RadxConvert -print_params &gt; $PWD/RadxConvert.params
+</pre></div>
+</div>
+<p>The user can specify the specific output format in RadxConvert.params file. For example:</p>
+<p>Open RadxConvert.params in the terminal and find the line with ‘output_format’. Set the desired output format as one of the options. For example, to choose CfRadial:</p>
 <div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">output_format</span> <span class="o">=</span> <span class="n">OUTPUT_FORMAT_CFRADIAL</span>
 </pre></div>
 </div>
-<ul class="simple">
-<li>Convert Level II data to sweep format</li>
-</ul>
+<p>or for DORADE:</p>
 <div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">output_format</span><span class="o">=</span> <span class="n">OUTPUT_FORMAT_DORADE</span>
 </pre></div>
 </div>
-<p>Once the parameter file is complete, use the following command to run
-the application:</p>
-<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lrose</span> <span class="o">--</span> <span class="n">RadxConvert</span> <span class="o">-</span><span class="n">f</span> <span class="n">Level_II_file</span> <span class="o">-</span><span class="n">params</span> <span class="n">RadxConvert</span><span class="o">.</span><span class="n">params</span>
+<p>Use the following command to convert using the settings provided by the parameter file:</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span>lrose -- RadxConvert -f &lt;path/to/data/file_name&gt; -params $PWD/RadxConvert.params
 </pre></div>
 </div>
-<ol class="arabic simple" start="2">
-<li>Convert file format in command line (by default)</li>
-</ol>
-<p>If the user don’t have specific requirement to the conversion setting,
-you can use the following command to obtain the file as well:</p>
-<ul class="simple">
-<li>Convert Level II data to CfRadial format</li>
-</ul>
-<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lrose</span> <span class="o">--</span> <span class="n">RadxConvert</span> <span class="o">-</span><span class="n">CfRadial</span> <span class="o">-</span><span class="n">f</span> <span class="n">Level_II_file</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li>Convert Level II data to sweep format</li>
-</ul>
-<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lrose</span> <span class="o">--</span> <span class="n">RadxConvert</span> <span class="o">-</span><span class="n">dorade</span> <span class="o">-</span><span class="n">f</span> <span class="n">Level_II_file</span>
-</pre></div>
-</div>
+<p>The next page of the documentation has all the options for RadxConvert automatically generated from the default parameter file.
+If you’ve had enough of format conversion, you can move on to the next step of the workflow and <a class="reference external" href="howtorun_hawkeye.html">display</a> your data in CfRadial exchange format.</p>
 </div>
 </div>
 
@@ -186,11 +243,11 @@ you can use the following command to obtain the file as well:</p>
       <div class="bottomnav" role="navigation" aria-label="bottom navigation">
       
         <p>
-        «&#160;&#160;<a href="howtorun_radxprint.html">RadxPrint</a>
+        «&#160;&#160;<a href="RadxPrint.html">RadxPrint Parameter Descriptions</a>
         &#160;&#160;::&#160;&#160;
         <a class="uplink" href="docs.html">Contents</a>
         &#160;&#160;::&#160;&#160;
-        <a href="howtorun_HawkEye.html">HawkEye</a>&#160;&#160;»
+        <a href="RadxConvert.html">RadxConvert Parameter Descriptions</a>&#160;&#160;»
         </p>
 
       </div>

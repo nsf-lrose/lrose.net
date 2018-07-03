@@ -1,0 +1,1633 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>HawkEye Parameter Descriptions &#8212; NSF LROSE Blaze documentation</title>
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Radx2Grid" href="howtorun_radx2grid.html" />
+    <link rel="prev" title="HawkEye" href="howtorun_HawkEye.html" />
+<link href="_static/templatemo_lite.css" rel="stylesheet" type="text/css" />
+
+  </head><body>
+<div id="templatemo_wrapper">
+    <div id="templatemo_header">
+    	<div id="site_title"><a href="http://nsf-lrose.github.io">Lidar Radar Open Software Environment</a></div>
+        <div id="templatemo_menu">
+            <ul>
+                <li><a href="index.html" class="selected home">Home</a></li>
+                <li><a href="software.html" class="services">Software</a></li>
+                <li><a href="docs.html" class="gallery">Documentation</a></li>
+                <li class="last"><a href="help.html" class="news">Help</a></li>
+            </ul>
+        </div> <!-- end of templatemo_menu -->
+    </div>
+</div> <!-- END of templatemo_wrapper -->
+
+      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
+          <span>NSF LROSE Blaze documentation</span></a></h1>
+        <h2 class="heading"><span>HawkEye Parameter Descriptions</span></h2>
+      </div>
+      <div class="topnav" role="navigation" aria-label="top navigation">
+      
+        <p>
+        «&#160;&#160;<a href="howtorun_HawkEye.html">HawkEye</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="docs.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="howtorun_radx2grid.html">Radx2Grid</a>&#160;&#160;»
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="hawkeye-parameter-descriptions">
+<h1>HawkEye Parameter Descriptions<a class="headerlink" href="#hawkeye-parameter-descriptions" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p>HawkEye is the engineering display for the HAWK moments data.</p>
+<p>This is a C++ application using the QT GUI toolkit.</p>
+</div></blockquote>
+<div class="section" id="debugging-and-process-control">
+<h2>DEBUGGING AND PROCESS CONTROL<a class="headerlink" href="#debugging-and-process-control" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="debug">
+<h3>debug<a class="headerlink" href="#debug" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Debug option.</p>
+<p>If set, debug messages will be printed appropriately.</p>
+<p>Type: enum</p>
+</div></blockquote>
+<p>Options:</p>
+<ul class="simple">
+<li>DEBUG_OFF</li>
+<li>DEBUG_NORM</li>
+<li>DEBUG_VERBOSE</li>
+<li>DEBUG_EXTRA</li>
+</ul>
+<p><strong>debug = DEBUG_OFF;</strong></p>
+</div>
+<div class="section" id="check-ray-alloc">
+<h3>check_ray_alloc<a class="headerlink" href="#check-ray-alloc" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Print out checks on ray memory allocation.</p>
+<dl class="docutils">
+<dt>If TRUE, the app will keep track of the number of rays allocated and</dt>
+<dd>freed, and print out that information every 100 rays.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>check_ray_alloc = FALSE;</strong></p>
+</div>
+<div class="section" id="register-with-procmap">
+<h3>register_with_procmap<a class="headerlink" href="#register-with-procmap" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to register this process with the process mapper (procmap).</p>
+<dl class="docutils">
+<dt>If TRUE, every minute this process will register a heartbeat with</dt>
+<dd>procmap. If the process hangs, it will be restared by the
+auto_restarter.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>register_with_procmap = FALSE;</strong></p>
+</div>
+<div class="section" id="instance">
+<h3>instance<a class="headerlink" href="#instance" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Process instance.</p>
+<p>Used for registration with procmap.</p>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>instance = “test”;</strong></p>
+</div>
+</div>
+<div class="section" id="realtime-data-input">
+<h2>REALTIME DATA INPUT<a class="headerlink" href="#realtime-data-input" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="input-mode">
+<h3>input_mode<a class="headerlink" href="#input-mode" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Method for reading the input data.</p>
+<blockquote>
+<div>IWRF_FMQ_INPUT: read IWRF moments from an FMQ.
+IWRF_TCP_INPUT: read an IWRF moments stream from a TCP socket.
+SIMULATED_INPUT: internally-generated test pattern data.
+DSR_FMQ_INPUT: deprecated.</div></blockquote>
+<p>Type: enum</p>
+</div></blockquote>
+<p>Options:</p>
+<ul class="simple">
+<li>IWRF_FMQ_INPUT</li>
+<li>IWRF_TCP_INPUT</li>
+<li>SIMULATED_INPUT</li>
+<li>DSR_FMQ_INPUT</li>
+</ul>
+<p><strong>input_mode = IWRF_FMQ_INPUT;</strong></p>
+</div>
+<div class="section" id="input-fmq-url">
+<h3>input_fmq_url<a class="headerlink" href="#input-fmq-url" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="docutils">
+<dt>DSR_FMQ_INPUT or IWRF_FMQ_INPUT mode: input URL for moments data from</dt>
+<dd>an FMQ.</dd>
+<dt>Full url is of the form fmqp:://hostname:port:path. Path does not in</dt>
+<dd>lude the file extension.</dd>
+</dl>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>input_fmq_url = “/tmp/fmq/test”;</strong></p>
+</div>
+<div class="section" id="seek-to-start-of-fmq">
+<h3>seek_to_start_of_fmq<a class="headerlink" href="#seek-to-start-of-fmq" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to seek to the start of the input FMQ.</p>
+<dl class="docutils">
+<dt>If TRUE, the program will seek to the start of the fmq and read the</dt>
+<dd>entire contents at startup. If FALSE, it will read only new data as
+it arrives.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>seek_to_start_of_fmq = FALSE;</strong></p>
+</div>
+<div class="section" id="input-tcp-host">
+<h3>input_tcp_host<a class="headerlink" href="#input-tcp-host" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>IWRF_TCP_INPUT: name of host running IWRF moments server.</p>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>input_tcp_host = “localhost”;</strong></p>
+</div>
+<div class="section" id="input-tcp-port">
+<h3>input_tcp_port<a class="headerlink" href="#input-tcp-port" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>IWRF_TCP_INPUT: port for IWRF moments server.</p>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>input_tcp_port = 11000;</strong></p>
+</div>
+<div class="section" id="beam-queue-size">
+<h3>beam_queue_size<a class="headerlink" href="#beam-queue-size" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Size of the internal queue used to store beams.</p>
+<dl class="docutils">
+<dt>The reader runs in a separate thread, and stored the beams in a</dt>
+<dd>queue. The main thread then grabs the available beams from the queue
+as they become available.</dd>
+</dl>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>beam_queue_size = 400;</strong></p>
+</div>
+</div>
+<div class="section" id="archive-mode">
+<h2>ARCHIVE MODE<a class="headerlink" href="#archive-mode" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="begin-in-archive-mode">
+<h3>begin_in_archive_mode<a class="headerlink" href="#begin-in-archive-mode" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to begin in archive mode.</p>
+<dl class="docutils">
+<dt>If TRUE, the app will start up and read data from the</dt>
+<dd>archive_data_url, at the specified start time. If the start time is
+not set, the start time will be set to NOW.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>begin_in_archive_mode = FALSE;</strong></p>
+</div>
+<div class="section" id="archive-start-time">
+<h3>archive_start_time<a class="headerlink" href="#archive-start-time" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Start time for archive mode.</p>
+<p>In archive mode, data retrieval starts at this time.</p>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>archive_start_time = “1970 01 01 00 00 00”;</strong></p>
+</div>
+<div class="section" id="archive-time-span-secs">
+<h3>archive_time_span_secs<a class="headerlink" href="#archive-time-span-secs" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Time span in ARCHIVE mode (secs).</p>
+<p>Archive end time = archive_start_time + archive_time_span.</p>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>archive_time_span_secs = 3600;</strong></p>
+</div>
+<div class="section" id="archive-data-url">
+<h3>archive_data_url<a class="headerlink" href="#archive-data-url" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>URL for archive data files.</p>
+<p>This should point to a CfRadial moments data set.</p>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>archive_data_url = “/data/cfradial/kddc”;</strong></p>
+</div>
+</div>
+<div class="section" id="status-to-be-shown-in-gui">
+<h2>STATUS TO BE SHOWN IN GUI<a class="headerlink" href="#status-to-be-shown-in-gui" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="show-status-in-gui">
+<h3>show_status_in_gui<a class="headerlink" href="#show-status-in-gui" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Indicate which status items to show in GUI.</p>
+<dl class="docutils">
+<dt>These items are shown in the left panel in the GUI. Setting an item</dt>
+<dd>to false will hide it in the GUI.</dd>
+<dt>Type: struct</dt>
+<dd><dl class="first docutils">
+<dt>typedef struct {</dt>
+<dd>boolean azimuth;
+boolean elevation;
+boolean fixed_angle;
+boolean volume_number;
+boolean sweep_number;
+boolean n_samples;
+boolean n_gates;
+boolean gate_length;
+boolean pulse_width;
+boolean prf_mode;
+boolean prf;
+boolean nyquist;
+boolean max_range;
+boolean unambiguous_range;
+boolean measured_power_h;
+boolean measured_power_v;
+boolean scan_name;
+boolean scan_mode;
+boolean polarization_mode;
+boolean latitude;
+boolean longitude;
+boolean altitude;
+boolean altitude_rate;
+boolean sun_elevation;
+boolean sun_azimuth;
+boolean speed;
+boolean heading;
+boolean track;</dd>
+</dl>
+<p class="last">}</p>
+</dd>
+</dl>
+</div></blockquote>
+<p><strong>show_status_in_gui = {</strong></p>
+<p><strong>azimuth = TRUE,</strong></p>
+<p><strong>elevation = TRUE,</strong></p>
+<p><strong>fixed_angle = TRUE,</strong></p>
+<p><strong>volume_number = FALSE,</strong></p>
+<p><strong>sweep_number = TRUE,</strong></p>
+<p><strong>n_samples = TRUE,</strong></p>
+<p><strong>n_gates = TRUE,</strong></p>
+<p><strong>gate_length = TRUE,</strong></p>
+<p><strong>pulse_width = TRUE,</strong></p>
+<p><strong>prf_mode = TRUE,</strong></p>
+<p><strong>prf = TRUE,</strong></p>
+<p><strong>nyquist = TRUE,</strong></p>
+<p><strong>max_range = TRUE,</strong></p>
+<p><strong>unambiguous_range = TRUE,</strong></p>
+<p><strong>measured_power_h = FALSE,</strong></p>
+<p><strong>measured_power_v = FALSE,</strong></p>
+<p><strong>scan_name = FALSE,</strong></p>
+<p><strong>scan_mode = TRUE,</strong></p>
+<p><strong>polarization_mode = TRUE,</strong></p>
+<p><strong>latitude = TRUE,</strong></p>
+<p><strong>longitude = TRUE,</strong></p>
+<p><strong>altitude = TRUE,</strong></p>
+<p><strong>altitude_rate = FALSE,</strong></p>
+<p><strong>sun_elevation = TRUE,</strong></p>
+<p><strong>sun_azimuth = TRUE,</strong></p>
+<p><strong>speed = FALSE,</strong></p>
+<p><strong>heading = FALSE,</strong></p>
+<p><strong>track = FALSE</strong></p>
+<p><strong>};</strong></p>
+</div>
+</div>
+<div class="section" id="fields-to-be-displayed">
+<h2>FIELDS TO BE DISPLAYED<a class="headerlink" href="#fields-to-be-displayed" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="color-scale-dir">
+<h3>color_scale_dir<a class="headerlink" href="#color-scale-dir" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Directory for color scales.</p>
+<p>You can set this in 2 ways:</p>
+<ol class="loweralpha simple">
+<li>Set to the absolute path</li>
+</ol>
+<dl class="docutils">
+<dt>(b)Set as a path relative to the location of the application binary</dt>
+<dd>executable.</dd>
+</dl>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>color_scale_dir = “../share/color_scales”;</strong></p>
+</div>
+<div class="section" id="fields">
+<h3>fields<a class="headerlink" href="#fields" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Fields to be displayed.</p>
+<dl class="docutils">
+<dt>label: appears on the GUI. raw_name: unfiltered field name.</dt>
+<dd>filtered_name: field with clutter filter applied. units: units string
+for color scale. color_map: name of color map in color_scale_dir.
+shortcut: keyboard character for shortcut. Specified key will select
+raw field. Use ALT-key to get filtered field. .</dd>
+<dt>Type: struct</dt>
+<dd><dl class="first docutils">
+<dt>typedef struct {</dt>
+<dd>string label;
+string raw_name;
+string filtered_name;
+string units;
+string color_map;
+string shortcut;</dd>
+</dl>
+<p class="last">}</p>
+</dd>
+</dl>
+<p>1D array - variable length.</p>
+</div></blockquote>
+<p><strong>fields = {</strong></p>
+<p><strong>label = “DBZ”,</strong></p>
+<p><strong>raw_name = “DBZ”,</strong></p>
+<p><strong>filtered_name = “”,</strong></p>
+<p><strong>units = “dBZ”,</strong></p>
+<p><strong>color_map = “dbz.colors”,</strong></p>
+<p><strong>shortcut = “1”</strong></p>
+<p><strong>label = “REF”,</strong></p>
+<p><strong>raw_name = “REF”,</strong></p>
+<p><strong>filtered_name = “”,</strong></p>
+<p><strong>units = “dBZ”,</strong></p>
+<p><strong>color_map = “dbz.colors”,</strong></p>
+<p><strong>shortcut = “2”</strong></p>
+<p><strong>label = “VEL”,</strong></p>
+<p><strong>raw_name = “VEL”,</strong></p>
+<p><strong>filtered_name = “”,</strong></p>
+<p><strong>units = “m/s”,</strong></p>
+<p><strong>color_map = “vel.colors”,</strong></p>
+<p><strong>shortcut = “3”</strong></p>
+<p><strong>label = “WIDTH”,</strong></p>
+<p><strong>raw_name = “WIDTH”,</strong></p>
+<p><strong>filtered_name = “”,</strong></p>
+<p><strong>units = “m/s”,</strong></p>
+<p><strong>color_map = “width.colors”,</strong></p>
+<p><strong>shortcut = “4”</strong></p>
+<p><strong>label = “SW”,</strong></p>
+<p><strong>raw_name = “SW”,</strong></p>
+<p><strong>filtered_name = “”,</strong></p>
+<p><strong>units = “m/s”,</strong></p>
+<p><strong>color_map = “width.colors”,</strong></p>
+<p><strong>shortcut = “5”</strong></p>
+<p><strong>label = “ZDR”,</strong></p>
+<p><strong>raw_name = “ZDR”,</strong></p>
+<p><strong>filtered_name = “”,</strong></p>
+<p><strong>units = “dB”,</strong></p>
+<p><strong>color_map = “zdr.colors”,</strong></p>
+<p><strong>shortcut = “6”</strong></p>
+<p><strong>label = “PHIDP”,</strong></p>
+<p><strong>raw_name = “PHIDP”,</strong></p>
+<p><strong>filtered_name = “”,</strong></p>
+<p><strong>units = “deg”,</strong></p>
+<p><strong>color_map = “phidp.colors”,</strong></p>
+<p><strong>shortcut = “7”</strong></p>
+<p><strong>label = “RHOHV”,</strong></p>
+<p><strong>raw_name = “RHOHV”,</strong></p>
+<p><strong>filtered_name = “”,</strong></p>
+<p><strong>units = “unitless”,</strong></p>
+<p><strong>color_map = “rhohv.colors”,</strong></p>
+<p><strong>shortcut = “8”</strong></p>
+<p><strong>};</strong></p>
+</div>
+<div class="section" id="background-render-mins">
+<h3>background_render_mins<a class="headerlink" href="#background-render-mins" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Background rendering time period in minutes.</p>
+<dl class="docutils">
+<dt>Any field which is viewed will continue to be rendered in the</dt>
+<dd>background for this number of minutes.</dd>
+</dl>
+<p>Minimum val: 0</p>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>background_render_mins = 2;</strong></p>
+</div>
+<div class="section" id="use-field-label-in-title">
+<h3>use_field_label_in_title<a class="headerlink" href="#use-field-label-in-title" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to use field label in the display title.</p>
+<dl class="docutils">
+<dt>If TRUE, the label will be used in the title. If FALSE, the raw_name</dt>
+<dd>or filtered name will be used.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>use_field_label_in_title = FALSE;</strong></p>
+</div>
+</div>
+<div class="section" id="initial-max-range">
+<h2>INITIAL MAX RANGE<a class="headerlink" href="#initial-max-range" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="max-range-km">
+<h3>max_range_km<a class="headerlink" href="#max-range-km" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Max range for the display (km).</p>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>max_range_km = 225;</strong></p>
+</div>
+</div>
+<div class="section" id="display-type">
+<h2>DISPLAY TYPE<a class="headerlink" href="#display-type" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="display-mode">
+<h3>display_mode<a class="headerlink" href="#display-mode" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Main display mode.</p>
+<blockquote>
+<div><blockquote>
+<div>POLAR_DISPLAY - normal PPI and RHI display.     BSCAN_DISPLAY - BSCAN</div></blockquote>
+<p>mode.</p>
+</div></blockquote>
+<p>Type: enum</p>
+</div></blockquote>
+<p>Options:</p>
+<ul class="simple">
+<li>POLAR_DISPLAY</li>
+<li>BSCAN_DISPLAY</li>
+</ul>
+<p><strong>display_mode = POLAR_DISPLAY;</strong></p>
+</div>
+</div>
+<div class="section" id="names-and-labels">
+<h2>NAMES AND LABELS<a class="headerlink" href="#names-and-labels" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="override-radar-name">
+<h3>override_radar_name<a class="headerlink" href="#override-radar-name" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to override radar name in the data.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>override_radar_name = FALSE;</strong></p>
+</div>
+<div class="section" id="radar-name">
+<h3>radar_name<a class="headerlink" href="#radar-name" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Radar name if overridden.</p>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>radar_name = “SPOL”;</strong></p>
+</div>
+<div class="section" id="display-site-name">
+<h3>display_site_name<a class="headerlink" href="#display-site-name" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to display the site name in the left panel.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>display_site_name = FALSE;</strong></p>
+</div>
+<div class="section" id="override-site-name">
+<h3>override_site_name<a class="headerlink" href="#override-site-name" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to override site name in the data.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>override_site_name = FALSE;</strong></p>
+</div>
+<div class="section" id="site-name">
+<h3>site_name<a class="headerlink" href="#site-name" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Site name if overridden.</p>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>site_name = “MARSHALL”;</strong></p>
+</div>
+</div>
+<div class="section" id="window-dimensions-and-plotting-details">
+<h2>WINDOW DIMENSIONS AND PLOTTING DETAILS<a class="headerlink" href="#window-dimensions-and-plotting-details" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="main-window-width">
+<h3>main_window_width<a class="headerlink" href="#main-window-width" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Startup width of main window (pixels).</p>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>main_window_width = 1050;</strong></p>
+</div>
+<div class="section" id="main-window-height">
+<h3>main_window_height<a class="headerlink" href="#main-window-height" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Startup height of main window (pixels).</p>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>main_window_height = 635;</strong></p>
+</div>
+<div class="section" id="main-window-start-x">
+<h3>main_window_start_x<a class="headerlink" href="#main-window-start-x" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Startup X for main window (pixels).</p>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>main_window_start_x = 0;</strong></p>
+</div>
+<div class="section" id="main-window-start-y">
+<h3>main_window_start_y<a class="headerlink" href="#main-window-start-y" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Startup Y for main window (pixels).</p>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>main_window_start_y = 0;</strong></p>
+</div>
+<div class="section" id="color-scale-width">
+<h3>color_scale_width<a class="headerlink" href="#color-scale-width" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Width of color scale (pixels).</p>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>color_scale_width = 40;</strong></p>
+</div>
+<div class="section" id="label-font-size">
+<h3>label_font_size<a class="headerlink" href="#label-font-size" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Basic font size for labels (pixels).</p>
+<p>Some of the labels are scaled relative to this size.</p>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>label_font_size = 12;</strong></p>
+</div>
+<div class="section" id="background-color">
+<h3>background_color<a class="headerlink" href="#background-color" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Color of main display background.</p>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>background_color = “black”;</strong></p>
+</div>
+<div class="section" id="grid-and-range-ring-color">
+<h3>grid_and_range_ring_color<a class="headerlink" href="#grid-and-range-ring-color" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Color of grids and range rings.</p>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>grid_and_range_ring_color = “white”;</strong></p>
+</div>
+<div class="section" id="range-ring-label-font-size">
+<h3>range_ring_label_font_size<a class="headerlink" href="#range-ring-label-font-size" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Font size for labels on range rings (pixels).</p>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>range_ring_label_font_size = 8;</strong></p>
+</div>
+<div class="section" id="click-cross-size">
+<h3>click_cross_size<a class="headerlink" href="#click-cross-size" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Size of cross at click point (pixels).</p>
+<p>Size of cross drawn at click point, to select data.</p>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>click_cross_size = 11;</strong></p>
+</div>
+</div>
+<div class="section" id="ppi-mode-display">
+<h2>PPI MODE DISPLAY<a class="headerlink" href="#ppi-mode-display" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="ppi-display-type">
+<h3>ppi_display_type<a class="headerlink" href="#ppi-display-type" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Type of display to use for the PPI window.</p>
+<blockquote>
+<div><blockquote>
+<div>PPI_FULL - Display the full 360 degrees of the PPI. This is the</div></blockquote>
+<dl class="docutils">
+<dt>default.</dt>
+<dd>PPI_AIRBORN - Use the airborn radar PPI display. This display shows</dd>
+</dl>
+<p>just the 180 degrees of radar pointing forward from the nose of the
+plane.</p>
+</div></blockquote>
+<p>Type: enum</p>
+</div></blockquote>
+<p>Options:</p>
+<ul class="simple">
+<li>PPI_FULL</li>
+<li>PPI_AIRBORNE</li>
+</ul>
+<p><strong>ppi_display_type = PPI_FULL;</strong></p>
+</div>
+<div class="section" id="ppi-aspect-ratio">
+<h3>ppi_aspect_ratio<a class="headerlink" href="#ppi-aspect-ratio" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Aspect ratio (width/height) of PPI window.</p>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>ppi_aspect_ratio = 1;</strong></p>
+</div>
+<div class="section" id="ppi-grids-on-at-startup">
+<h3>ppi_grids_on_at_startup<a class="headerlink" href="#ppi-grids-on-at-startup" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Set PPI grids overlay on at startup.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>ppi_grids_on_at_startup = FALSE;</strong></p>
+</div>
+<div class="section" id="ppi-range-rings-on-at-startup">
+<h3>ppi_range_rings_on_at_startup<a class="headerlink" href="#ppi-range-rings-on-at-startup" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Set PPI range rings overlay on at startup.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>ppi_range_rings_on_at_startup = TRUE;</strong></p>
+</div>
+<div class="section" id="ppi-azimuth-lines-on-at-startup">
+<h3>ppi_azimuth_lines_on_at_startup<a class="headerlink" href="#ppi-azimuth-lines-on-at-startup" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Set PPI azimuth lines overlay on at startup.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>ppi_azimuth_lines_on_at_startup = TRUE;</strong></p>
+</div>
+<div class="section" id="ppi-main-legend-pos">
+<h3>ppi_main_legend_pos<a class="headerlink" href="#ppi-main-legend-pos" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Position of main legend in the PPI plot window.</p>
+<p>This include time, field name and elevation angle.</p>
+<p>Type: enum</p>
+</div></blockquote>
+<p>Options:</p>
+<ul class="simple">
+<li>LEGEND_TOP_LEFT</li>
+<li>LEGEND_TOP_RIGHT</li>
+<li>LEGEND_BOTTOM_LEFT</li>
+<li>LEGEND_BOTTOM_RIGHT</li>
+</ul>
+<p><strong>ppi_main_legend_pos = LEGEND_TOP_LEFT;</strong></p>
+</div>
+</div>
+<div class="section" id="rhi-mode-display">
+<h2>RHI MODE DISPLAY<a class="headerlink" href="#rhi-mode-display" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="rhi-window-width">
+<h3>rhi_window_width<a class="headerlink" href="#rhi-window-width" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Startup width of RHI window (pixels).</p>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>rhi_window_width = 500;</strong></p>
+</div>
+<div class="section" id="rhi-window-height">
+<h3>rhi_window_height<a class="headerlink" href="#rhi-window-height" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Startup height of RHI window (pixels).</p>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>rhi_window_height = 500;</strong></p>
+</div>
+<div class="section" id="rhi-window-start-x">
+<h3>rhi_window_start_x<a class="headerlink" href="#rhi-window-start-x" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Startup X for RHI window (pixels).</p>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>rhi_window_start_x = 1100;</strong></p>
+</div>
+<div class="section" id="rhi-window-start-y">
+<h3>rhi_window_start_y<a class="headerlink" href="#rhi-window-start-y" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Startup Y for RHI window (pixels).</p>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>rhi_window_start_y = 0;</strong></p>
+</div>
+<div class="section" id="rhi-top-margin">
+<h3>rhi_top_margin<a class="headerlink" href="#rhi-top-margin" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Height of top margin in RHI mode (pixels).</p>
+<p>Titles go in the top margin.</p>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>rhi_top_margin = 20;</strong></p>
+</div>
+<div class="section" id="rhi-bottom-margin">
+<h3>rhi_bottom_margin<a class="headerlink" href="#rhi-bottom-margin" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Height of bottom margin in RHI mode (pixels).</p>
+<p>Time scale goes in the bottom margin.</p>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>rhi_bottom_margin = 20;</strong></p>
+</div>
+<div class="section" id="rhi-left-margin">
+<h3>rhi_left_margin<a class="headerlink" href="#rhi-left-margin" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Width of left margin in RHI mode (pixels).</p>
+<p>Height scale goes in the left margin.</p>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>rhi_left_margin = 20;</strong></p>
+</div>
+<div class="section" id="rhi-right-margin">
+<h3>rhi_right_margin<a class="headerlink" href="#rhi-right-margin" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Width of right margin in RHI mode (pixels).</p>
+<p>Height scale goes in the right margin.</p>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>rhi_right_margin = 20;</strong></p>
+</div>
+<div class="section" id="rhi-label-font-size">
+<h3>rhi_label_font_size<a class="headerlink" href="#rhi-label-font-size" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Font size for labels on range rings (pixels).</p>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>rhi_label_font_size = 8;</strong></p>
+</div>
+<div class="section" id="rhi-axis-tick-len">
+<h3>rhi_axis_tick_len<a class="headerlink" href="#rhi-axis-tick-len" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Length of ticks on axes (pixels).</p>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>rhi_axis_tick_len = 7;</strong></p>
+</div>
+<div class="section" id="rhi-n-ticks-ideal">
+<h3>rhi_n_ticks_ideal<a class="headerlink" href="#rhi-n-ticks-ideal" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Ideal number of ticks on axes.</p>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>rhi_n_ticks_ideal = 7;</strong></p>
+</div>
+<div class="section" id="rhi-text-margin">
+<h3>rhi_text_margin<a class="headerlink" href="#rhi-text-margin" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Margin around some text (pixels).</p>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>rhi_text_margin = 5;</strong></p>
+</div>
+<div class="section" id="rhi-display-180-degrees">
+<h3>rhi_display_180_degrees<a class="headerlink" href="#rhi-display-180-degrees" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="docutils">
+<dt>Flag indicating to display full 180 degrees in RHI window. If set to</dt>
+<dd>false, the RHI window will just display 90 degrees of the RHI.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>rhi_display_180_degrees = FALSE;</strong></p>
+</div>
+<div class="section" id="rhi-aspect-ratio">
+<h3>rhi_aspect_ratio<a class="headerlink" href="#rhi-aspect-ratio" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Aspect ratio (width/height) of RHI window.</p>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>rhi_aspect_ratio = 1;</strong></p>
+</div>
+<div class="section" id="rhi-max-height-km">
+<h3>rhi_max_height_km<a class="headerlink" href="#rhi-max-height-km" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Max height of data in RHI window (km).</p>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>rhi_max_height_km = 25;</strong></p>
+</div>
+<div class="section" id="rhi-color-scale-width">
+<h3>rhi_color_scale_width<a class="headerlink" href="#rhi-color-scale-width" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Width of color scale for RHI window (pixels).</p>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>rhi_color_scale_width = 40;</strong></p>
+</div>
+<div class="section" id="rhi-grids-on-at-startup">
+<h3>rhi_grids_on_at_startup<a class="headerlink" href="#rhi-grids-on-at-startup" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Set RHI grids overlay on at startup.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>rhi_grids_on_at_startup = TRUE;</strong></p>
+</div>
+<div class="section" id="rhi-range-rings-on-at-startup">
+<h3>rhi_range_rings_on_at_startup<a class="headerlink" href="#rhi-range-rings-on-at-startup" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Set RHI range rings overlay on at startup.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>rhi_range_rings_on_at_startup = TRUE;</strong></p>
+</div>
+<div class="section" id="rhi-elevation-lines-on-at-startup">
+<h3>rhi_elevation_lines_on_at_startup<a class="headerlink" href="#rhi-elevation-lines-on-at-startup" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Set RHI elevation lines overlay on at startup.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>rhi_elevation_lines_on_at_startup = FALSE;</strong></p>
+</div>
+<div class="section" id="rhi-main-legend-pos">
+<h3>rhi_main_legend_pos<a class="headerlink" href="#rhi-main-legend-pos" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Position of main legend in the RHI plot window.</p>
+<p>This include time, field name and elevation angle.</p>
+<p>Type: enum</p>
+</div></blockquote>
+<p>Options:</p>
+<ul class="simple">
+<li>LEGEND_TOP_LEFT</li>
+<li>LEGEND_TOP_RIGHT</li>
+<li>LEGEND_BOTTOM_LEFT</li>
+<li>LEGEND_BOTTOM_RIGHT</li>
+</ul>
+<p><strong>rhi_main_legend_pos = LEGEND_TOP_LEFT;</strong></p>
+</div>
+<div class="section" id="rhi-beam-queue-size">
+<h3>rhi_beam_queue_size<a class="headerlink" href="#rhi-beam-queue-size" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Size of the queue for RHI beams.</p>
+<p>After the queue reaches this size, older beams are discarded.</p>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>rhi_beam_queue_size = 360;</strong></p>
+</div>
+</div>
+<div class="section" id="bscan-time-limits">
+<h2>BSCAN TIME LIMITS<a class="headerlink" href="#bscan-time-limits" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="bscan-time-span-secs">
+<h3>bscan_time_span_secs<a class="headerlink" href="#bscan-time-span-secs" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Number of seconds in BSCAN display.</p>
+<dl class="docutils">
+<dt>In REALTIME mode, when we reach the right-hand side of the display,</dt>
+<dd>the existing plot will be moved left to make room for more data.</dd>
+</dl>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>bscan_time_span_secs = 60;</strong></p>
+</div>
+<div class="section" id="bscan-truncate-start-time">
+<h3>bscan_truncate_start_time<a class="headerlink" href="#bscan-truncate-start-time" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to truncate the plot start time to even seconds.</p>
+<p>If true, we truncate the start time to the previous second.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>bscan_truncate_start_time = FALSE;</strong></p>
+</div>
+<div class="section" id="bscan-subsec-precision">
+<h3>bscan_subsec_precision<a class="headerlink" href="#bscan-subsec-precision" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Precision of subseconds in time labels.</p>
+<dl class="docutils">
+<dt>Number of decimals of precision in time labels. Set to 0 for times in</dt>
+<dd>integer seconds.</dd>
+</dl>
+<p>Minimum val: 0
+Maximum val: 9</p>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>bscan_subsec_precision = 3;</strong></p>
+</div>
+</div>
+<div class="section" id="bscan-realtime-controls">
+<h2>BSCAN REALTIME CONTROLS<a class="headerlink" href="#bscan-realtime-controls" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="bscan-realtime-fraction-saved">
+<h3>bscan_realtime_fraction_saved<a class="headerlink" href="#bscan-realtime-fraction-saved" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="docutils">
+<dt>What fraction of the existing data to save when moving the plot to</dt>
+<dd>the left.</dd>
+<dt>When we reach the right-hand side of the display, we need to move the</dt>
+<dd>plot to the left. This is the fraction of the plot that is saved
+after the move has taken place.</dd>
+</dl>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>bscan_realtime_fraction_saved = 0.5;</strong></p>
+</div>
+<div class="section" id="bscan-min-secs-between-reading-beams">
+<h3>bscan_min_secs_between_reading_beams<a class="headerlink" href="#bscan-min-secs-between-reading-beams" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Min time between incoming beams (secs).</p>
+<dl class="docutils">
+<dt>If beams arrive too fast, we discard some so that the time between</dt>
+<dd>the beams is at least this long.</dd>
+</dl>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>bscan_min_secs_between_reading_beams = 0.01;</strong></p>
+</div>
+<div class="section" id="bscan-min-secs-between-rendering-beams">
+<h3>bscan_min_secs_between_rendering_beams<a class="headerlink" href="#bscan-min-secs-between-rendering-beams" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Min time between rendering (secs).</p>
+<dl class="docutils">
+<dt>Setting this higher makes the display less smooth, but prevents the</dt>
+<dd>display from taking up too much CPU and/or GPU.</dd>
+</dl>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>bscan_min_secs_between_rendering_beams = 0;</strong></p>
+</div>
+</div>
+<div class="section" id="bscan-range-and-altitude-limits">
+<h2>BSCAN RANGE AND ALTITUDE LIMITS<a class="headerlink" href="#bscan-range-and-altitude-limits" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="bscan-specify-range-limits">
+<h3>bscan_specify_range_limits<a class="headerlink" href="#bscan-specify-range-limits" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Specify the min and max range when in range mode.</p>
+<p>If false, we will use the start range and max range in the data.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>bscan_specify_range_limits = TRUE;</strong></p>
+</div>
+<div class="section" id="bscan-min-range-km">
+<h3>bscan_min_range_km<a class="headerlink" href="#bscan-min-range-km" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Min range to be plotted (km).</p>
+<p>Used if ‘bscan_specify_range_limits’ is true.</p>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>bscan_min_range_km = 0;</strong></p>
+</div>
+<div class="section" id="bscan-max-range-km">
+<h3>bscan_max_range_km<a class="headerlink" href="#bscan-max-range-km" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Max range to be plotted (km).</p>
+<p>Used if ‘bscan_specify_range_limits’ is true.</p>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>bscan_max_range_km = 25;</strong></p>
+</div>
+<div class="section" id="bscan-min-altitude-km">
+<h3>bscan_min_altitude_km<a class="headerlink" href="#bscan-min-altitude-km" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Min altitude plotted (km).</p>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>bscan_min_altitude_km = -0.5;</strong></p>
+</div>
+<div class="section" id="bscan-max-altitude-km">
+<h3>bscan_max_altitude_km<a class="headerlink" href="#bscan-max-altitude-km" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Max altitude plotted (km).</p>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>bscan_max_altitude_km = 25;</strong></p>
+</div>
+<div class="section" id="bscan-altitude-in-feet">
+<h3>bscan_altitude_in_feet<a class="headerlink" href="#bscan-altitude-in-feet" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Use feet for altitude units?.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>bscan_altitude_in_feet = FALSE;</strong></p>
+</div>
+<div class="section" id="bscan-range-in-feet">
+<h3>bscan_range_in_feet<a class="headerlink" href="#bscan-range-in-feet" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Use feet for range units?.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>bscan_range_in_feet = FALSE;</strong></p>
+</div>
+<div class="section" id="bscan-range-axis-mode">
+<h3>bscan_range_axis_mode<a class="headerlink" href="#bscan-range-axis-mode" title="Permalink to this headline">¶</a></h3>
+<p>Options:</p>
+<ul class="simple">
+<li>RANGE_AXIS_UP - instrument is at the bottom, range plotted positively</li>
+<li>upwards. RANGE_AXIS_DOWN: instrument is at the top, range plotted</li>
+<li>downwards. RANGE_AXIS_ALTITUDE: vertical scale represents the</li>
+<li>Type: enum</li>
+</ul>
+<p>Options:</p>
+<ul class="simple">
+<li>RANGE_AXIS_UP</li>
+<li>RANGE_AXIS_DOWN</li>
+<li>RANGE_AXIS_ALTITUDE</li>
+</ul>
+<p><strong>bscan_range_axis_mode = RANGE_AXIS_ALTITUDE;</strong></p>
+</div>
+</div>
+<div class="section" id="bscan-censor-data-below-surface">
+<h2>BSCAN CENSOR DATA BELOW SURFACE<a class="headerlink" href="#bscan-censor-data-below-surface" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>bscan_censor_data_below_surface<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to censor data below the measured surface.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>bscan_censor_data_below_surface = FALSE;</strong></p>
+</div>
+<div class="section" id="bscan-surface-field">
+<h3>bscan_surface_field<a class="headerlink" href="#bscan-surface-field" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Name of field used to identify the surface from the data.</p>
+<dl class="docutils">
+<dt>The surface will be identified at the gate with the maximum value in</dt>
+<dd>this field.</dd>
+</dl>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>bscan_surface_field = “DBZ”;</strong></p>
+</div>
+<div class="section" id="bscan-min-range-to-surface-km">
+<h3>bscan_min_range_to_surface_km<a class="headerlink" href="#bscan-min-range-to-surface-km" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Minumum range to the surface (km).</p>
+<p>We will search for the surface echo in the gates beyound this range.</p>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>bscan_min_range_to_surface_km = 0.5;</strong></p>
+</div>
+<div class="section" id="bscan-surface-range-margin-km">
+<h3>bscan_surface_range_margin_km<a class="headerlink" href="#bscan-surface-range-margin-km" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Margin of data plotted beyond the surface (km).</p>
+<dl class="docutils">
+<dt>We will censor the data beyond the surface gate, plus this range</dt>
+<dd>margin.</dd>
+</dl>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>bscan_surface_range_margin_km = 0.2;</strong></p>
+</div>
+<div class="section" id="bscan-max-field-val-below-surface">
+<h3>bscan_max_field_val_below_surface<a class="headerlink" href="#bscan-max-field-val-below-surface" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Maximum value of the surface field, below the measured surface.</p>
+<dl class="docutils">
+<dt>After finding the range to the surface, we inspect the surface_field</dt>
+<dd>values below the surface. If we find values that exceed this
+parameter, we conclude that the surface cannot be reliably found.</dd>
+</dl>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>bscan_max_field_val_below_surface = 5;</strong></p>
+</div>
+</div>
+<div class="section" id="bscan-margins">
+<h2>BSCAN MARGINS<a class="headerlink" href="#bscan-margins" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="bscan-top-margin">
+<h3>bscan_top_margin<a class="headerlink" href="#bscan-top-margin" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Height of top margin in BSCAN mode (pixels).</p>
+<p>Titles go in the top margin.</p>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>bscan_top_margin = 40;</strong></p>
+</div>
+<div class="section" id="bscan-bottom-margin">
+<h3>bscan_bottom_margin<a class="headerlink" href="#bscan-bottom-margin" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Height of bottom margin in BSCAN mode (pixels).</p>
+<p>Time scale goes in the bottom margin.</p>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>bscan_bottom_margin = 45;</strong></p>
+</div>
+<div class="section" id="bscan-left-margin">
+<h3>bscan_left_margin<a class="headerlink" href="#bscan-left-margin" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Width of left margin in BSCAN mode (pixels).</p>
+<p>Height scale goes in the left margin.</p>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>bscan_left_margin = 50;</strong></p>
+</div>
+<div class="section" id="bscan-right-margin">
+<h3>bscan_right_margin<a class="headerlink" href="#bscan-right-margin" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Width of right margin in BSCAN mode (pixels).</p>
+<p>Height scale goes in the right margin.</p>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>bscan_right_margin = 40;</strong></p>
+</div>
+<div class="section" id="bscan-axis-tick-len">
+<h3>bscan_axis_tick_len<a class="headerlink" href="#bscan-axis-tick-len" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Length of ticks on axes (pixels).</p>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>bscan_axis_tick_len = 6;</strong></p>
+</div>
+<div class="section" id="bscan-n-ticks-ideal">
+<h3>bscan_n_ticks_ideal<a class="headerlink" href="#bscan-n-ticks-ideal" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Ideal number of ticks on axes.</p>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>bscan_n_ticks_ideal = 10;</strong></p>
+</div>
+<div class="section" id="bscan-text-margin">
+<h3>bscan_text_margin<a class="headerlink" href="#bscan-text-margin" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Margin around some text (pixels).</p>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>bscan_text_margin = 5;</strong></p>
+</div>
+</div>
+<div class="section" id="bscan-titles-labels-and-axes">
+<h2>BSCAN TITLES, LABELS AND AXES<a class="headerlink" href="#bscan-titles-labels-and-axes" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="bscan-title-font-size">
+<h3>bscan_title_font_size<a class="headerlink" href="#bscan-title-font-size" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Font size of center title (pixels).</p>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>bscan_title_font_size = 12;</strong></p>
+</div>
+<div class="section" id="bscan-axis-label-font-size">
+<h3>bscan_axis_label_font_size<a class="headerlink" href="#bscan-axis-label-font-size" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Font size of axis labels in bscan (pixels).</p>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>bscan_axis_label_font_size = 10;</strong></p>
+</div>
+<div class="section" id="bscan-axis-values-font-size">
+<h3>bscan_axis_values_font_size<a class="headerlink" href="#bscan-axis-values-font-size" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Font size of axis values (pixels).</p>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>bscan_axis_values_font_size = 8;</strong></p>
+</div>
+<div class="section" id="bscan-axes-color">
+<h3>bscan_axes_color<a class="headerlink" href="#bscan-axes-color" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Color of axes in bscan.</p>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>bscan_axes_color = “white”;</strong></p>
+</div>
+<div class="section" id="bscan-grid-color">
+<h3>bscan_grid_color<a class="headerlink" href="#bscan-grid-color" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Color of grid lines on bscan.</p>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>bscan_grid_color = “gray”;</strong></p>
+</div>
+<div class="section" id="bscan-labels-color">
+<h3>bscan_labels_color<a class="headerlink" href="#bscan-labels-color" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Color of labels in bscan.</p>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>bscan_labels_color = “white”;</strong></p>
+</div>
+<div class="section" id="bscan-draw-time-grid-lines">
+<h3>bscan_draw_time_grid_lines<a class="headerlink" href="#bscan-draw-time-grid-lines" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to draw grid lines across plot at regular time intervals.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>bscan_draw_time_grid_lines = TRUE;</strong></p>
+</div>
+<div class="section" id="bscan-draw-range-grid-lines">
+<h3>bscan_draw_range_grid_lines<a class="headerlink" href="#bscan-draw-range-grid-lines" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to draw grid lines across plot at regular range intervals.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>bscan_draw_range_grid_lines = TRUE;</strong></p>
+</div>
+<div class="section" id="bscan-draw-instrument-height-line">
+<h3>bscan_draw_instrument_height_line<a class="headerlink" href="#bscan-draw-instrument-height-line" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to draw a line for the instrument location.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>bscan_draw_instrument_height_line = TRUE;</strong></p>
+</div>
+<div class="section" id="bscan-instrument-height-color">
+<h3>bscan_instrument_height_color<a class="headerlink" href="#bscan-instrument-height-color" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Color of instrument height line in ALTITUDE plot.</p>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>bscan_instrument_height_color = “white”;</strong></p>
+</div>
+</div>
+<div class="section" id="distance-scale">
+<h2>DISTANCE SCALE<a class="headerlink" href="#distance-scale" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="bscan-add-distance-to-time-axis">
+<h3>bscan_add_distance_to_time_axis<a class="headerlink" href="#bscan-add-distance-to-time-axis" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to plot distance as well as time on the time axis.</p>
+<dl class="docutils">
+<dt>If true, extra tick marks will show the distance in km along the time</dt>
+<dd>axis, in addition to the time.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>bscan_add_distance_to_time_axis = TRUE;</strong></p>
+</div>
+<div class="section" id="bscan-n-segments-for-computing-distance">
+<h3>bscan_n_segments_for_computing_distance<a class="headerlink" href="#bscan-n-segments-for-computing-distance" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Number of segments to be used for computing distance.</p>
+<dl class="docutils">
+<dt>We divide the rays into this number of segments and then compute the</dt>
+<dd>distance travelled during each segment using the change in lat/lon
+position. We keep the number of segments reasonably small to avoid
+unnecessary CPU usage.</dd>
+</dl>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>bscan_n_segments_for_computing_distance = 50;</strong></p>
+</div>
+</div>
+<div class="section" id="bscan-legends">
+<h2>BSCAN LEGENDS<a class="headerlink" href="#bscan-legends" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="bscan-plot-starting-latlon-as-legend">
+<h3>bscan_plot_starting_latlon_as_legend<a class="headerlink" href="#bscan-plot-starting-latlon-as-legend" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to plot the starting lat/lon position as a legend.</p>
+<p>This helps in geolocating the data from a mobile system.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>bscan_plot_starting_latlon_as_legend = TRUE;</strong></p>
+</div>
+<div class="section" id="bscan-starting-latlon-legend-pos">
+<h3>bscan_starting_latlon_legend_pos<a class="headerlink" href="#bscan-starting-latlon-legend-pos" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Position of lat/lon legend in plot.</p>
+<dl class="docutils">
+<dt>The starting latitude/longitude will be plotted as a legend in the</dt>
+<dd>location specified. See ‘bscan_plot_starting_latlon_as_legend’.</dd>
+</dl>
+<p>Type: enum</p>
+</div></blockquote>
+<p>Options:</p>
+<ul class="simple">
+<li>LEGEND_TOP_LEFT</li>
+<li>LEGEND_TOP_RIGHT</li>
+<li>LEGEND_BOTTOM_LEFT</li>
+<li>LEGEND_BOTTOM_RIGHT</li>
+</ul>
+<p><strong>bscan_starting_latlon_legend_pos = LEGEND_TOP_LEFT;</strong></p>
+</div>
+<div class="section" id="bscan-plot-mean-track-and-speed-as-legend">
+<h3>bscan_plot_mean_track_and_speed_as_legend<a class="headerlink" href="#bscan-plot-mean-track-and-speed-as-legend" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to plot the mean track and speed in a legend.</p>
+<p>This helps in geolocating the data from a mobile system.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>bscan_plot_mean_track_and_speed_as_legend = TRUE;</strong></p>
+</div>
+<div class="section" id="bscan-mean-track-and-speed-legend-pos">
+<h3>bscan_mean_track_and_speed_legend_pos<a class="headerlink" href="#bscan-mean-track-and-speed-legend-pos" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Position of track/speed legend in plot.</p>
+<dl class="docutils">
+<dt>The mean track and speed will be plotted as a legend in the location</dt>
+<dd>specified. See ‘bscan_plot_track_and_speed_as_legend’.</dd>
+</dl>
+<p>Type: enum</p>
+</div></blockquote>
+<p>Options:</p>
+<ul class="simple">
+<li>LEGEND_TOP_LEFT</li>
+<li>LEGEND_TOP_RIGHT</li>
+<li>LEGEND_BOTTOM_LEFT</li>
+<li>LEGEND_BOTTOM_RIGHT</li>
+</ul>
+<p><strong>bscan_mean_track_and_speed_legend_pos = LEGEND_TOP_RIGHT;</strong></p>
+</div>
+</div>
+<div class="section" id="bscan-dwell-controls">
+<h2>BSCAN DWELL CONTROLS<a class="headerlink" href="#bscan-dwell-controls" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="bscan-archive-dwell-auto">
+<h3>bscan_archive_dwell_auto<a class="headerlink" href="#bscan-archive-dwell-auto" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Compute dwell from image size and time range.</p>
+<dl class="docutils">
+<dt>If TRUE, we compute the optimal dwell so that there will be</dt>
+<dd>approximately 1 dwell for each pixel in the resulting image. If
+FALSE, the dwell is specified below.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>bscan_archive_dwell_auto = TRUE;</strong></p>
+</div>
+<div class="section" id="bscan-archive-dwell-secs">
+<h3>bscan_archive_dwell_secs<a class="headerlink" href="#bscan-archive-dwell-secs" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Specified dwell time for archive mode (secs).</p>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>bscan_archive_dwell_secs = 0.1;</strong></p>
+</div>
+<div class="section" id="bscan-dwell-stats">
+<h3>bscan_dwell_stats<a class="headerlink" href="#bscan-dwell-stats" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Method for computing stats on the dwell.</p>
+<dl class="docutils">
+<dt>Applies to READ_RAYS_IN_INTERVAL mode. MIDDLE refers to the middle</dt>
+<dd>ray in the dwell sequence.</dd>
+</dl>
+<p>Type: enum</p>
+</div></blockquote>
+<p>Options:</p>
+<ul class="simple">
+<li>DWELL_STATS_MEAN</li>
+<li>DWELL_STATS_MEDIAN</li>
+<li>DWELL_STATS_MAXIMUM</li>
+<li>DWELL_STATS_MINIMUM</li>
+<li>DWELL_STATS_MIDDLE</li>
+</ul>
+<p><strong>bscan_dwell_stats = DWELL_STATS_MIDDLE;</strong></p>
+</div>
+</div>
+<div class="section" id="saving-images-to-file">
+<h2>SAVING IMAGES TO FILE<a class="headerlink" href="#saving-images-to-file" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="docutils">
+<dt>In creating files for the field catalog, the file name is of the</dt>
+<dd><p class="first">form:</p>
+<blockquote class="last">
+<div>category.platform.YYYYMMDDHHmm.product_name.ext</div></blockquote>
+</dd>
+<dt>The following parameters control the output directory, and the</dt>
+<dd>construction of the file name.</dd>
+</dl>
+</div></blockquote>
+<div class="section" id="images-output-dir">
+<h3>images_output_dir<a class="headerlink" href="#images-output-dir" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Output directory for images generated by this app.</p>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>images_output_dir = “/tmp/images/HawkEye”;</strong></p>
+</div>
+<div class="section" id="images-write-to-day-dir">
+<h3>images_write_to_day_dir<a class="headerlink" href="#images-write-to-day-dir" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to create a subdirectory for each day.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>images_write_to_day_dir = TRUE;</strong></p>
+</div>
+<div class="section" id="images-file-name-category">
+<h3>images_file_name_category<a class="headerlink" href="#images-file-name-category" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Set the category string.</p>
+<p>If empty, no category will be included.</p>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>images_file_name_category = “radar”;</strong></p>
+</div>
+<div class="section" id="images-file-name-platform">
+<h3>images_file_name_platform<a class="headerlink" href="#images-file-name-platform" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Set the platform string.</p>
+<p>If empty, no platform will be included.</p>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>images_file_name_platform = “NSF_NCAR_GV_HCR”;</strong></p>
+</div>
+<div class="section" id="images-file-name-extension">
+<h3>images_file_name_extension<a class="headerlink" href="#images-file-name-extension" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="docutils">
+<dt>Set the extension string. This also governs the file format. It</dt>
+<dd>should be ‘png’, ‘jpg’, ‘gif’ etc.</dd>
+</dl>
+<p>An extension is always required.</p>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>images_file_name_extension = “png”;</strong></p>
+</div>
+<div class="section" id="images-file-name-delimiter">
+<h3>images_file_name_delimiter<a class="headerlink" href="#images-file-name-delimiter" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Set the delimiter between the parts of the file name.</p>
+<p>NOTE: before the extension the delimited is always a period: ‘.’.</p>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>images_file_name_delimiter = “.”;</strong></p>
+</div>
+<div class="section" id="images-include-time-part-in-file-name">
+<h3>images_include_time_part_in_file_name<a class="headerlink" href="#images-include-time-part-in-file-name" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Normally the file name includes a time part: YYYYMMDDHHMMSS.</p>
+<p>If FALSE, the time part will be omitted.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>images_include_time_part_in_file_name = TRUE;</strong></p>
+</div>
+<div class="section" id="images-include-seconds-in-time-part">
+<h3>images_include_seconds_in_time_part<a class="headerlink" href="#images-include-seconds-in-time-part" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Normally the time part include the seconds: YYYYMMDDHHMMSS.</p>
+<p>If FALSE, the SS will be excluuded from the time part.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>images_include_seconds_in_time_part = FALSE;</strong></p>
+</div>
+<div class="section" id="images-include-field-label-in-file-name">
+<h3>images_include_field_label_in_file_name<a class="headerlink" href="#images-include-field-label-in-file-name" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Normally the file name includes the field label (product type).</p>
+<p>If FALSE, the field label will be omitted.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>images_include_field_label_in_file_name = TRUE;</strong></p>
+</div>
+<div class="section" id="images-write-latest-data-info">
+<h3>images_write_latest_data_info<a class="headerlink" href="#images-write-latest-data-info" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to write latest_data_info files when an image is created.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>images_write_latest_data_info = TRUE;</strong></p>
+</div>
+</div>
+<div class="section" id="option-to-create-images-automatically">
+<h2>OPTION TO CREATE IMAGES AUTOMATICALLY<a class="headerlink" href="#option-to-create-images-automatically" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="images-auto-create">
+<h3>images_auto_create<a class="headerlink" href="#images-auto-create" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to create images automatically.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>images_auto_create = FALSE;</strong></p>
+</div>
+<div class="section" id="images-creation-mode">
+<h3>images_creation_mode<a class="headerlink" href="#images-creation-mode" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Mode for controlling auto image creation.</p>
+<p>CREATE_IMAGES_FROM_GUI: create images interactively using the GUI.</p>
+<dl class="docutils">
+<dt>CREATE_IMAGES_THEN_EXIT: for the specified start time and time span,</dt>
+<dd>create an output image for every field in the fields array, and then
+exit.</dd>
+<dt>CREATE_IMAGES_ON_REALTIME_SCHEDULE: wait for the scheduled time, then</dt>
+<dd>generate an image for each field.</dd>
+<dt>CREATE_IMAGES_ON_ARCHIVE_SCHEDULE: for each scheduled time between</dt>
+<dd>the start and end times, generate an image for each field.</dd>
+</dl>
+<p>Type: enum</p>
+</div></blockquote>
+<p>Options:</p>
+<ul class="simple">
+<li>CREATE_IMAGES_THEN_EXIT</li>
+<li>CREATE_IMAGES_ON_REALTIME_SCHEDULE</li>
+<li>CREATE_IMAGES_ON_ARCHIVE_SCHEDULE</li>
+</ul>
+<p><strong>images_creation_mode = CREATE_IMAGES_THEN_EXIT;</strong></p>
+</div>
+<div class="section" id="images-schedule-interval-secs">
+<h3>images_schedule_interval_secs<a class="headerlink" href="#images-schedule-interval-secs" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Interval at which images are created on schedule (secs).</p>
+<dl class="docutils">
+<dt>The application waits until the interval has passed, plus any</dt>
+<dd>specified delay, and then creates the images.</dd>
+</dl>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>images_schedule_interval_secs = 300;</strong></p>
+</div>
+<div class="section" id="images-schedule-delay-secs">
+<h3>images_schedule_delay_secs<a class="headerlink" href="#images-schedule-delay-secs" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Delay between scheduled time and image creation (secs).</p>
+<dl class="docutils">
+<dt>In order to ensure that the data has been written, a delay may be</dt>
+<dd>provided. This allows for the writing application to complete writing
+the data before this application tries to access it.</dd>
+</dl>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>images_schedule_delay_secs = 60;</strong></p>
+</div>
+<div class="section" id="images-archive-start-time">
+<h3>images_archive_start_time<a class="headerlink" href="#images-archive-start-time" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Start time for image generation in archive mode.</p>
+<dl class="docutils">
+<dt>Image generation starts with a seach at this time, and the proceeds</dt>
+<dd>at increments of images_schedule_interval_secs.</dd>
+</dl>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>images_archive_start_time = “1970 01 01 00 00 00”;</strong></p>
+</div>
+<div class="section" id="images-archive-end-time">
+<h3>images_archive_end_time<a class="headerlink" href="#images-archive-end-time" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>End time for image generation in archive mode.</p>
+<dl class="docutils">
+<dt>Image generation is terminated when the search time exceeds this end</dt>
+<dd>time.</dd>
+</dl>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>images_archive_end_time = “1970 01 01 00 00 00”;</strong></p>
+</div>
+<div class="section" id="images-scan-interval-secs">
+<h3>images_scan_interval_secs<a class="headerlink" href="#images-scan-interval-secs" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Time between scans in archive mode (secs).</p>
+<p>Only applies to POLAR (PPI/RHI) mode, not BSCAN mode.</p>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>images_scan_interval_secs = 300;</strong></p>
+</div>
+<div class="section" id="images-set-sweep-index-list">
+<h3>images_set_sweep_index_list<a class="headerlink" href="#images-set-sweep-index-list" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to specify the sweep indexes for the image generation.</p>
+<p>If TRUE, only the specified sweeps will be processed.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>images_set_sweep_index_list = FALSE;</strong></p>
+</div>
+<div class="section" id="images-sweep-index-list">
+<h3>images_sweep_index_list<a class="headerlink" href="#images-sweep-index-list" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>List of valid sweep indexes for image generation.</p>
+<dl class="docutils">
+<dt>See ‘images_set_sweep_index_list’. Images will only be generated for</dt>
+<dd>the specified sweep indexes.</dd>
+</dl>
+<p>Type: int
+1D array - variable length.</p>
+</div></blockquote>
+<p><strong>images_sweep_index_list = {</strong></p>
+<p><strong>};</strong></p>
+</div>
+</div>
+<div class="section" id="simulation-mode">
+<h2>SIMULATION MODE<a class="headerlink" href="#simulation-mode" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="sim-sleep-msecs">
+<h3>sim_sleep_msecs<a class="headerlink" href="#sim-sleep-msecs" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="docutils">
+<dt>Number of milliseconds to sleep between beams in simulated input</dt>
+<dd>mode.</dd>
+</dl>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>sim_sleep_msecs = 10;</strong></p>
+</div>
+<div class="section" id="sim-n-gates">
+<h3>sim_n_gates<a class="headerlink" href="#sim-n-gates" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Number of gates in simulated data.</p>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>sim_n_gates = 1000;</strong></p>
+</div>
+<div class="section" id="sim-start-range-km">
+<h3>sim_start_range_km<a class="headerlink" href="#sim-start-range-km" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Start range in simulated mode (km).</p>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>sim_start_range_km = 0.075;</strong></p>
+</div>
+<div class="section" id="sim-gate-spacing-km">
+<h3>sim_gate_spacing_km<a class="headerlink" href="#sim-gate-spacing-km" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Gate spacing in simulated mode (km).</p>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>sim_gate_spacing_km = 0.15;</strong></p>
+</div>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+      
+        <p>
+        «&#160;&#160;<a href="howtorun_HawkEye.html">HawkEye</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="docs.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="howtorun_radx2grid.html">Radx2Grid</a>&#160;&#160;»
+        </p>
+
+      </div>
+
+
+<div id="templatemo_footer_wrapper">
+	<div id="templatemo_footer">
+
+        <div class="clear"></div>
+        <div id="templatemo_copyright">
+			Copyright © 2018 Colorado State University <!-- Credit: www.templatemo.com -->
+		</div>
+    </div> <!-- END of templatemo_footer -->
+</div> <!-- END of templatemo_footer_wrapper -->
+
+  </body>
+</html>

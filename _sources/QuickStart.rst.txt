@@ -3,6 +3,21 @@ LROSE Blaze Quick Start
 
 Follow these steps to get up and running quickly with LROSE, and then continue through the documentation for more details about LROSE software.
 
+A Basic LROSE Workflow
+----------------------
+
+This quick start guide covers a basic LROSE analysis workflow:
+
+1. Print data header from a NEXRAD file using RadxPrint.
+
+2. Convert Level II data to CfRadial format using RadxConvert.
+
+3. Display the data in CfRadial format using Hawkeye.
+
+4. Perform coordinate transformations from the polar grid to a Cartesian grid using Radx2Grid.
+
+- The following tutorial highlights how to perform the basic commands which can be used as 'building blocks' for more complex workflows. See the rest of the documentation for more details.
+
 Install
 -------
 
@@ -15,7 +30,7 @@ Get some data
 
 - A sample NEXRAD level II file is available here_ for use with this quick start guide
 
-.. _here: ../../../assets/Level2_KAMX_20161006_1906.ar2v
+.. _here: ../../../downloads/Level2_KAMX_20161006_1906.ar2v
 
 If you have your own data, just replace the filename in all the subsequent examples with your data
 

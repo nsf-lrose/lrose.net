@@ -16,8 +16,8 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Radx2Grid" href="howtorun_radx2grid.html" />
-    <link rel="prev" title="RadxConvert" href="howtorun_radxconvert.html" />
+    <link rel="next" title="HawkEye Parameter Descriptions" href="HawkEye.html" />
+    <link rel="prev" title="RadxConvert Parameter Descriptions" href="RadxConvert.html" />
 <link href="_static/templatemo_lite.css" rel="stylesheet" type="text/css" />
 
   </head><body>
@@ -42,11 +42,11 @@
       <div class="topnav" role="navigation" aria-label="top navigation">
       
         <p>
-        «&#160;&#160;<a href="howtorun_radxconvert.html">RadxConvert</a>
+        «&#160;&#160;<a href="RadxConvert.html">RadxConvert Parameter Descriptions</a>
         &#160;&#160;::&#160;&#160;
         <a class="uplink" href="docs.html">Contents</a>
         &#160;&#160;::&#160;&#160;
-        <a href="howtorun_radx2grid.html">Radx2Grid</a>&#160;&#160;»
+        <a href="HawkEye.html">HawkEye Parameter Descriptions</a>&#160;&#160;»
         </p>
 
       </div>
@@ -55,72 +55,44 @@
         
   <div class="section" id="hawkeye">
 <h1>HawkEye<a class="headerlink" href="#hawkeye" title="Permalink to this headline">¶</a></h1>
-<p>The HawkEye application is available for the user to display real-time
-data and previously stored data either in BSCAN-type display or
-polar-typle display.</p>
-<div class="section" id="prerequisites">
-<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
-<p>The following item are required: - HawkEye - RadxConvert output files
-(CfRadial)</p>
-</div>
-<div class="section" id="parameter-file">
-<h2>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
-<p>The parameter file will need to be updated to change the display mode
-set by the user.</p>
-<div class="section" id="ensure-parameter-file-is-up-to-date">
-<h3>Ensure parameter file is up to date<a class="headerlink" href="#ensure-parameter-file-is-up-to-date" title="Permalink to this headline">¶</a></h3>
-<p>To obtain the default parameter file, use the following command:</p>
-<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lrose</span> <span class="o">--</span> <span class="n">HawkEye</span> <span class="o">-</span><span class="n">print_params</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">param_file_name</span>
-</pre></div>
-</div>
-<p>If you already have a parameter file and simply want to check for (and
-add) updated parameters while retaining current parameters, use the
-following command:</p>
-<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lrose</span> <span class="o">--</span> <span class="n">HawkEye</span> <span class="o">-</span><span class="n">params</span> <span class="n">orig_param_file_name</span> <span class="o">-</span><span class="n">print_params</span> <span class="o">&gt;</span> <span class="n">new_param_file_name</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="specific-parameters-to-edit">
-<h3>Specific parameters to edit<a class="headerlink" href="#specific-parameters-to-edit" title="Permalink to this headline">¶</a></h3>
-<p>Caution: this is not an exhaustive list. We urge each user to read
-through the entire parameter file carefully.</p>
-<ul class="simple">
-<li>display mode: specify the display mode. It supports POLAR_DISPLAY for
-normal PPI and RHI display and BSCAN_DISPLAY for BSCAN mode.</li>
-</ul>
-</div>
-</div>
+<p>HawkEye is a next generation lidar and radar display tool.
+It can display real-time and archived CfRadial data either in BSCAN, PPI, or RHI geometry.
+Editing capability will be added in future releases.</p>
 <div class="section" id="running-hawkeye">
 <h2>Running HawkEye<a class="headerlink" href="#running-hawkeye" title="Permalink to this headline">¶</a></h2>
-<p>To check all command line options for HawkEye, type the following
-command into a bash.</p>
-<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lrose</span> <span class="o">--</span> <span class="n">HawkEye</span> <span class="o">-</span><span class="n">h</span>
+<p>While relatively new to the research community, HawkEye is a mature viewing tool that has been powering real-time displays for NCAR S-Pol, HIAPER Cloud Radar, and the CSWR Doppler on Wheels for several years.
+As part of the LROSE project the tool has been updated to work in a research mode with archived CfRadial files.
+Like the Radx tools, HawkEye can be run in the Virtual Toolbox or compiled as a native application.
+The look and feel of HawkEye will be slightly different depending on the window environment, but the functionality remains the same across platforms.</p>
+<p>To run HawkEye as a basic viewer it is not necessary to create a parameter file, but like the LROSE tools there is more functionality provided via the parameter options.
+In its simplest invocation:</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lrose</span> <span class="o">--</span> <span class="n">HawkEye</span> <span class="o">-</span><span class="n">f</span> <span class="o">&lt;/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">CfRadial_files</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-<p>Once your parameter file is complete, specify the location of CfRadial
-files to run the application:</p>
-<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lrose</span> <span class="o">--</span> <span class="n">HawkEye</span> <span class="o">-</span><span class="n">params</span> <span class="n">param_file_name</span> <span class="o">-</span><span class="n">f</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">CfRadial_files</span>
-</pre></div>
-</div>
-<p>One thing worth noticing is that it’s not necessarily to create a
-parameter file. If the user have no specific requirement and no day
-directory in the path, you can start HawkEye without a param file and
-specified timeframe:</p>
-<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lrose</span> <span class="o">--</span> <span class="n">HawkEye</span> <span class="o">-</span><span class="n">f</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">CfRadial_files</span>
-</pre></div>
-</div>
-<p>If the user store the data under the day directory in the path (You can
-obtain the default directory setting by performing RadxConvert), the
+<p>If the data is organized under the YYYYMMHH date directory in the path, the
 user can specify specific time span to display:</p>
 <div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lrose</span> <span class="o">--</span> <span class="n">HawkEye</span> <span class="o">-</span><span class="n">archive_url</span> <span class="o">/</span><span class="n">scr</span><span class="o">/</span><span class="n">rain1</span><span class="o">/</span><span class="n">rsfdata</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">pecan</span><span class="o">/</span><span class="n">CfRadial</span><span class="o">/</span><span class="n">kddc</span><span class="o">/</span><span class="n">moments</span> <span class="o">-</span><span class="n">start_time</span> <span class="s2">&quot;2015 06 26 00 00 00&quot;</span> <span class="o">-</span><span class="n">time_span</span> <span class="mi">7200</span>
 </pre></div>
 </div>
 <p>This command would start it up to look at the specified data location,
-from the specified start time, for a time span of 2 hours.</p>
-<p>In this case, since we are searching by time, you are required to have a
-day directory in the path, so that actual data would be in:</p>
-<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">scr</span><span class="o">/</span><span class="n">rain1</span><span class="o">/</span><span class="n">rsfdata</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">pecan</span><span class="o">/</span><span class="n">CfRadial</span><span class="o">/</span><span class="n">kddc</span><span class="o">/</span><span class="n">moments</span><span class="o">/</span><span class="mi">20150626</span><span class="o">/</span>
+from the specified start time, for a time span of 2 hours.
+In this case, since we are searching by time, you are required to have a
+day directory in the path, so that actual data would be in the 20150626 subdirectory underneath the ‘moments’ directory.</p>
+<p>To check all command line options for HawkEye, type the following
+command into a bash.</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lrose</span> <span class="o">--</span> <span class="n">HawkEye</span> <span class="o">-</span><span class="n">h</span>
 </pre></div>
+</div>
+<p>To obtain the default parameter file for more options, use the following command:</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span>lrose -- HawkEye -print_params &gt; $PWD/HawkEye.params
+</pre></div>
+</div>
+<p>While HawkEye will do its best to display data properly, the parameter file can force the viewer to use POLAR_DISPLAY for PPI and RHI display and BSCAN_DISPLAY for BSCAN mode.</p>
+<div class="section" id="colors">
+<h3>Colors<a class="headerlink" href="#colors" title="Permalink to this headline">¶</a></h3>
+<p>HawkEye supports many different color scales for different fields that can be specified via external files.
+Default color palettes are applied to variable names with commonly used meanings (ie. ZDR), but can be overridden by the user.</p>
+<p>While most of the GUI viewing options are intuitive, additional documentation on all the details of the HawkEye GUI is under development.</p>
 </div>
 </div>
 </div>
@@ -130,11 +102,11 @@ day directory in the path, so that actual data would be in:</p>
       <div class="bottomnav" role="navigation" aria-label="bottom navigation">
       
         <p>
-        «&#160;&#160;<a href="howtorun_radxconvert.html">RadxConvert</a>
+        «&#160;&#160;<a href="RadxConvert.html">RadxConvert Parameter Descriptions</a>
         &#160;&#160;::&#160;&#160;
         <a class="uplink" href="docs.html">Contents</a>
         &#160;&#160;::&#160;&#160;
-        <a href="howtorun_radx2grid.html">Radx2Grid</a>&#160;&#160;»
+        <a href="HawkEye.html">HawkEye Parameter Descriptions</a>&#160;&#160;»
         </p>
 
       </div>

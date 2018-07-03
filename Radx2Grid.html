@@ -1,0 +1,2512 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Radx2Grid Parameter Descriptions &#8212; NSF LROSE Blaze documentation</title>
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="The Lrose-Blaze Docker image" href="docker-container.html" />
+    <link rel="prev" title="Radx2Grid" href="howtorun_radx2grid.html" />
+<link href="_static/templatemo_lite.css" rel="stylesheet" type="text/css" />
+
+  </head><body>
+<div id="templatemo_wrapper">
+    <div id="templatemo_header">
+    	<div id="site_title"><a href="http://nsf-lrose.github.io">Lidar Radar Open Software Environment</a></div>
+        <div id="templatemo_menu">
+            <ul>
+                <li><a href="index.html" class="selected home">Home</a></li>
+                <li><a href="software.html" class="services">Software</a></li>
+                <li><a href="docs.html" class="gallery">Documentation</a></li>
+                <li class="last"><a href="help.html" class="news">Help</a></li>
+            </ul>
+        </div> <!-- end of templatemo_menu -->
+    </div>
+</div> <!-- END of templatemo_wrapper -->
+
+      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
+          <span>NSF LROSE Blaze documentation</span></a></h1>
+        <h2 class="heading"><span>Radx2Grid Parameter Descriptions</span></h2>
+      </div>
+      <div class="topnav" role="navigation" aria-label="top navigation">
+      
+        <p>
+        «&#160;&#160;<a href="howtorun_radx2grid.html">Radx2Grid</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="docs.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="docker-container.html">The Lrose-Blaze Docker image</a>&#160;&#160;»
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="radx2grid-parameter-descriptions">
+<h1>Radx2Grid Parameter Descriptions<a class="headerlink" href="#radx2grid-parameter-descriptions" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p>Radx2Grid reads data from Radx-supported format files in native</p>
+<p>The output is written to Cartesian files in CF-compliant NetCDF</p>
+</div></blockquote>
+<div class="section" id="overview">
+<h2>OVERVIEW<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="docutils">
+<dt>Radx2Grid is a large application with many parameters available for</dt>
+<dd>controlling its operation.</dd>
+</dl>
+<p>This makes the use of the parameter file confusing to a new user.</p>
+<p>Therefore, the parameters are separated into sections.</p>
+<dl class="docutils">
+<dt>The more common sections are at the top of the file, and the less</dt>
+<dd>common parameters lower down in the file.</dd>
+<dt>Each section is preceded by a header starting and ending with a line</dt>
+<dd>of ======================== characters.</dd>
+</dl>
+</div></blockquote>
+<p>This HTML documentation has been auto-generated from the default parameter file and reformatted for display on the web</p>
+</div>
+<div class="section" id="debugging">
+<h2>DEBUGGING<a class="headerlink" href="#debugging" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="debug">
+<h3>debug<a class="headerlink" href="#debug" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Debug option.</p>
+<p>If set, debug messages will be printed appropriately.</p>
+<p>Type: enum</p>
+</div></blockquote>
+<p>Options:</p>
+<ul class="simple">
+<li>DEBUG_OFF</li>
+<li>DEBUG_NORM</li>
+<li>DEBUG_VERBOSE</li>
+<li>DEBUG_EXTRA</li>
+</ul>
+<p><strong>debug = DEBUG_OFF;</strong></p>
+</div>
+</div>
+<div class="section" id="data-input-directory-and-input-mode">
+<h2>DATA INPUT DIRECTORY and INPUT MODE<a class="headerlink" href="#data-input-directory-and-input-mode" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="input-dir">
+<h3>input_dir<a class="headerlink" href="#input-dir" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Input directory for searching for files.</p>
+<dl class="docutils">
+<dt>Files will be searched for in this directory. This is ignored if the</dt>
+<dd>list of files is  specified on the command line using the -f option.</dd>
+</dl>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>input_dir = “.”;</strong></p>
+</div>
+<div class="section" id="mode">
+<h3>mode<a class="headerlink" href="#mode" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Operating mode.</p>
+<dl class="docutils">
+<dt>In FILELIST mode, we move through the list of file names specified on</dt>
+<dd>the command line.</dd>
+<dt>In REALTIME mode, the program waits for a new input file to arrive in</dt>
+<dd>‘input_dir’.</dd>
+<dt>In ARCHIVE mode, we move through the files in input_dir between the</dt>
+<dd>start and end times set on the command line.</dd>
+</dl>
+<p>In ARCHIVE mode, input_dir must be one above the day-directory.</p>
+<p>Type: enum</p>
+</div></blockquote>
+<p>Options:</p>
+<ul class="simple">
+<li>FILELIST</li>
+<li>ARCHIVE</li>
+<li>REALTIME</li>
+</ul>
+<p><strong>mode = FILELIST;</strong></p>
+</div>
+<div class="section" id="max-realtime-data-age-secs">
+<h3>max_realtime_data_age_secs<a class="headerlink" href="#max-realtime-data-age-secs" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Maximum age of realtime data (secs).</p>
+<dl class="docutils">
+<dt>REALTIME mode only. Only data files less old than this will be</dt>
+<dd>processed.</dd>
+</dl>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>max_realtime_data_age_secs = 300;</strong></p>
+</div>
+<div class="section" id="start-time">
+<h3>start_time<a class="headerlink" href="#start-time" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Set the start time for ARCHIVE mode analysis.</p>
+<p>Format is ‘yyyy mm dd hh mm ss’.</p>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>start_time = “2015 06 26 00 00 00”;</strong></p>
+</div>
+<div class="section" id="end-time">
+<h3>end_time<a class="headerlink" href="#end-time" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Set the end time for ARCHIVE mode analysis.</p>
+<p>Format is ‘yyyy mm dd hh mm ss’.</p>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>end_time = “2015 06 26 12 00 00”;</strong></p>
+</div>
+</div>
+<div class="section" id="data-output-directory-and-file-names">
+<h2>DATA OUTPUT DIRECTORY AND FILE NAMES<a class="headerlink" href="#data-output-directory-and-file-names" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="output-dir">
+<h3>output_dir<a class="headerlink" href="#output-dir" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Output directory for writing files.</p>
+<p>Files will be written to this directory.</p>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>output_dir = “.”;</strong></p>
+</div>
+<div class="section" id="output-format">
+<h3>output_format<a class="headerlink" href="#output-format" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Set the output format.</p>
+<dl class="docutils">
+<dt>CF_NETCDF: CF-compliant NetCDF. See</dt>
+<dd><a class="reference external" href="http://cf-pcmdi.llnl.gov/documents/cf-conventions">http://cf-pcmdi.llnl.gov/documents/cf-conventions</a>. ZEBRA_NETCDF:
+NetCDF format specifically for ZEBRA display. This forces a
+conversion to a LATLON projection. MDV: legacy MDV format.</dd>
+</dl>
+<p>Type: enum</p>
+</div></blockquote>
+<p>Options:</p>
+<ul class="simple">
+<li>CF_NETCDF</li>
+<li>ZEBRA_NETCDF</li>
+<li>MDV</li>
+<li>CEDRIC</li>
+</ul>
+<p><strong>output_format = CF_NETCDF;</strong></p>
+</div>
+</div>
+<div class="section" id="interpolation-mode">
+<h2>INTERPOLATION MODE<a class="headerlink" href="#interpolation-mode" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="interp-mode">
+<h3>interp_mode<a class="headerlink" href="#interp-mode" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Mode for interpolation.</p>
+<dl class="docutils">
+<dt>INTERP_MODE_CART: interpolate onto a regular 3-D Cartesian grid. This</dt>
+<dd>is the most common option and is equivalent to the legacy SPRINT
+application.</dd>
+<dt>INTERP_MODE_PPI: interpolate onto a regular 2-D Cartesian grid in</dt>
+<dd>(x,y), preserving the original radar elevation angles for each sweep
+in the vertical. The result is a volume of Cartesian PPIs, with the
+(x,y) dimensions in km and the vertical dimension in degrees.</dd>
+<dt>INTERP_MODE_POLAR: interpolate onto a regular azimuth grid,</dt>
+<dd>preserving the elevation angles for each sweep. The azimuths are
+remapped onto a regular grid. The elevation angle attached to each
+vertical level is derived from the sweep information in the input
+file.</dd>
+<dt>INTERP_MODE_CART_REORDER: interpolate onto a regular 3-D Cartesian</dt>
+<dd>grid using the reorder strategy. This should only be used for MOVING
+platforms only. DO NOT USE this method for FIXED platform, use
+INTERP_MODE_CART instead.</dd>
+<dt>INTERP_MODE_SAT: interpolate satellite-based lidar or radar data onto</dt>
+<dd>a grid, with a specified swath width along the satellite track. The
+remapped data can then be visualized using a Cartesian data display,
+such as Jazz.</dd>
+</dl>
+<p>Type: enum</p>
+</div></blockquote>
+<p>Options:</p>
+<ul class="simple">
+<li>INTERP_MODE_CART</li>
+<li>INTERP_MODE_PPI</li>
+<li>INTERP_MODE_POLAR</li>
+<li>INTERP_MODE_CART_REORDER</li>
+<li>INTERP_MODE_CART_SAT</li>
+</ul>
+<p><strong>interp_mode = INTERP_MODE_CART;</strong></p>
+</div>
+</div>
+<div class="section" id="interpolation-options">
+<h2>INTERPOLATION OPTIONS<a class="headerlink" href="#interpolation-options" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="use-nearest-neighbor">
+<h3>use_nearest_neighbor<a class="headerlink" href="#use-nearest-neighbor" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="docutils">
+<dt>Option to use nearest neighbor method instead of 3D linear</dt>
+<dd>interpolation.</dd>
+<dt>If true, use the values from the nearest point instead of</dt>
+<dd>interpolating between the measured points that surround the grid
+point.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>use_nearest_neighbor = FALSE;</strong></p>
+</div>
+<div class="section" id="min-nvalid-for-interp">
+<h3>min_nvalid_for_interp<a class="headerlink" href="#min-nvalid-for-interp" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Minimum number of valid data points for theinterpolation.</p>
+<dl class="docutils">
+<dt>The program performs an 8-point linear interpolation. This is the</dt>
+<dd>number of valid data points, out of the possible 8, which must be
+present for interpolation to proceed. A high number will exclude
+marginal points. A low number will include marginal points.</dd>
+</dl>
+<p>Minimum val: 1
+Maximum val: 8</p>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>min_nvalid_for_interp = 3;</strong></p>
+</div>
+<div class="section" id="use-fixed-angle-for-interpolation">
+<h3>use_fixed_angle_for_interpolation<a class="headerlink" href="#use-fixed-angle-for-interpolation" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="docutils">
+<dt>Option to use the fixed sweep angle for determining position for</dt>
+<dd>interpolation.</dd>
+<dt>If false, we use the measured elevaiton and azimuth for each ray. If</dt>
+<dd>true, we use the fixed angle instead of the elevation angle in PPI
+scan mode and the fixed angle instead of azimuth in RHI mode.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>use_fixed_angle_for_interpolation = FALSE;</strong></p>
+</div>
+<div class="section" id="use-fixed-angle-for-data-limits">
+<h3>use_fixed_angle_for_data_limits<a class="headerlink" href="#use-fixed-angle-for-data-limits" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="docutils">
+<dt>Option to use the fixed sweep angle for determining the angle limits</dt>
+<dd>of the data.</dd>
+<dt>If true, we use the scan strategy sweep fixed angle for determining</dt>
+<dd>the angular limits to the data. If false, we use the actual measured
+angles. We need to find the data limits so that we can extend the
+interpolation by a fraction of the beam width beyond the angular
+limits. See also ‘beam_width_fraction_for_data_limit_extension’.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>use_fixed_angle_for_data_limits = TRUE;</strong></p>
+</div>
+<div class="section" id="beam-width-fraction-for-data-limit-extension">
+<h3>beam_width_fraction_for_data_limit_extension<a class="headerlink" href="#beam-width-fraction-for-data-limit-extension" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="docutils">
+<dt>Fraction of the beam width used to extend the data beyond the</dt>
+<dd>observed limits.</dd>
+<dt>At the edges of the observed region, the interpolated data is</dt>
+<dd>extended by an angle computed as beam_width * fraction. For extending
+below the lowest tilt and above the upper tilt, the vertical beam
+width is used. For extended to the left or right of sector limits,
+the horizontal beam width is used.</dd>
+</dl>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>beam_width_fraction_for_data_limit_extension = 0.5;</strong></p>
+</div>
+</div>
+<div class="section" id="cartesian-grid-vertical-levels">
+<h2>CARTESIAN GRID VERTICAL LEVELS<a class="headerlink" href="#cartesian-grid-vertical-levels" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>Set the vertical levels for the Cartesian grid.</p>
+<dl class="docutils">
+<dt>This applies to INTERP_MODE_CART, INTERP_MODE_SAT and</dt>
+<dd>INTERP_MODE_REORDER.</dd>
+<dt>For INTERP_MODE_PPI and INTERP_MODE_POLAR, the vertical levels are</dt>
+<dd>governed by the elevation angle for each sweep in the input volume.</dd>
+<dt>You can either specify a grid with constant vertial spacing, or you</dt>
+<dd>can provide an array of heights. The latter allows you to specify a
+grid with irregular vertical spacing.</dd>
+</dl>
+</div></blockquote>
+<div class="section" id="grid-z-geom">
+<h3>grid_z_geom<a class="headerlink" href="#grid-z-geom" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Specifying regular vertical grid levels.</p>
+<blockquote>
+<div>nz is the number of levels.
+dz is constant spacing of the Z levels, in km.
+minz is the lowest level, in km MSL.</div></blockquote>
+<dl class="docutils">
+<dt>NOTE: Applies if specify_individual_z_levels is false. Does not apply</dt>
+<dd>to INTERP_MODE_PPI.</dd>
+<dt>Type: struct</dt>
+<dd><dl class="first docutils">
+<dt>typedef struct {</dt>
+<dd>int nz;
+double minz;
+double dz;</dd>
+</dl>
+<p class="last">}</p>
+</dd>
+</dl>
+</div></blockquote>
+<p><strong>grid_z_geom = {</strong></p>
+<p><strong>nz = 20,</strong></p>
+<p><strong>minz = 0.5,</strong></p>
+<p><strong>dz = 1</strong></p>
+<p><strong>};</strong></p>
+</div>
+<div class="section" id="specify-individual-z-levels">
+<h3>specify_individual_z_levels<a class="headerlink" href="#specify-individual-z-levels" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to specify each Z level individually.</p>
+<dl class="docutils">
+<dt>If true, you will fill out the z_level array to specify each Z level.</dt>
+<dd>This allows you to set up a grid with unequal spacing in the
+vertical. If false, use grid_z_geom to specify Z levels at constant
+spacing.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>specify_individual_z_levels = FALSE;</strong></p>
+</div>
+<div class="section" id="z-level-array">
+<h3>z_level_array<a class="headerlink" href="#z-level-array" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Array of grid levels, in km MSL.</p>
+<p>This applies if specify_individual_z_levels is true.</p>
+<p>Type: double
+1D array - variable length.</p>
+</div></blockquote>
+<p><strong>z_level_array = {</strong></p>
+<p><strong>};</strong></p>
+</div>
+</div>
+<div class="section" id="cartesian-grid-xy-details">
+<h2>CARTESIAN GRID XY DETAILS<a class="headerlink" href="#cartesian-grid-xy-details" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="docutils">
+<dt>Specify the grid details in (x,y). This will be a regular Cartesian</dt>
+<dd>grid. The units for the grid paramters are in (km,km) for all
+projections except for PROJ_LATLON. For the LATLON projection, the
+units are in (deg,deg).</dd>
+</dl>
+</div></blockquote>
+<div class="section" id="grid-xy-geom">
+<h3>grid_xy_geom<a class="headerlink" href="#grid-xy-geom" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Specify the grid parameters in x,y.</p>
+<blockquote>
+<div>nx: the number of grid points in the X dimension.
+ny: the number of grid points in the Y dimension.
+minx: the X coordinate of the center of the SW grid cell.
+miny: the Y coordinate of the center of the SW grid cell.
+dx: the grid spacing in the X dimension.
+dy: the grid spacing in the Y dimension.</div></blockquote>
+<p>Units are in km, except for PROJ_LATLON, which has units in degrees.</p>
+<dl class="docutils">
+<dt>Type: struct</dt>
+<dd><dl class="first docutils">
+<dt>typedef struct {</dt>
+<dd>int nx;
+int ny;
+double minx;
+double miny;
+double dx;
+double dy;</dd>
+</dl>
+<p class="last">}</p>
+</dd>
+</dl>
+</div></blockquote>
+<p><strong>grid_xy_geom = {</strong></p>
+<p><strong>nx = 400,</strong></p>
+<p><strong>ny = 400,</strong></p>
+<p><strong>minx = -199.5,</strong></p>
+<p><strong>miny = -199.5,</strong></p>
+<p><strong>dx = 1,</strong></p>
+<p><strong>dy = 1</strong></p>
+<p><strong>};</strong></p>
+</div>
+<div class="section" id="center-grid-on-radar">
+<h3>center_grid_on_radar<a class="headerlink" href="#center-grid-on-radar" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to set the grid origin at the radar.</p>
+<dl class="docutils">
+<dt>If true, the latitude and longitude of the grid origin will be set to</dt>
+<dd>the radar location. If false, grid_origin_lat and grid_origin_lon
+will be used. This parameter is not applicable for moving platforms.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>center_grid_on_radar = TRUE;</strong></p>
+</div>
+</div>
+<div class="section" id="cartesian-grid-projection">
+<h2>CARTESIAN GRID PROJECTION<a class="headerlink" href="#cartesian-grid-projection" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="grid-projection">
+<h3>grid_projection<a class="headerlink" href="#grid-projection" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Projection details for the Cartesian grid..</p>
+<blockquote>
+<div>PROJ_LATLON: regular lat/lon grid (Equidistant Cylindrical)
+PROJ_FLAT: Azimuthal Equidistant (Radar)
+PROJ_LAMBERT_CONF: Lambert Conformal Conic
+PROJ_LAMBERT_AZIM: Lambert Azimuthal Equal Area
+PROJ_MERCATOR: Mercator - EW orientation
+PROJ_TRANS_MERCATOR: Tranverse Mercator - NS orientation
+PROJ_POLAR_STEREO: Stereographic- polar aspect
+PROJ_OBLIQUE_STEREO: Stereographic - oblique aspect
+PROJ_ALBERS: Albers Equal Area Conic
+PROJ_VERT_PERSP: Vertical Perspective (satellite view).</div></blockquote>
+<p>Type: enum</p>
+</div></blockquote>
+<p>Options:</p>
+<ul class="simple">
+<li>PROJ_LATLON</li>
+<li>PROJ_LAMBERT_CONF</li>
+<li>PROJ_MERCATOR</li>
+<li>PROJ_POLAR_STEREO</li>
+<li>PROJ_FLAT</li>
+<li>PROJ_OBLIQUE_STEREO</li>
+<li>PROJ_TRANS_MERCATOR</li>
+<li>PROJ_ALBERS</li>
+<li>PROJ_LAMBERT_AZIM</li>
+<li>PROJ_VERT_PERSP</li>
+</ul>
+<p><strong>grid_projection = PROJ_FLAT;</strong></p>
+</div>
+<div class="section" id="grid-rotation">
+<h3>grid_rotation<a class="headerlink" href="#grid-rotation" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Grid rotation.</p>
+<p>This applies only to PROJ_FLAT projection.</p>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>grid_rotation = 0;</strong></p>
+</div>
+<div class="section" id="grid-origin-lat">
+<h3>grid_origin_lat<a class="headerlink" href="#grid-origin-lat" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Grid origin latitude.</p>
+<p>This applies to all projections except LATLON.</p>
+<dl class="docutils">
+<dt>If ‘center_grid_on_radar’ is true, the radar location is used</dt>
+<dd>instead.</dd>
+</dl>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>grid_origin_lat = 0;</strong></p>
+</div>
+<div class="section" id="grid-origin-lon">
+<h3>grid_origin_lon<a class="headerlink" href="#grid-origin-lon" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Grid origin longitude.</p>
+<p>This applies to all projections except LATLON.</p>
+<dl class="docutils">
+<dt>If ‘center_grid_on_radar’ is true, the radar location is used</dt>
+<dd>instead.</dd>
+</dl>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>grid_origin_lon = 0;</strong></p>
+</div>
+<div class="section" id="auto-remap-flat-to-latlon">
+<h3>auto_remap_flat_to_latlon<a class="headerlink" href="#auto-remap-flat-to-latlon" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="docutils">
+<dt>Option to first interpolate to a PROJ_FLAT projection, and then</dt>
+<dd>automatically remap to a latlon projection on output.</dd>
+<dt>If TRUE, before writing the file, the app will choose a latlon grid</dt>
+<dd>that matches the FLAT grid extent and rsolution, and automatically
+remap to a PROJ_LATLON projection.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>auto_remap_flat_to_latlon = FALSE;</strong></p>
+</div>
+<div class="section" id="grid-lat1">
+<h3>grid_lat1<a class="headerlink" href="#grid-lat1" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Grid reference latitude 1.</p>
+<p>This applies to LAMBERT_CONF and ALBERS projections.</p>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>grid_lat1 = 0;</strong></p>
+</div>
+<div class="section" id="grid-lat2">
+<h3>grid_lat2<a class="headerlink" href="#grid-lat2" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Grid reference latitude 2.</p>
+<p>This applies to LAMBERT_CONF and ALBERS projections.</p>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>grid_lat2 = 0;</strong></p>
+</div>
+<div class="section" id="grid-central-scale">
+<h3>grid_central_scale<a class="headerlink" href="#grid-central-scale" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Central scale for projections.</p>
+<dl class="docutils">
+<dt>This applies to POLAR_STEREO, OBLIQUE_STEREO and TRANSVERSE_MERCATOR</dt>
+<dd>projections.</dd>
+</dl>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>grid_central_scale = 1;</strong></p>
+</div>
+<div class="section" id="grid-tangent-lat">
+<h3>grid_tangent_lat<a class="headerlink" href="#grid-tangent-lat" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Tangent latitude (deg).</p>
+<p>This applies to OBLIQUE_STEREO only.</p>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>grid_tangent_lat = 0;</strong></p>
+</div>
+<div class="section" id="grid-tangent-lon">
+<h3>grid_tangent_lon<a class="headerlink" href="#grid-tangent-lon" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Tangent longitude (deg).</p>
+<p>This applies to OBLIQUE_STEREO and POLAR_STEREO.</p>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>grid_tangent_lon = 0;</strong></p>
+</div>
+<div class="section" id="grid-pole-is-north">
+<h3>grid_pole_is_north<a class="headerlink" href="#grid-pole-is-north" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Flag indicating stereogtraphic is over the NORTH pole.</p>
+<dl class="docutils">
+<dt>This applies to POLAR_STEREO. If false, the projection is over the</dt>
+<dd>south pole.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>grid_pole_is_north = TRUE;</strong></p>
+</div>
+<div class="section" id="grid-persp-radius">
+<h3>grid_persp_radius<a class="headerlink" href="#grid-persp-radius" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Radius of perspective point (km).</p>
+<p>This applies to VERT_PERSP.</p>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>grid_persp_radius = 35786;</strong></p>
+</div>
+<div class="section" id="grid-false-northing">
+<h3>grid_false_northing<a class="headerlink" href="#grid-false-northing" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>False northing correction.</p>
+<dl class="docutils">
+<dt>Occasionally, this is added to the Y coordinate so that all</dt>
+<dd>coordinates are positive. Normally 0. As an alternative to
+false_northing and false_easting, you can set the offset_latitude and
+offset_longitude.</dd>
+</dl>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>grid_false_northing = 0;</strong></p>
+</div>
+<div class="section" id="grid-false-easting">
+<h3>grid_false_easting<a class="headerlink" href="#grid-false-easting" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>False easting correction.</p>
+<dl class="docutils">
+<dt>Occasionally, this is added to the X coordinate so that all</dt>
+<dd>coordinates are positive. Normally 0.</dd>
+</dl>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>grid_false_easting = 0;</strong></p>
+</div>
+<div class="section" id="grid-set-offset-origin">
+<h3>grid_set_offset_origin<a class="headerlink" href="#grid-set-offset-origin" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="docutils">
+<dt>Do you want to specify an offset origin using lat/lon instead of</dt>
+<dd>false_northing and false_easting?.</dd>
+<dt>If true, set grid_offset_origin_latitude and</dt>
+<dd>grid_offset_origin_longitude.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>grid_set_offset_origin = FALSE;</strong></p>
+</div>
+<div class="section" id="grid-offset-origin-latitude">
+<h3>grid_offset_origin_latitude<a class="headerlink" href="#grid-offset-origin-latitude" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Latitude of offset origin.</p>
+<p>See grid_set_offset_origin.</p>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>grid_offset_origin_latitude = 0;</strong></p>
+</div>
+<div class="section" id="grid-offset-origin-longitude">
+<h3>grid_offset_origin_longitude<a class="headerlink" href="#grid-offset-origin-longitude" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Longitude of offset origin.</p>
+<p>See grid_set_offset_origin.</p>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>grid_offset_origin_longitude = 0;</strong></p>
+</div>
+</div>
+<div class="section" id="specifying-the-fields-for-interpolation">
+<h2>SPECIFYING THE FIELDS FOR INTERPOLATION<a class="headerlink" href="#specifying-the-fields-for-interpolation" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="docutils">
+<dt>By default, all fields in the input files will be interpolated. If</dt>
+<dd>you want to select individual fields to be interpolated, specify them
+here.</dd>
+</dl>
+</div></blockquote>
+<div class="section" id="select-fields">
+<h3>select_fields<a class="headerlink" href="#select-fields" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to select the fields for interpolation.</p>
+<p>If FALSE, all fields will be processed.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>select_fields = FALSE;</strong></p>
+</div>
+<div class="section" id="selected-fields">
+<h3>selected_fields<a class="headerlink" href="#selected-fields" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Select the list of fields to be processed.</p>
+<dl class="docutils">
+<dt>See ‘select_fields’. You specify the list of field names to be</dt>
+<dd>processed. In addition you need to set ‘process_this_field’ to TRUE
+or FALSE. This is provided as a convenience, so that you can select
+or deselect fields without having to change the list.</dd>
+<dt>Type: struct</dt>
+<dd><dl class="first docutils">
+<dt>typedef struct {</dt>
+<dd>string input_name;
+boolean process_this_field;</dd>
+</dl>
+<p class="last">}</p>
+</dd>
+</dl>
+<p>1D array - variable length.</p>
+</div></blockquote>
+<p><strong>selected_fields = {</strong></p>
+<p><strong>input_name = “DBZ”,</strong></p>
+<p><strong>process_this_field = TRUE</strong></p>
+<p><strong>input_name = “VEL”,</strong></p>
+<p><strong>process_this_field = TRUE</strong></p>
+<p><strong>input_name = “WIDTH”,</strong></p>
+<p><strong>process_this_field = FALSE</strong></p>
+<p><strong>};</strong></p>
+</div>
+</div>
+<div class="section" id="transforming-fields-for-interpolation">
+<h2>TRANSFORMING FIELDS FOR INTERPOLATION<a class="headerlink" href="#transforming-fields-for-interpolation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="transform-fields-for-interpolation">
+<h3>transform_fields_for_interpolation<a class="headerlink" href="#transform-fields-for-interpolation" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="docutils">
+<dt>Option to perform a transform on specified fields prior to</dt>
+<dd>interpolation.</dd>
+<dt>If TRUE, the field you specify in this section will be transformed</dt>
+<dd>prior to interpolation, and possibly back again afterwards.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>transform_fields_for_interpolation = FALSE;</strong></p>
+</div>
+<div class="section" id="transform-fields">
+<h3>transform_fields<a class="headerlink" href="#transform-fields" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Transform fields for interpolation.</p>
+<dl class="docutils">
+<dt>NOTE: this is done immediately after the fields are read from the</dt>
+<dd>file.</dd>
+<dt>‘input_name’ refers to the name of the field read in, before any</dt>
+<dd>renaming occurs. If ‘output_name’ is the same as ‘input_name’, the
+field is transformed in place. If ‘output_name’ differs from
+‘input_name’, a copy of the field is made prior to interpolation, and
+this field copy is named ‘output_name’.</dd>
+<dt>NOTE: the transform occurs first, before any rename operations (see</dt>
+<dd>next section). ‘output_name’ in transform_fields matches ‘input_name’
+in ‘rename_fields’.</dd>
+<dt>TRANSFORM_DB_TO_LINEAR: transform the field from dB to linear units,</dt>
+<dd>perform the interpolation, and write out the interpolated field in
+linear units.</dd>
+<dt>TRANSFORM_DB_TO_LINEAR_AND_BACK: transform the field from dB units to</dt>
+<dd>linear units, perform the interpolation, and then transform back to
+dB units before writing to the output file.</dd>
+<dt>TRANSFORM_LINEAR_TO_DB: transform the field from linear units to dB</dt>
+<dd>units, perform the interpolation, and write out the interpolated
+field in dB units.</dd>
+<dt>TRANSFORM_LINEAR_TO_DB_AND_BACK: transform the field from linear</dt>
+<dd>units to dB units, perform the interpolation, and then transform back
+to linear units before writing to the output file.</dd>
+<dt>Type: struct</dt>
+<dd><dl class="first last docutils">
+<dt>typedef struct {</dt>
+<dd>string input_name;
+string output_name;
+string output_units;
+interp_transform_t transform;</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+<p>Options:</p>
+<ul class="simple">
+<li>TRANSFORM_DB_TO_LINEAR</li>
+<li>TRANSFORM_DB_TO_LINEAR_AND_BACK</li>
+<li>TRANSFORM_LINEAR_TO_DB</li>
+<li>TRANSFORM_LINEAR_TO_DB_AND_BACK</li>
+<li>1D array - variable length.</li>
+</ul>
+<p><strong>transform_fields = {</strong></p>
+<p><strong>input_name = “DBZ”,</strong></p>
+<p><strong>output_name = “DBZ”,</strong></p>
+<p><strong>output_units = “dBZ”,</strong></p>
+<p><strong>transform = TRANSFORM_DB_TO_LINEAR_AND_BACK</strong></p>
+<p><strong>};</strong></p>
+</div>
+</div>
+<div class="section" id="option-to-set-folding-limits-on-selected-fields">
+<h2>OPTION TO SET FOLDING LIMITS ON SELECTED FIELDS<a class="headerlink" href="#option-to-set-folding-limits-on-selected-fields" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="set-fold-limits">
+<h3>set_fold_limits<a class="headerlink" href="#set-fold-limits" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to set the folding limits for individual fields.</p>
+<p>The limits are set prior to interpolation.</p>
+<dl class="docutils">
+<dt>If TRUE, fold limits will be set for the specified fields. You should</dt>
+<dd>do this for fields such as VELOCITY and PHIDP. Some CfRadial files
+already contain the fold limits as attributes on the field - for
+these fields you do not need to set fold limits, unless you wish to
+override what is in the file. You only need to specify the limits if
+the file does not already have these attributes. The field_folds
+parameter can be set to FALSE to override an attribute set in the
+data file.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>set_fold_limits = FALSE;</strong></p>
+</div>
+<div class="section" id="folded-fields">
+<h3>folded_fields<a class="headerlink" href="#folded-fields" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Use this to set the fold limits for a particular field.</p>
+<dl class="docutils">
+<dt>If this is specified, the interpolation for this field will be</dt>
+<dd>performed ‘on the circle’ so that folding is handled correctly. If
+use_global_nyquist is true, the fold limits are set to plus and minus
+the main nyquist velocity. If false, the fold limits specified here
+are used instead.</dd>
+<dt>NOTE: ‘input_name’ for this step refers to the ‘input_name’ in</dt>
+<dd>‘select_fields’ and ‘output_name’ in ‘transform_fields’. This step is
+performed prior to renaming fields (see below).</dd>
+<dt>Type: struct</dt>
+<dd><dl class="first docutils">
+<dt>typedef struct {</dt>
+<dd>string input_name;
+boolean field_folds;
+boolean use_global_nyquist;
+double fold_limit_lower;
+double fold_limit_upper;</dd>
+</dl>
+<p class="last">}</p>
+</dd>
+</dl>
+<p>1D array - variable length.</p>
+</div></blockquote>
+<p><strong>folded_fields = {</strong></p>
+<p><strong>input_name = “VEL”,</strong></p>
+<p><strong>field_folds = TRUE,</strong></p>
+<p><strong>use_global_nyquist = TRUE,</strong></p>
+<p><strong>fold_limit_lower = -25,</strong></p>
+<p><strong>fold_limit_upper = 25</strong></p>
+<p><strong>};</strong></p>
+</div>
+</div>
+<div class="section" id="option-to-override-the-nyquist-velocity">
+<h2>OPTION TO OVERRIDE THE NYQUIST VELOCITY<a class="headerlink" href="#option-to-override-the-nyquist-velocity" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="override-nyquist">
+<h3>override_nyquist<a class="headerlink" href="#override-nyquist" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to override nyquist velocity in incoming data.</p>
+<dl class="docutils">
+<dt>If true, the nyquist_velocity parameter is used to specify the</dt>
+<dd>nyquist. If false, the nyquist is computed from the incoming radar
+data stream. The nyquist is used for velocity interpolation, to
+ensure that folded values are treated correctlty.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>override_nyquist = FALSE;</strong></p>
+</div>
+<div class="section" id="nyquist-velocity">
+<h3>nyquist_velocity<a class="headerlink" href="#nyquist-velocity" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Specify nyquist velocity (m/s).</p>
+<p>See ‘override_nyquist’.</p>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>nyquist_velocity = 25;</strong></p>
+</div>
+</div>
+<div class="section" id="option-to-designate-selected-fields-as-discrete-in-nature">
+<h2>OPTION TO DESIGNATE SELECTED FIELDS AS DISCRETE IN NATURE<a class="headerlink" href="#option-to-designate-selected-fields-as-discrete-in-nature" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="set-discrete-fields">
+<h3>set_discrete_fields<a class="headerlink" href="#set-discrete-fields" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to set ‘is_discrete’ flag for individual fields.</p>
+<dl class="docutils">
+<dt>If TRUE, the specified fields will be treated as holding discrete</dt>
+<dd>values, and the nearest neighbor method will be used instead of
+interpolation.</dd>
+<dt>You should do this for fields such as PID (particle ID). In CfRadial</dt>
+<dd>files there is an option to store this information as attributes on
+each field. You can override what is in the file, or add to it.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>set_discrete_fields = FALSE;</strong></p>
+</div>
+<div class="section" id="discrete-fields">
+<h3>discrete_fields<a class="headerlink" href="#discrete-fields" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Use this to set the ‘is_discrete’ flag on a field.</p>
+<dl class="docutils">
+<dt>If this is specified, nearest neighbor will be used for this field.</dt>
+<dd>You can use this to override the is_discrete flag on a field in the
+input file.</dd>
+<dt>NOTE: ‘input_name’ for this step refers to the ‘input_name’ in</dt>
+<dd>‘select_fields’ and ‘output_name’ in ‘transform_fields’. This step is
+performed prior to renaming fields (see below).</dd>
+<dt>Type: struct</dt>
+<dd><dl class="first docutils">
+<dt>typedef struct {</dt>
+<dd>string input_name;
+boolean is_discrete;</dd>
+</dl>
+<p class="last">}</p>
+</dd>
+</dl>
+<p>1D array - variable length.</p>
+</div></blockquote>
+<p><strong>discrete_fields = {</strong></p>
+<p><strong>input_name = “PID”,</strong></p>
+<p><strong>is_discrete = TRUE</strong></p>
+<p><strong>};</strong></p>
+</div>
+</div>
+<div class="section" id="option-to-rename-fields-on-output">
+<h2>OPTION TO RENAME FIELDS ON OUTPUT<a class="headerlink" href="#option-to-rename-fields-on-output" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="rename-fields">
+<h3>rename_fields<a class="headerlink" href="#rename-fields" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to rename some or all of the fields when they are written out.</p>
+<p>If FALSE, no fields will be renamed.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>rename_fields = FALSE;</strong></p>
+</div>
+<div class="section" id="renamed-fields">
+<h3>renamed_fields<a class="headerlink" href="#renamed-fields" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Specify the list of fields to be renamed.</p>
+<p>Only applies if ‘rename_fields’ is TRUE.</p>
+<p>The field name is changed from ‘input_name’ to ‘output_name’.</p>
+<dl class="docutils">
+<dt>NOTE: for transformed fields (see previous section), ‘input_name’ in</dt>
+<dd>‘renamed_fields’ matches ‘output_name’ in ‘transform_fields’. The
+transform occurs first, and then the fields are renamed.</dd>
+<dt>Type: struct</dt>
+<dd><dl class="first docutils">
+<dt>typedef struct {</dt>
+<dd>string input_name;
+string output_name;</dd>
+</dl>
+<p class="last">}</p>
+</dd>
+</dl>
+<p>1D array - variable length.</p>
+</div></blockquote>
+<p><strong>renamed_fields = {</strong></p>
+<p><strong>input_name = “DBZ”,</strong></p>
+<p><strong>output_name = “DBZ_S”</strong></p>
+<p><strong>input_name = “VEL”,</strong></p>
+<p><strong>output_name = “VEL_S”</strong></p>
+<p><strong>input_name = “WIDTH”,</strong></p>
+<p><strong>output_name = “WIDTH_S”</strong></p>
+<p><strong>};</strong></p>
+</div>
+</div>
+<div class="section" id="option-to-add-geometry-and-time-fields">
+<h2>OPTION TO ADD GEOMETRY AND TIME FIELDS<a class="headerlink" href="#option-to-add-geometry-and-time-fields" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="docutils">
+<dt>These fields are computed from the geometry of the radar rays, and</dt>
+<dd>then added as input fields in native radial coordinates.</dd>
+</dl>
+</div></blockquote>
+<div class="section" id="output-angle-fields">
+<h3>output_angle_fields<a class="headerlink" href="#output-angle-fields" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to output angle fields.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>output_angle_fields = FALSE;</strong></p>
+</div>
+<div class="section" id="angle-fields">
+<h3>angle_fields<a class="headerlink" href="#angle-fields" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="docutils">
+<dt>Specify the output names of the angle fields. If set to empty, that</dt>
+<dd><p class="first">field will not be created.</p>
+<blockquote class="last">
+<div>azimuth: the azimuth of the ray (deg)
+elevation: the elevation of the ray (deg)
+alpha: sin(az) * cos(el)
+beta: cos(az) * cos(el)
+gamma: sin(el).</div></blockquote>
+</dd>
+<dt>Type: struct</dt>
+<dd><dl class="first docutils">
+<dt>typedef struct {</dt>
+<dd>string azimuth_field_name;
+string elevation_field_name;
+string alpha_field_name;
+string beta_field_name;
+string gamma_field_name;</dd>
+</dl>
+<p class="last">}</p>
+</dd>
+</dl>
+</div></blockquote>
+<p><strong>angle_fields = {</strong></p>
+<p><strong>azimuth_field_name = “azimuth”,</strong></p>
+<p><strong>elevation_field_name = “elevation”,</strong></p>
+<p><strong>alpha_field_name = “alpha”,</strong></p>
+<p><strong>beta_field_name = “beta”,</strong></p>
+<p><strong>gamma_field_name = “gamma”</strong></p>
+<p><strong>};</strong></p>
+</div>
+<div class="section" id="output-range-field">
+<h3>output_range_field<a class="headerlink" href="#output-range-field" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to add range field to the output.</p>
+<p>This is the range, in km, from the radar to each gate.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>output_range_field = FALSE;</strong></p>
+</div>
+<div class="section" id="range-field-name">
+<h3>range_field_name<a class="headerlink" href="#range-field-name" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Name of range field, if written.</p>
+<p>See ‘output_range_field’.</p>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>range_field_name = “range”;</strong></p>
+</div>
+<div class="section" id="output-height-field">
+<h3>output_height_field<a class="headerlink" href="#output-height-field" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to add height field to the output.</p>
+<p>This is the height, in km msl, of the center of each gate.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>output_height_field = FALSE;</strong></p>
+</div>
+<div class="section" id="height-field-name">
+<h3>height_field_name<a class="headerlink" href="#height-field-name" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Name of height field, if written.</p>
+<p>See ‘output_height_field’.</p>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>height_field_name = “height”;</strong></p>
+</div>
+<div class="section" id="output-coverage-field">
+<h3>output_coverage_field<a class="headerlink" href="#output-coverage-field" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to output a field indicating radar coverage.</p>
+<dl class="docutils">
+<dt>This is a flag field, with a 1 indicating that the radar covers that</dt>
+<dd>location, and a 0 indicating that is does not. See also
+‘coverage_field_name’. This field is always transformed using nearest
+neighbor.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>output_coverage_field = FALSE;</strong></p>
+</div>
+<div class="section" id="coverage-field-name">
+<h3>coverage_field_name<a class="headerlink" href="#coverage-field-name" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Name of coverage field, if written.</p>
+<p>See ‘output_coverage_field’.</p>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>coverage_field_name = “Coverage”;</strong></p>
+</div>
+<div class="section" id="output-time-field">
+<h3>output_time_field<a class="headerlink" href="#output-time-field" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to output a field of time since start of volume (secs).</p>
+<dl class="docutils">
+<dt>If true, time time elapsed field is included in the output file. See</dt>
+<dd>also ‘time_field_name’ and ‘interp_time_field’.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>output_time_field = FALSE;</strong></p>
+</div>
+<div class="section" id="time-field-name">
+<h3>time_field_name<a class="headerlink" href="#time-field-name" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Name of time field, if written.</p>
+<p>See ‘output_time_field’.</p>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>time_field_name = “time_elapsed”;</strong></p>
+</div>
+<div class="section" id="interp-time-field">
+<h3>interp_time_field<a class="headerlink" href="#interp-time-field" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to perform interpolation on the time field.</p>
+<p>If false, nearest neighbor will be used for the time field.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>interp_time_field = TRUE;</strong></p>
+</div>
+</div>
+<div class="section" id="option-to-add-debug-fields">
+<h2>OPTION TO ADD DEBUG FIELDS<a class="headerlink" href="#option-to-add-debug-fields" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="docutils">
+<dt>The debug fields are added to the output Cartesian grid. These are</dt>
+<dd>geometry fields, and can be used to ensure the interpolation is
+working as expected.</dd>
+</dl>
+</div></blockquote>
+<div class="section" id="output-debug-fields">
+<h3>output_debug_fields<a class="headerlink" href="#output-debug-fields" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to add debug fields for checking the interpolation.</p>
+<dl class="docutils">
+<dt>The test fields allow us to ensure that the interpolation is working</dt>
+<dd>correctly.</dd>
+</dl>
+<p>The debug fields are:</p>
+<blockquote>
+<div>nContrib - number of points used in interpolation
+gridAz: azimuth deg
+gridEl: elevation deg
+gridRange: range km
+llEl: lower left elevation deg
+llAz: lower left azimuth deg
+lrEl: lower right elevation deg
+lrAz: lower right azimuth deg
+ulEl: upper left elevation deg
+ulAz: upper left azimuth deg
+urEl: upper right elevation deg
+urAz: upper right azimuth deg.</div></blockquote>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>output_debug_fields = FALSE;</strong></p>
+</div>
+</div>
+<div class="section" id="censoring-output-fields">
+<h2>CENSORING OUTPUT FIELDS<a class="headerlink" href="#censoring-output-fields" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="docutils">
+<dt>You have the option of censoring the output data fields - i.e.</dt>
+<dd>setting the fields to missing values - at gates which meet certain
+criteria based on the values in the input fields.</dd>
+<dt>If this is done correctly, it allows you to preserve the valid data</dt>
+<dd>and discard the noise, thereby improving compression. This leads to
+smaller data files.</dd>
+</dl>
+</div></blockquote>
+<div class="section" id="apply-censoring">
+<h3>apply_censoring<a class="headerlink" href="#apply-censoring" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Apply censoring based on field values and thresholds.</p>
+<dl class="docutils">
+<dt>If TRUE, censoring will be performed. See ‘censoring_fields’ for</dt>
+<dd>details on how the censoring will be applied.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>apply_censoring = FALSE;</strong></p>
+</div>
+<div class="section" id="censoring-fields">
+<h3>censoring_fields<a class="headerlink" href="#censoring-fields" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Fields to be used for censoring.</p>
+<dl class="docutils">
+<dt>Specify the fields to be used to determine whether a gate should be</dt>
+<dd>censored.</dd>
+</dl>
+<p>The name refers to the field name in the input files.</p>
+<dl class="docutils">
+<dt>Valid field values lie in the range from min_valid_value to</dt>
+<dd>max_valid_value, inclusively. If the value of a field at a gate lies
+within this range, it is considered valid.</dd>
+<dt>Each specified field is examined at each gate, and is flagged as</dt>
+<dd>valid if its value lies in the valid range.</dd>
+</dl>
+<p>These field flags are then combined as follows:</p>
+<dl class="docutils">
+<dt>First, all of the LOGICAL_OR flags are combined, yielding a single</dt>
+<dd>combined_or flag which is true if any of the LOGICAL_OR fields is
+true.</dd>
+<dt>Next the combined_or flag is combined with all of the LOGICAL_AND</dt>
+<dd>fields, yielding a true value only if the combined_or flag and the
+LOGICAL_AND fields are all true.</dd>
+<dt>If this computed flag is true, then the data at the gate is regarded</dt>
+<dd>as valid and is retained.</dd>
+<dt>If the computed flag is false, the data at the gate is censored, and</dt>
+<dd>all of the fields at the gate are set to missing.</dd>
+<dt>Type: struct</dt>
+<dd><dl class="first last docutils">
+<dt>typedef struct {</dt>
+<dd>string name;
+double min_valid_value;
+double max_valid_value;
+logical_t combination_method;</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+<p>Options:</p>
+<ul class="simple">
+<li>LOGICAL_AND</li>
+<li>LOGICAL_OR</li>
+<li>1D array - variable length.</li>
+</ul>
+<p><strong>censoring_fields = {</strong></p>
+<p><strong>name = “SNR”,</strong></p>
+<p><strong>min_valid_value = 0,</strong></p>
+<p><strong>max_valid_value = 1000,</strong></p>
+<p><strong>combination_method = LOGICAL_OR</strong></p>
+<p><strong>name = “NCP”,</strong></p>
+<p><strong>min_valid_value = 0.15,</strong></p>
+<p><strong>max_valid_value = 1000,</strong></p>
+<p><strong>combination_method = LOGICAL_OR</strong></p>
+<p><strong>};</strong></p>
+</div>
+<div class="section" id="censoring-min-valid-run">
+<h3>censoring_min_valid_run<a class="headerlink" href="#censoring-min-valid-run" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Minimum valid run of non-censored gates.</p>
+<dl class="docutils">
+<dt>Only active if set to 2 or greater. A check is made to remove short</dt>
+<dd>runs of noise. Looking along the radial, we compute the number of
+contiguous gates (a ‘run’) with uncensored data. For the gates in
+this run to be accepted the length of the run must exceed
+censoring_min_valid_run. If the number of gates in a run is less than
+this, then all gates in the run are censored.</dd>
+</dl>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>censoring_min_valid_run = 1;</strong></p>
+</div>
+</div>
+<div class="section" id="setting-the-pseudo-earth-radius-ratio-for-height-computations">
+<h2>SETTING THE PSEUDO EARTH RADIUS RATIO FOR HEIGHT COMPUTATIONS<a class="headerlink" href="#setting-the-pseudo-earth-radius-ratio-for-height-computations" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="override-standard-pseudo-earth-radius">
+<h3>override_standard_pseudo_earth_radius<a class="headerlink" href="#override-standard-pseudo-earth-radius" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="docutils">
+<dt>Option to override the standard 4/3 earth radius model for</dt>
+<dd>refraction.</dd>
+<dt>If true, the standard 4/3 earth radius will be overridden. The US NWS</dt>
+<dd>NEXRAD system uses 1.21 instead of 1.333.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>override_standard_pseudo_earth_radius = FALSE;</strong></p>
+</div>
+<div class="section" id="pseudo-earth-radius-ratio">
+<h3>pseudo_earth_radius_ratio<a class="headerlink" href="#pseudo-earth-radius-ratio" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="docutils">
+<dt>Ratio for computing the pseudo earth radius for beam height</dt>
+<dd>computations.</dd>
+<dt>For standard refraction this is 4/3. For super refraction it will be</dt>
+<dd>less than 4.3, and for sub-refraction it will be greater. NEXRAD uses
+1.21.</dd>
+</dl>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>pseudo_earth_radius_ratio = 1.33333;</strong></p>
+</div>
+</div>
+<div class="section" id="file-read-options">
+<h2>FILE READ OPTIONS<a class="headerlink" href="#file-read-options" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="aggregate-sweep-files-on-read">
+<h3>aggregate_sweep_files_on_read<a class="headerlink" href="#aggregate-sweep-files-on-read" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to aggregate sweep files into a volume on read.</p>
+<dl class="docutils">
+<dt>If true, and the input data is in sweeps rather than volumes (e.g.</dt>
+<dd>DORADE), the sweep files from a volume will be aggregated into a
+volume.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>aggregate_sweep_files_on_read = FALSE;</strong></p>
+</div>
+<div class="section" id="ignore-idle-scan-mode-on-read">
+<h3>ignore_idle_scan_mode_on_read<a class="headerlink" href="#ignore-idle-scan-mode-on-read" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to ignore data taken in IDLE mode.</p>
+<p>If true, on read will ignore files with an IDLE scan mode.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>ignore_idle_scan_mode_on_read = TRUE;</strong></p>
+</div>
+<div class="section" id="remove-rays-with-antenna-transitions">
+<h3>remove_rays_with_antenna_transitions<a class="headerlink" href="#remove-rays-with-antenna-transitions" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to remove rays taken while the antenna was in transition.</p>
+<dl class="docutils">
+<dt>If true, rays with the transition flag set will not be used. The</dt>
+<dd>transiton flag is set when the antenna is in transtion between one
+sweep and the next.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>remove_rays_with_antenna_transitions = FALSE;</strong></p>
+</div>
+<div class="section" id="transition-nrays-margin">
+<h3>transition_nrays_margin<a class="headerlink" href="#transition-nrays-margin" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Number of transition rays to include as a margin.</p>
+<dl class="docutils">
+<dt>Sometimes the transition flag is turned on too early in a transition,</dt>
+<dd>on not turned off quickly enough after a transition. If you set this
+to a number greater than 0, that number of rays will be included at
+each end of the transition, i.e. the transition will effectively be
+shorter at each end by this number of rays.</dd>
+</dl>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>transition_nrays_margin = 0;</strong></p>
+</div>
+<div class="section" id="remove-long-range-rays">
+<h3>remove_long_range_rays<a class="headerlink" href="#remove-long-range-rays" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to remove long range rays.</p>
+<dl class="docutils">
+<dt>Applies to NEXRAD data. If true, data from the non-Doppler long-range</dt>
+<dd>sweeps will be removed.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>remove_long_range_rays = TRUE;</strong></p>
+</div>
+<div class="section" id="remove-short-range-rays">
+<h3>remove_short_range_rays<a class="headerlink" href="#remove-short-range-rays" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to remove short range rays.</p>
+<dl class="docutils">
+<dt>Applies to NEXRAD data. If true, data from the Doppler short-range</dt>
+<dd>sweeps will be removed.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>remove_short_range_rays = FALSE;</strong></p>
+</div>
+<div class="section" id="trim-surveillance-sweeps-to-360deg">
+<h3>trim_surveillance_sweeps_to_360deg<a class="headerlink" href="#trim-surveillance-sweeps-to-360deg" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="docutils">
+<dt>Option to trip surveillance sweeps so that they only cover 360</dt>
+<dd>degrees.</dd>
+<dt>Some sweeps will have rays which cover more than a 360-degree</dt>
+<dd>rotation. Often these include antenna transitions. If this is set to
+true, rays are trimmed off either end of the sweep to limit the
+coverage to 360 degrees. The median elevation angle is computed and
+the end ray which deviates from the median in elevation is trimmed
+first.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>trim_surveillance_sweeps_to_360deg = FALSE;</strong></p>
+</div>
+<div class="section" id="override-fixed-angle-with-mean-measured-angle">
+<h3>override_fixed_angle_with_mean_measured_angle<a class="headerlink" href="#override-fixed-angle-with-mean-measured-angle" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to override the fixed angle with the mean angle for a sweep.</p>
+<dl class="docutils">
+<dt>If true, for each sweep the mean pointing angle is computed and then</dt>
+<dd>this is used to override the fixed angle.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>override_fixed_angle_with_mean_measured_angle = FALSE;</strong></p>
+</div>
+<div class="section" id="reorder-sweeps-by-ascending-angle">
+<h3>reorder_sweeps_by_ascending_angle<a class="headerlink" href="#reorder-sweeps-by-ascending-angle" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to reorder sweeps by ascending angles.</p>
+<dl class="docutils">
+<dt>If true, sweeps will be checked to see if they are in ascending angle</dt>
+<dd>order. If not they are reordered. If the sweeps are reordered, this
+means that the rays times will no longer be monotonically increasing.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>reorder_sweeps_by_ascending_angle = FALSE;</strong></p>
+</div>
+<div class="section" id="compute-sweep-angles-from-vcp-tables">
+<h3>compute_sweep_angles_from_vcp_tables<a class="headerlink" href="#compute-sweep-angles-from-vcp-tables" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="docutils">
+<dt>Option to compute sweep angles using the VCP tables when reading</dt>
+<dd>NEXRAD data.</dd>
+<dt>If true, the VCP tables will be used to assign sweep angles. This is</dt>
+<dd>useful if rounding angles to fit the VCP is desired. For NEXRAD data
+files that don’t follow a known VCP and the VCP header is not
+included, set this to false.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>compute_sweep_angles_from_vcp_tables = FALSE;</strong></p>
+</div>
+</div>
+<div class="section" id="option-to-correct-time">
+<h2>OPTION TO CORRECT TIME<a class="headerlink" href="#option-to-correct-time" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="apply-time-offset">
+<h3>apply_time_offset<a class="headerlink" href="#apply-time-offset" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to apply an offset to the ray times.</p>
+<dl class="docutils">
+<dt>If TRUE, this offset will be ADDED to the existing ray times. This is</dt>
+<dd>useful, for example, for correcting time errors, or converting from
+local time to UTC.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>apply_time_offset = FALSE;</strong></p>
+</div>
+<div class="section" id="time-offset-secs">
+<h3>time_offset_secs<a class="headerlink" href="#time-offset-secs" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Time offset (secs).</p>
+<dl class="docutils">
+<dt>See ‘apply_time_offset’. This value will be ADDED to the existing ray</dt>
+<dd>times.</dd>
+</dl>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>time_offset_secs = 0;</strong></p>
+</div>
+</div>
+<div class="section" id="setting-limits-on-the-valid-data">
+<h2>SETTING LIMITS ON THE VALID DATA<a class="headerlink" href="#setting-limits-on-the-valid-data" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="set-max-range">
+<h3>set_max_range<a class="headerlink" href="#set-max-range" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to set the max range for any ray.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>set_max_range = FALSE;</strong></p>
+</div>
+<div class="section" id="max-range-km">
+<h3>max_range_km<a class="headerlink" href="#max-range-km" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Specified maximim range - km.</p>
+<p>Gates beyond this range are removed.</p>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>max_range_km = 9999;</strong></p>
+</div>
+<div class="section" id="set-elevation-angle-limits">
+<h3>set_elevation_angle_limits<a class="headerlink" href="#set-elevation-angle-limits" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to set elevation angle limits.</p>
+<p>Only use rays within the specified elevation angle limits.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>set_elevation_angle_limits = FALSE;</strong></p>
+</div>
+<div class="section" id="lower-elevation-angle-limit">
+<h3>lower_elevation_angle_limit<a class="headerlink" href="#lower-elevation-angle-limit" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Lower elevation angle limit (deg).</p>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>lower_elevation_angle_limit = 0;</strong></p>
+</div>
+<div class="section" id="upper-elevation-angle-limit">
+<h3>upper_elevation_angle_limit<a class="headerlink" href="#upper-elevation-angle-limit" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Upper elevation angle limit (deg).</p>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>upper_elevation_angle_limit = 90;</strong></p>
+</div>
+<div class="section" id="set-azimuth-angle-limits">
+<h3>set_azimuth_angle_limits<a class="headerlink" href="#set-azimuth-angle-limits" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to set azimuth angle limits.</p>
+<dl class="docutils">
+<dt>Only use rays within the specified azimuth angle limits. This</dt>
+<dd>essentially specifies a sector for valid data. Rays outside this
+sector are ignored.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>set_azimuth_angle_limits = FALSE;</strong></p>
+</div>
+<div class="section" id="lower-azimuth-angle-limit">
+<h3>lower_azimuth_angle_limit<a class="headerlink" href="#lower-azimuth-angle-limit" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Counter-clockwise azimuth angle limit (deg).</p>
+<dl class="docutils">
+<dt>This is the azimuth limit at the lower (counter clockwise) end of the</dt>
+<dd>sector. For azimuths to the west of north, use values between 180 and
+360.</dd>
+</dl>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>lower_azimuth_angle_limit = 0;</strong></p>
+</div>
+<div class="section" id="upper-azimuth-angle-limit">
+<h3>upper_azimuth_angle_limit<a class="headerlink" href="#upper-azimuth-angle-limit" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Clockwise azimuth angle limit (deg).</p>
+<p>This is the azimuth limit at the upper (clockwise) end of the sector.</p>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>upper_azimuth_angle_limit = 360;</strong></p>
+</div>
+<div class="section" id="check-fixed-angle-error">
+<h3>check_fixed_angle_error<a class="headerlink" href="#check-fixed-angle-error" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to limit the fixed angle error to a specfied maximum value.</p>
+<dl class="docutils">
+<dt>If true, we compute the error between the actual pointing angle and</dt>
+<dd>the fixed angle for the sweep. If the error exceeds the specified
+limit, we reject the ray. For PPIs, we check th elevation angle
+against the fixed angle. For RHIs, we check the azimuth against the
+fixed angle.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>check_fixed_angle_error = FALSE;</strong></p>
+</div>
+<div class="section" id="max-fixed-angle-error">
+<h3>max_fixed_angle_error<a class="headerlink" href="#max-fixed-angle-error" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Maximum permissable error in the pointing angle (deg).</p>
+<p>See ‘check_fixed_angle’.</p>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>max_fixed_angle_error = 2;</strong></p>
+</div>
+<div class="section" id="check-number-of-sweeps">
+<h3>check_number_of_sweeps<a class="headerlink" href="#check-number-of-sweeps" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to check that the file has a minimum number of sweeps.</p>
+<p>See ‘min_number_of_sweeps’.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>check_number_of_sweeps = FALSE;</strong></p>
+</div>
+<div class="section" id="min-number-of-sweeps">
+<h3>min_number_of_sweeps<a class="headerlink" href="#min-number-of-sweeps" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Minimum number of sweeps for valid file.</p>
+<dl class="docutils">
+<dt>Applies if ‘check_number_of_sweeps’ is true. Only process files with</dt>
+<dd>this number of sweeps, or more.</dd>
+</dl>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>min_number_of_sweeps = 1;</strong></p>
+</div>
+</div>
+<div class="section" id="option-to-override-volume-number-or-autoincrement">
+<h2>OPTION TO OVERRIDE VOLUME NUMBER, OR AUTOINCREMENT<a class="headerlink" href="#option-to-override-volume-number-or-autoincrement" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="override-volume-number">
+<h3>override_volume_number<a class="headerlink" href="#override-volume-number" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to override the volume number in the file.</p>
+<p>Useful is there is no volume number in the data.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>override_volume_number = FALSE;</strong></p>
+</div>
+<div class="section" id="starting-volume-number">
+<h3>starting_volume_number<a class="headerlink" href="#starting-volume-number" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Volume number at startup.</p>
+<p>Applies if ‘override_volume_number’ is true.</p>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>starting_volume_number = 1;</strong></p>
+</div>
+<div class="section" id="autoincrement-volume-number">
+<h3>autoincrement_volume_number<a class="headerlink" href="#autoincrement-volume-number" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to automatically increment the volume number.</p>
+<p>Starts at ‘starting_volume_number’ and increments from there.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>autoincrement_volume_number = FALSE;</strong></p>
+</div>
+</div>
+<div class="section" id="option-to-override-radar-location">
+<h2>OPTION TO OVERRIDE RADAR LOCATION<a class="headerlink" href="#option-to-override-radar-location" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="override-radar-location">
+<h3>override_radar_location<a class="headerlink" href="#override-radar-location" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to override the radar location.</p>
+<dl class="docutils">
+<dt>If true, the location in this file will be used. If not, the location</dt>
+<dd>in the time series data will be used.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>override_radar_location = FALSE;</strong></p>
+</div>
+<div class="section" id="radar-latitude-deg">
+<h3>radar_latitude_deg<a class="headerlink" href="#radar-latitude-deg" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Radar latitude (deg).</p>
+<p>See override_radar_location.</p>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>radar_latitude_deg = -999;</strong></p>
+</div>
+<div class="section" id="radar-longitude-deg">
+<h3>radar_longitude_deg<a class="headerlink" href="#radar-longitude-deg" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Radar longitude (deg).</p>
+<p>See override_radar_location.</p>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>radar_longitude_deg = -999;</strong></p>
+</div>
+<div class="section" id="radar-altitude-meters">
+<h3>radar_altitude_meters<a class="headerlink" href="#radar-altitude-meters" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Radar altitude (meters).</p>
+<p>See override_radar_location.</p>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>radar_altitude_meters = -999;</strong></p>
+</div>
+</div>
+<div class="section" id="option-to-override-instrument-and-or-site-name">
+<h2>OPTION TO OVERRIDE INSTRUMENT AND/OR SITE NAME<a class="headerlink" href="#option-to-override-instrument-and-or-site-name" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="override-instrument-name">
+<h3>override_instrument_name<a class="headerlink" href="#override-instrument-name" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to override the instrument name.</p>
+<p>If true, the name provided will be used.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>override_instrument_name = FALSE;</strong></p>
+</div>
+<div class="section" id="instrument-name">
+<h3>instrument_name<a class="headerlink" href="#instrument-name" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Instrument name.</p>
+<p>See override_instrument_name.</p>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>instrument_name = “unknown”;</strong></p>
+</div>
+<div class="section" id="override-site-name">
+<h3>override_site_name<a class="headerlink" href="#override-site-name" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to override the site name.</p>
+<p>If true, the name provided will be used.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>override_site_name = FALSE;</strong></p>
+</div>
+<div class="section" id="site-name">
+<h3>site_name<a class="headerlink" href="#site-name" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Site name.</p>
+<p>See override_site_name.</p>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>site_name = “unknown”;</strong></p>
+</div>
+</div>
+<div class="section" id="option-to-override-radar-beam-width">
+<h2>OPTION TO OVERRIDE RADAR BEAM WIDTH<a class="headerlink" href="#option-to-override-radar-beam-width" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="docutils">
+<dt>The beam width is used to decide how far to extend the interpolated</dt>
+<dd>data beyond the observed data. The data is extended below the lowest
+tilt and above the highest tilt, and in the case of sector scans it
+is extended slightly beyond the sector limits.</dd>
+</dl>
+</div></blockquote>
+<div class="section" id="override-beam-width">
+<h3>override_beam_width<a class="headerlink" href="#override-beam-width" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to override radar beam width.</p>
+<dl class="docutils">
+<dt>If TRUE, the program will use beam width specified in the</dt>
+<dd>‘beam_width_deg’ parameter.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>override_beam_width = FALSE;</strong></p>
+</div>
+<div class="section" id="beam-width-deg-h">
+<h3>beam_width_deg_h<a class="headerlink" href="#beam-width-deg-h" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Horizontal beam width if override is set true (deg).</p>
+<dl class="docutils">
+<dt>Used for extending the data to the left or right of sector limits, if</dt>
+<dd>applicable. This is only used if ‘override_beam_width’ is set true.
+Otherwise the metadata in the input data stream is used.</dd>
+</dl>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>beam_width_deg_h = 1;</strong></p>
+</div>
+<div class="section" id="beam-width-deg-v">
+<h3>beam_width_deg_v<a class="headerlink" href="#beam-width-deg-v" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Vertical beam width if override is set true (deg).</p>
+<dl class="docutils">
+<dt>Used for extending data above or below the observed region. This only</dt>
+<dd>used if ‘override_beam_width’ is set true. Otherwise the metadata in
+the input data stream is used.</dd>
+</dl>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>beam_width_deg_v = 1;</strong></p>
+</div>
+</div>
+<div class="section" id="option-to-override-radar-gate-geometry">
+<h2>OPTION TO OVERRIDE RADAR GATE GEOMETRY<a class="headerlink" href="#option-to-override-radar-gate-geometry" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="docutils">
+<dt>If the start range and/or gate spacing is not correct in the data,</dt>
+<dd>you can override it using the parameters below.</dd>
+</dl>
+</div></blockquote>
+<div class="section" id="override-gate-geometry">
+<h3>override_gate_geometry<a class="headerlink" href="#override-gate-geometry" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to override gate geometry.</p>
+<dl class="docutils">
+<dt>If TRUE, the program will use the start range and gate spacing</dt>
+<dd>specified here.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>override_gate_geometry = FALSE;</strong></p>
+</div>
+<div class="section" id="start-range-km">
+<h3>start_range_km<a class="headerlink" href="#start-range-km" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Start range (km).</p>
+<p>Used for overriding the start range in the data.</p>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>start_range_km = 0.125;</strong></p>
+</div>
+<div class="section" id="gate-spacing-km">
+<h3>gate_spacing_km<a class="headerlink" href="#gate-spacing-km" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Gate spacing (km).</p>
+<p>Used for overriding the gate spacing in the data.</p>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>gate_spacing_km = 0.25;</strong></p>
+</div>
+</div>
+<div class="section" id="option-to-apply-angle-corrections">
+<h2>OPTION TO APPLY ANGLE CORRECTIONS<a class="headerlink" href="#option-to-apply-angle-corrections" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="docutils">
+<dt>This section allows you to correct the azimuth and/or elevation</dt>
+<dd>angles for a known error.</dd>
+</dl>
+</div></blockquote>
+<div class="section" id="azimuth-correction-deg">
+<h3>azimuth_correction_deg<a class="headerlink" href="#azimuth-correction-deg" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Add this value to the azimuth.</p>
+<dl class="docutils">
+<dt>Normally only used for testing, but can be used if there is a</dt>
+<dd>constant azimuth error in the data.</dd>
+</dl>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>azimuth_correction_deg = 0;</strong></p>
+</div>
+<div class="section" id="elevation-correction-deg">
+<h3>elevation_correction_deg<a class="headerlink" href="#elevation-correction-deg" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Add this value to the elevation.</p>
+<dl class="docutils">
+<dt>Normally only used for testing, but can be used if there is a</dt>
+<dd>constant elevation error in the data.</dd>
+</dl>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>elevation_correction_deg = 0;</strong></p>
+</div>
+</div>
+<div class="section" id="cf-netcdf-output-details">
+<h2>CF NetCDF OUTPUT DETAILS<a class="headerlink" href="#cf-netcdf-output-details" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="specify-output-filename">
+<h3>specify_output_filename<a class="headerlink" href="#specify-output-filename" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>If true, the file will be named ‘output_filename’.</p>
+<p>If false, the file name will be computed from the data time.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>specify_output_filename = FALSE;</strong></p>
+</div>
+<div class="section" id="output-filename">
+<h3>output_filename<a class="headerlink" href="#output-filename" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Name of output file.</p>
+<p>Applies only if specify_output_filename is true.</p>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>output_filename = “ncfGrid.nc”;</strong></p>
+</div>
+<div class="section" id="name-file-from-start-time">
+<h3>name_file_from_start_time<a class="headerlink" href="#name-file-from-start-time" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>If true, name the output file using the start time.</p>
+<p>If false, the end time is used, in the MDV tradition.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>name_file_from_start_time = FALSE;</strong></p>
+</div>
+<div class="section" id="netcdf-file-prefix">
+<h3>netcdf_file_prefix<a class="headerlink" href="#netcdf-file-prefix" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>User-specified output file prefix, comes before date_time.</p>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>netcdf_file_prefix = “ncf_”;</strong></p>
+</div>
+<div class="section" id="netcdf-file-suffix">
+<h3>netcdf_file_suffix<a class="headerlink" href="#netcdf-file-suffix" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="docutils">
+<dt>User-specified output file suffix, comes after the date_time and</dt>
+<dd>before the .nc which gets automatically added on.</dd>
+</dl>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>netcdf_file_suffix = “”;</strong></p>
+</div>
+<div class="section" id="use-iso8601-filename-convention">
+<h3>use_iso8601_filename_convention<a class="headerlink" href="#use-iso8601-filename-convention" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="docutils">
+<dt>If true the output filename uses the prefix, followed by ISO 8601</dt>
+<dd>timestamp convention.</dd>
+</dl>
+<p>eg. prefix.2008-05-22T14:00:00.nc.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>use_iso8601_filename_convention = FALSE;</strong></p>
+</div>
+</div>
+<div class="section" id="netcdf-compression">
+<h2>NETCDF COMPRESSION<a class="headerlink" href="#netcdf-compression" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="netcdf-compressed">
+<h3>netcdf_compressed<a class="headerlink" href="#netcdf-compressed" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to compress data fields on output.</p>
+<p>Applies to CfRadial netCDF and Dorade.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>netcdf_compressed = TRUE;</strong></p>
+</div>
+<div class="section" id="netcdf-compression-level">
+<h3>netcdf_compression_level<a class="headerlink" href="#netcdf-compression-level" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Level of compression for output data.</p>
+<dl class="docutils">
+<dt>Valid range is 1 through 9. 1 gives lowest compression, 9 highest. 4</dt>
+<dd>is a good compromise between speed and compression efficiency. Only
+applies to NetCDF file format.</dd>
+</dl>
+<p>Minimum val: 1
+Maximum val: 9</p>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>netcdf_compression_level = 4;</strong></p>
+</div>
+</div>
+<div class="section" id="netcdf-style">
+<h2>NETCDF STYLE<a class="headerlink" href="#netcdf-style" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>netcdf_style<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>NetCDF style - if output_format is CFRADIAL.</p>
+<dl class="docutils">
+<dt>netCDF classic format, netCDF 64-bit offset format, netCDF4 using</dt>
+<dd>HDF5 format, netCDF4 using HDF5 format but only netCDF3 calls.</dd>
+</dl>
+<p>Type: enum</p>
+</div></blockquote>
+<p>Options:</p>
+<ul class="simple">
+<li>CLASSIC</li>
+<li>NC64BIT</li>
+<li>NETCDF4_CLASSIC</li>
+<li>NETCDF4</li>
+</ul>
+<p><strong>netcdf_style = NETCDF4;</strong></p>
+</div>
+<div class="section" id="netcdf-include-latlon-arrays">
+<h3>netcdf_include_latlon_arrays<a class="headerlink" href="#netcdf-include-latlon-arrays" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>If true latitude and longitude arrays of each grid point are output.</p>
+<dl class="docutils">
+<dt>The CF convention requires that these arrays are present in the</dt>
+<dd>netCDF file; however, the information is redundant since the lat and
+lon arrays could be constructed using the other projection and grid
+information required with a gridded data field.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>netcdf_include_latlon_arrays = TRUE;</strong></p>
+</div>
+<div class="section" id="netcdf-output-mdv-attributes">
+<h3>netcdf_output_mdv_attributes<a class="headerlink" href="#netcdf-output-mdv-attributes" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to output non-CF compliant MDV attributes.</p>
+<dl class="docutils">
+<dt>If true, MDV attributes which are not CF compliant will be output.</dt>
+<dd>This will facilitate the translation of the data back into MDV with
+the minimal loss of information.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>netcdf_output_mdv_attributes = FALSE;</strong></p>
+</div>
+<div class="section" id="netcdf-output-mdv-chunks">
+<h3>netcdf_output_mdv_chunks<a class="headerlink" href="#netcdf-output-mdv-chunks" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to output non-CF compliant MDV chunks.</p>
+<dl class="docutils">
+<dt>If true, MDV chunks will be included as byte binary variables. This</dt>
+<dd>will also write the radar parameters, e.g. location, gate spacing,
+etc. - to the global attributes.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>netcdf_output_mdv_chunks = FALSE;</strong></p>
+</div>
+<div class="section" id="ncf-title">
+<h3>ncf_title<a class="headerlink" href="#ncf-title" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Title string for netCDF file.</p>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>ncf_title = “SPOL radar data”;</strong></p>
+</div>
+<div class="section" id="ncf-institution">
+<h3>ncf_institution<a class="headerlink" href="#ncf-institution" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Institution string for netCDF file.</p>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>ncf_institution = “EOL/NCAR”;</strong></p>
+</div>
+<div class="section" id="ncf-references">
+<h3>ncf_references<a class="headerlink" href="#ncf-references" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>References string for netCDF file.</p>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>ncf_references = “”;</strong></p>
+</div>
+<div class="section" id="ncf-source">
+<h3>ncf_source<a class="headerlink" href="#ncf-source" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Source string for netCDF file.</p>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>ncf_source = “SPOL radar”;</strong></p>
+</div>
+<div class="section" id="ncf-history">
+<h3>ncf_history<a class="headerlink" href="#ncf-history" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>History string for netCDF file.</p>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>ncf_history = “”;</strong></p>
+</div>
+<div class="section" id="ncf-comment">
+<h3>ncf_comment<a class="headerlink" href="#ncf-comment" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Comment string for netCDF file.</p>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>ncf_comment = “”;</strong></p>
+</div>
+</div>
+<div class="section" id="process-control">
+<h2>PROCESS CONTROL<a class="headerlink" href="#process-control" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="instance">
+<h3>instance<a class="headerlink" href="#instance" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Program instance for process registration.</p>
+<dl class="docutils">
+<dt>This application registers with procmap. This is the instance used</dt>
+<dd>for registration.</dd>
+</dl>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>instance = “test”;</strong></p>
+</div>
+<div class="section" id="register-with-procmap">
+<h3>register_with_procmap<a class="headerlink" href="#register-with-procmap" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to register this process with the process mapper (procmap).</p>
+<dl class="docutils">
+<dt>If TRUE, every minute this process will register a heartbeat with</dt>
+<dd>procmap. If the process hangs, it will be restared by the
+auto_restarter.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>register_with_procmap = FALSE;</strong></p>
+</div>
+<div class="section" id="procmap-register-interval">
+<h3>procmap_register_interval<a class="headerlink" href="#procmap-register-interval" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Interval for registering with procmap (secs).</p>
+<dl class="docutils">
+<dt>The app will register with procmap at this interval, to update its</dt>
+<dd>status. If it does not register within twice this interval, the
+auto_restart script will restart the app.</dd>
+</dl>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>procmap_register_interval = 60;</strong></p>
+</div>
+</div>
+<div class="section" id="memory-handling">
+<h2>MEMORY HANDLING<a class="headerlink" href="#memory-handling" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="free-memory-between-files">
+<h3>free_memory_between_files<a class="headerlink" href="#free-memory-between-files" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to free up memory between each new file.</p>
+<dl class="docutils">
+<dt>If true, we free up as much memory as possible between handling the</dt>
+<dd>files. If false, we reduse allocated memory to the extent possible.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>free_memory_between_files = TRUE;</strong></p>
+</div>
+</div>
+<div class="section" id="threading-for-speed">
+<h2>THREADING FOR SPEED<a class="headerlink" href="#threading-for-speed" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="use-multiple-threads">
+<h3>use_multiple_threads<a class="headerlink" href="#use-multiple-threads" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to use multiple compute threads to improve performance.</p>
+<dl class="docutils">
+<dt>The read and write stages occur in the main thread, since netCDF is</dt>
+<dd>not thread safe. The compute stage can be multi-threaded to improve
+performance.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>use_multiple_threads = TRUE;</strong></p>
+</div>
+<div class="section" id="n-compute-threads">
+<h3>n_compute_threads<a class="headerlink" href="#n-compute-threads" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>The number of compute threads.</p>
+<dl class="docutils">
+<dt>The moments computations are segmented in range, with each thread</dt>
+<dd>computing a fraction of the number of gates. For maximum performance,
+n_threads should be set to the number of processors multiplied by 4.
+For further tuning, use top to maximize CPU usage while varying the
+number of threads.</dd>
+</dl>
+<p>Minimum val: 1</p>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>n_compute_threads = 4;</strong></p>
+</div>
+</div>
+<div class="section" id="interpolation-for-satellite-data">
+<h2>INTERPOLATION FOR SATELLITE DATA<a class="headerlink" href="#interpolation-for-satellite-data" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="docutils">
+<dt>Satellite interpolation uses the reorder params above, plus those in</dt>
+<dd>this section.</dd>
+</dl>
+</div></blockquote>
+<div class="section" id="sat-data-invert-in-range">
+<h3>sat_data_invert_in_range<a class="headerlink" href="#sat-data-invert-in-range" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to invert satellite data in range from the instrument.</p>
+<dl class="docutils">
+<dt>Since satellite-based instruments look downwards, it is sometimes</dt>
+<dd>necessary to invert the data, so that it sorts from the ground up.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>sat_data_invert_in_range = FALSE;</strong></p>
+</div>
+<div class="section" id="sat-data-set-range-geom-from-fields">
+<h3>sat_data_set_range_geom_from_fields<a class="headerlink" href="#sat-data-set-range-geom-from-fields" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to use the range geometry from the fields instead of the rays.</p>
+<p>If true, the field geometry will be copied into the ray metadata.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>sat_data_set_range_geom_from_fields = FALSE;</strong></p>
+</div>
+</div>
+<div class="section" id="option-to-write-search-matrix-files">
+<h2>OPTION TO WRITE SEARCH MATRIX FILES<a class="headerlink" href="#option-to-write-search-matrix-files" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="docutils">
+<dt>This is for debugging purposes only. The search matrix data will be</dt>
+<dd>written to MDV files that can then be viewed in CIDD or JAZZ.</dd>
+</dl>
+</div></blockquote>
+<div class="section" id="write-search-matrix-files">
+<h3>write_search_matrix_files<a class="headerlink" href="#write-search-matrix-files" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to write files containing data from the search matrix.</p>
+<dl class="docutils">
+<dt>Applies to the 2D search matrices that are computed for</dt>
+<dd>INTERP_MODE_CART.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>write_search_matrix_files = FALSE;</strong></p>
+</div>
+<div class="section" id="search-matrix-dir">
+<h3>search_matrix_dir<a class="headerlink" href="#search-matrix-dir" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Output directory for writing search matrix files.</p>
+<p>See ‘output_search_matrix’.</p>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>search_matrix_dir = “./mdv/search_matrix”;</strong></p>
+</div>
+</div>
+<div class="section" id="option-to-identify-the-convective-stratiform-split">
+<h2>OPTION TO IDENTIFY THE CONVECTIVE/STRATIFORM SPLIT<a class="headerlink" href="#option-to-identify-the-convective-stratiform-split" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div>Applies only to INTERP_MODE_CART.</div></blockquote>
+<div class="section" id="identify-convective-stratiform-split">
+<h3>identify_convective_stratiform_split<a class="headerlink" href="#identify-convective-stratiform-split" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to identify the convective / stratiform split.</p>
+<dl class="docutils">
+<dt>Uses the standard deviation of reflectivity as a texture field for</dt>
+<dd>each Cartesian plane. Low variability indicates stratiform
+conditions.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>identify_convective_stratiform_split = FALSE;</strong></p>
+</div>
+<div class="section" id="conv-strat-dbz-field-name">
+<h3>conv_strat_dbz_field_name<a class="headerlink" href="#conv-strat-dbz-field-name" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Name of reflectivity field in input data.</p>
+<p>This is used for computing reflectivity texture.</p>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>conv_strat_dbz_field_name = “DBZ”;</strong></p>
+</div>
+<div class="section" id="conv-strat-texture-radius-km">
+<h3>conv_strat_texture_radius_km<a class="headerlink" href="#conv-strat-texture-radius-km" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Radius for texture analysis (km).</p>
+<dl class="docutils">
+<dt>We determine the reflectivity ‘texture’ at a point by computing the</dt>
+<dd>standard deviation of the square of the reflectivity, for all grid
+points within this radius of the central point. We then compute the
+square root of that sdev.</dd>
+</dl>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>conv_strat_texture_radius_km = 7;</strong></p>
+</div>
+<div class="section" id="conv-strat-texture-depth-km">
+<h3>conv_strat_texture_depth_km<a class="headerlink" href="#conv-strat-texture-depth-km" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Depth of region for computing texture (km).</p>
+<dl class="docutils">
+<dt>We compute the reflectivity ‘texture’ considering all radar points</dt>
+<dd>within a specified region, centered on the grid points. This is the
+depth of that region. It does not necessarily match the vertical grid
+spacing - it is likely that the depth will be greater than the grid
+vertical spacing, to allow for more points to be included in
+computing the texture. However, the depth should not exceed 2km or
+so, because the texture is intended to find layers (such as
+bright-band) in the observations.</dd>
+</dl>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>conv_strat_texture_depth_km = 1;</strong></p>
+</div>
+<div class="section" id="conv-strat-min-valid-fraction-for-texture">
+<h3>conv_strat_min_valid_fraction_for_texture<a class="headerlink" href="#conv-strat-min-valid-fraction-for-texture" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Minimum fraction of surroundingpoints for texture computations.</p>
+<dl class="docutils">
+<dt>For a valid computation of texture, we require at least this fraction</dt>
+<dd>of points around the central point to have reflectivity in excess of
+min_valid_dbz.</dd>
+</dl>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>conv_strat_min_valid_fraction_for_texture = 0.33;</strong></p>
+</div>
+<div class="section" id="conv-strat-min-valid-height">
+<h3>conv_strat_min_valid_height<a class="headerlink" href="#conv-strat-min-valid-height" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Min height used in analysis (km).</p>
+<p>Only data at or above this altitude is used.</p>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>conv_strat_min_valid_height = 0;</strong></p>
+</div>
+<div class="section" id="conv-strat-max-valid-height">
+<h3>conv_strat_max_valid_height<a class="headerlink" href="#conv-strat-max-valid-height" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Max height used in analysis (km).</p>
+<p>Only data at or below this altitude is used.</p>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>conv_strat_max_valid_height = 25;</strong></p>
+</div>
+<div class="section" id="conv-strat-min-valid-dbz">
+<h3>conv_strat_min_valid_dbz<a class="headerlink" href="#conv-strat-min-valid-dbz" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Minimum reflectivity threshold for this analysis (dBZ).</p>
+<p>Reflectivity below this threshold is set to missing.</p>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>conv_strat_min_valid_dbz = 10;</strong></p>
+</div>
+<div class="section" id="conv-strat-dbz-threshold-for-definite-convection">
+<h3>conv_strat_dbz_threshold_for_definite_convection<a class="headerlink" href="#conv-strat-dbz-threshold-for-definite-convection" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Reflectivity value that indicates definite convection.</p>
+<dl class="docutils">
+<dt>If the reflectivity exceeds this value at a point, we assume</dt>
+<dd>convection is definitely active at that point. To use this, we first
+compute the column maximum reflectivity. If the column max dbz at a
+point exceeds this threshold, then we flag that point as convective.</dd>
+</dl>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>conv_strat_dbz_threshold_for_definite_convection = 53;</strong></p>
+</div>
+<div class="section" id="conv-strat-convective-radius-km">
+<h3>conv_strat_convective_radius_km<a class="headerlink" href="#conv-strat-convective-radius-km" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Radius of convective influence (km).</p>
+<dl class="docutils">
+<dt>Given definite convection at a point (see above), we set all points</dt>
+<dd>within this radius to be convective.</dd>
+</dl>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>conv_strat_convective_radius_km = 5;</strong></p>
+</div>
+<div class="section" id="conv-strat-min-texture-for-convection">
+<h3>conv_strat_min_texture_for_convection<a class="headerlink" href="#conv-strat-min-texture-for-convection" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Minimum texture for convection at a point.</p>
+<dl class="docutils">
+<dt>If the texture at a point exceeds this value, we set the convective</dt>
+<dd>flag at this point. We then expand the convective influence around
+the point using convetive_radius_km.</dd>
+</dl>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>conv_strat_min_texture_for_convection = 15;</strong></p>
+</div>
+<div class="section" id="conv-strat-write-partition">
+<h3>conv_strat_write_partition<a class="headerlink" href="#conv-strat-write-partition" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to write out the convective/stratiform partition.</p>
+<p>If true, the 2-D partition will be added to the output file.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>conv_strat_write_partition = FALSE;</strong></p>
+</div>
+<div class="section" id="conv-strat-write-debug-fields">
+<h3>conv_strat_write_debug_fields<a class="headerlink" href="#conv-strat-write-debug-fields" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to write out the intermediate fields for debug purposes.</p>
+<p>If true, the intermdiate fields will be written to the output file.</p>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>conv_strat_write_debug_fields = FALSE;</strong></p>
+</div>
+</div>
+<div class="section" id="interpolation-using-reorder-method">
+<h2>INTERPOLATION USING REORDER METHOD<a class="headerlink" href="#interpolation-using-reorder-method" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="docutils">
+<dt>!!!!!! WARNING - IMPORTANT NOTE - this mode should only be used for</dt>
+<dd>mobile platforms. Use INTERP_MODE_CART for all fixed platforms - it
+is much more robust and gives much better results !!!!!!!.</dd>
+</dl>
+</div></blockquote>
+<div class="section" id="reorder-npoints-search">
+<h3>reorder_npoints_search<a class="headerlink" href="#reorder-npoints-search" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Number of points retrieved around each grid point.</p>
+<dl class="docutils">
+<dt>We find this number of closest points, and then check that their</dt>
+<dd>distance is less than the search radius.</dd>
+</dl>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>reorder_npoints_search = 24;</strong></p>
+</div>
+<div class="section" id="reorder-search-radius-km">
+<h3>reorder_search_radius_km<a class="headerlink" href="#reorder-search-radius-km" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="docutils">
+<dt>Radius searched around a grid cell for radar points that contribute</dt>
+<dd>to theinterpolation.</dd>
+<dt>We optionally scale this by range, so that the radius increases at</dt>
+<dd>longer ranges where the rays are more widely spaced.</dd>
+</dl>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>reorder_search_radius_km = 5;</strong></p>
+</div>
+<div class="section" id="reorder-scale-search-radius-with-range">
+<h3>reorder_scale_search_radius_with_range<a class="headerlink" href="#reorder-scale-search-radius-with-range" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Option to scale search radius based on range from radar.</p>
+<dl class="docutils">
+<dt>If true, we treat the specified search radius as a nominal value, and</dt>
+<dd>adjust it based on the range of the grid point from the radar. See
+also reorder_nominal_range_for_search_radius.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>reorder_scale_search_radius_with_range = TRUE;</strong></p>
+</div>
+<div class="section" id="reorder-nominal-range-for-search-radius-km">
+<h3>reorder_nominal_range_for_search_radius_km<a class="headerlink" href="#reorder-nominal-range-for-search-radius-km" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Range at which the xy_margin is equal to the nominal value (km).</p>
+<dl class="docutils">
+<dt>At ranges other than this, we scale the search radius linearly based</dt>
+<dd>on range from the radar, provided reorder_scale_xy_margin_with_range
+is TRUE.</dd>
+</dl>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>reorder_nominal_range_for_search_radius_km = 60;</strong></p>
+</div>
+<div class="section" id="reorder-z-search-ratio">
+<h3>reorder_z_search_ratio<a class="headerlink" href="#reorder-z-search-ratio" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Ratio of search in Z dimension with respect to the XY dimensions.</p>
+<dl class="docutils">
+<dt>If this is 1.0, the search space around a grid point is effectively a</dt>
+<dd>sphere. If this value is less than 1, then the search space is
+flattened, i.e. we look farther out in the XY directions than in the
+Z direction. This has the effect of reducing the ringing effect seen
+in data with higher gradients in Z than XY. If the value is greater
+than 1, the reverse applies.</dd>
+</dl>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>reorder_z_search_ratio = 1;</strong></p>
+</div>
+<div class="section" id="reorder-bound-grid-point-vertically">
+<h3>reorder_bound_grid_point_vertically<a class="headerlink" href="#reorder-bound-grid-point-vertically" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="docutils">
+<dt>Option to interpolate only if there is valid data both above and</dt>
+<dd>below the grid point.</dd>
+<dt>This enforces boundedness in the vertical coordinate. Essentially it</dt>
+<dd>prevents extrapolation above the upper sweep and below the lowest
+sweep.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>reorder_bound_grid_point_vertically = FALSE;</strong></p>
+</div>
+<div class="section" id="reorder-min-valid-wt-ratio">
+<h3>reorder_min_valid_wt_ratio<a class="headerlink" href="#reorder-min-valid-wt-ratio" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Min ratio of valid weights to total weights.</p>
+<dl class="docutils">
+<dt>In deciding whether a grid point should be marked as valid or</dt>
+<dd>missing, we compute the ratio of the sum of the weights of the valid
+points over the weights of all points. If the ratio falls below this
+parameter, the point it marked as missing.</dd>
+</dl>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>reorder_min_valid_wt_ratio = 0.5;</strong></p>
+</div>
+<div class="section" id="reorder-blocks-nrows">
+<h3>reorder_blocks_nrows<a class="headerlink" href="#reorder-blocks-nrows" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="docutils">
+<dt>Number of rows in which grid is divided for computations, in the x</dt>
+<dd>direction.</dd>
+<dt>Reorder uses a K-dimensional tree for finding the closest radar</dt>
+<dd>points to a selected Cartesian point. A kd-tree search slows down
+non-linearly as the number of points in the tree increases. To keep
+the number of points to reasonable values, we divide the grid into
+blocks, using the specified number of rows and columns. The tree will
+contain points in the block, plus some surrounding points to avoid
+edge effects. For computational efficieny the blocks should be
+approximately square in shape, so set nrows and ncols accordingly.</dd>
+</dl>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>reorder_blocks_nrows = 8;</strong></p>
+</div>
+<div class="section" id="reorder-blocks-ncols">
+<h3>reorder_blocks_ncols<a class="headerlink" href="#reorder-blocks-ncols" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="docutils">
+<dt>Number of columns in which grid is divided for computations, in the y</dt>
+<dd>direction.</dd>
+</dl>
+<p>See reorder_search_nrows.</p>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>reorder_blocks_ncols = 8;</strong></p>
+</div>
+<div class="section" id="reorder-min-nvalid-for-interp">
+<h3>reorder_min_nvalid_for_interp<a class="headerlink" href="#reorder-min-nvalid-for-interp" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Minimum Number of points used in the reorder interpolation.</p>
+<dl class="docutils">
+<dt>This will make sure the number of points used for least squares fit</dt>
+<dd>is sufficiently large. If this is too small the least squares fit
+becomes unstable and results become bad.</dd>
+</dl>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>reorder_min_nvalid_for_interp = 8;</strong></p>
+</div>
+<div class="section" id="reorder-weighted-interpolation">
+<h3>reorder_weighted_interpolation<a class="headerlink" href="#reorder-weighted-interpolation" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="docutils">
+<dt>Do the original weighted average reorder interpolation if set to</dt>
+<dd>TRUE, do the least squares reorder interpolation if FALSE.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>reorder_weighted_interpolation = FALSE;</strong></p>
+</div>
+</div>
+<div class="section" id="option-to-set-bounds-on-selected-fields">
+<h2>OPTION TO SET BOUNDS ON SELECTED FIELDS<a class="headerlink" href="#option-to-set-bounds-on-selected-fields" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="bound-fields">
+<h3>bound_fields<a class="headerlink" href="#bound-fields" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>If FALSE, no fields will be bounded.</p>
+<p>Option to set limits on the values of some or all of the fields.</p>
+<dl class="docutils">
+<dt>The parameters are set BEFORE interpolation, but the bound limits are</dt>
+<dd>applied AFTER interpolation.</dd>
+<dt>This only applies if ‘interp_mode’ is set to</dt>
+<dd>INTERP_MODE_CART_REORDER. It can be a useful option since the
+linear-least-squares solution used by the REORDER interpolation can
+have unstable solutions that that lead to very out-of-range output
+values. This can in turn reduce the resolution of the output data if
+it is stored as a scaled integer.</dd>
+</dl>
+<p>Type: boolean</p>
+</div></blockquote>
+<p><strong>bound_fields = FALSE;</strong></p>
+</div>
+<div class="section" id="bounded-fields">
+<h3>bounded_fields<a class="headerlink" href="#bounded-fields" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Specify the list of fields to be constrained within bounds.</p>
+<dl class="docutils">
+<dt>Only applies if ‘bound_fields’ is TRUE. At points where the output</dt>
+<dd>value is out of bounds, it is set to missing.</dd>
+<dt>NOTE: ‘input_name’ for this step refers to the ‘input_name’ in</dt>
+<dd>‘select_fields’ and ‘output_name’ in ‘transform_fields’. Setting the
+bounds on each field is performed prior to renaming fields (see
+below).</dd>
+<dt>Type: struct</dt>
+<dd><dl class="first docutils">
+<dt>typedef struct {</dt>
+<dd>string input_name;
+double min_value;
+double max_value;</dd>
+</dl>
+<p class="last">}</p>
+</dd>
+</dl>
+<p>1D array - variable length.</p>
+</div></blockquote>
+<p><strong>bounded_fields = {</strong></p>
+<p><strong>input_name = “DBZ”,</strong></p>
+<p><strong>min_value = -50,</strong></p>
+<p><strong>max_value = 100</strong></p>
+<p><strong>input_name = “VEL”,</strong></p>
+<p><strong>min_value = -50,</strong></p>
+<p><strong>max_value = 50</strong></p>
+<p><strong>};</strong></p>
+</div>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+      
+        <p>
+        «&#160;&#160;<a href="howtorun_radx2grid.html">Radx2Grid</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="docs.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="docker-container.html">The Lrose-Blaze Docker image</a>&#160;&#160;»
+        </p>
+
+      </div>
+
+
+<div id="templatemo_footer_wrapper">
+	<div id="templatemo_footer">
+
+        <div class="clear"></div>
+        <div id="templatemo_copyright">
+			Copyright © 2018 Colorado State University <!-- Credit: www.templatemo.com -->
+		</div>
+    </div> <!-- END of templatemo_footer -->
+</div> <!-- END of templatemo_footer_wrapper -->
+
+  </body>
+</html>

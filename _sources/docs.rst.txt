@@ -13,9 +13,13 @@ Welcome to NSF-LROSE's documentation!
    QuickStart
    Introduction
    howtorun_radxprint
+   RadxPrint
    howtorun_radxconvert
+   RadxConvert
    howtorun_HawkEye
+   HawkEye
    howtorun_radx2grid
+   Radx2Grid
    docker-container
    README_source_linux
    README_source_mac
