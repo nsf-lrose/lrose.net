@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fast Reorder and CEDRIC Technique in LROSE (FRACTL) &#8212; NSF LROSE Blaze documentation</title>
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Installing an LROSE Source Release (Mac)" href="README_source_mac.html" />
+<link href="_static/templatemo_lite.css" rel="stylesheet" type="text/css" />
+
+  </head><body>
+<div id="templatemo_wrapper">
+    <div id="templatemo_header">
+    	<div id="site_title"><a href="http://nsf-lrose.github.io">Lidar Radar Open Software Environment</a></div>
+        <div id="templatemo_menu">
+            <ul>
+                <li><a href="index.html" class="selected home">Home</a></li>
+                <li><a href="software.html" class="services">Software</a></li>
+                <li><a href="docs.html" class="gallery">Documentation</a></li>
+                <li class="last"><a href="help.html" class="news">Help</a></li>
+            </ul>
+        </div> <!-- end of templatemo_menu -->
+    </div>
+</div> <!-- END of templatemo_wrapper -->
+
+      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
+          <span>NSF LROSE Blaze documentation</span></a></h1>
+        <h2 class="heading"><span>Fast Reorder and CEDRIC Technique in LROSE (FRACTL)</span></h2>
+      </div>
+      <div class="topnav" role="navigation" aria-label="top navigation">
+      
+        <p>
+        «&#160;&#160;<a href="README_source_mac.html">Installing an LROSE Source Release (Mac)</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="docs.html">Contents</a>
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="fast-reorder-and-cedric-technique-in-lrose-fractl">
+<h1>Fast Reorder and CEDRIC Technique in LROSE (FRACTL)<a class="headerlink" href="#fast-reorder-and-cedric-technique-in-lrose-fractl" title="Permalink to this headline">¶</a></h1>
+<p>FRACTL is a fast traditional solver with integrated interpolation using
+LROSE infrastructure, and it is able to perform both gridding and
+multi-Doppler synthesis for airborne radars and multiple ground-based
+radars, which is different than Radx2Grid whereas it only has the
+capability for gridding of a single ground-based radar data. FRACTL
+adopts both REORDER and CEDRIC programs which REORDER is a program that
+transforms radar data from its native coordinate system to cartesian
+space and the data can then be ingested into CEDRIC for synthesis.</p>
+<div class="section" id="running-fractl">
+<h2>Running FRACTL<a class="headerlink" href="#running-fractl" title="Permalink to this headline">¶</a></h2>
+<p>The main features of using FRACTL are:</p>
+<ul class="simple"> 
+<li><p>“Traditional” multi-Doppler solver written from the ground up in C++ 
+<li><p>Quasi-horizontal 2-radar assumption (U,V) with mass-continuity for W, or full 3D solution (U, V, W).</p></li> 
+<li><p>Nearest neighbor algorithm adds Doppler gates directly to matrix solver at each grid point, no interpolation or averaging of velocity required.</p></li>
+<li><p>Solve normal equations using Singular Value Decomposition (preferred) or Cramer’s method.</p></li> 
+<li><p>Subset of CEDRIC diagnostics implemented, more on the way.</p></li> 
+<li><p>Fast computation. It takes less than 5 minutes for dual-Doppler synthesis (~3M gates).</p></li> 
+<li><p>Doppler data only.</p></li>
+<p>To check all command line options for FRACTL, including debugging
+options and file paths, the typical ‘-h’ flag can be invoked:</p>
+<div class="highlight-terminal notranslate"><div class="highlight"><pre><span></span>lrose -- fractl -h
+</pre></div>
+</div>
+<p>Likewise, to obtain the default parameter file, use the following
+command:</p>
+<div class="highlight-terminal notranslate"><div class="highlight"><pre><span></span>lrose -- fractl -print_params &gt; fractl.params
+</pre></div>
+</div>
+<p>There are several key parameters to look for and modify and they are
+listed below. After modifying the parameter file to your desired output
+analysis, type the following command to the terminal to invoke the
+program:</p>
+<div class="highlight-terminal notranslate"><div class="highlight"><pre><span></span>lrose -- fractl -params fractl.params
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Note: FRACTL accepts the file format either with CfRadial or DORADE
+currently. Different than Radx2Grid, FRACTL doesn’t require the
+CfRadial file with an aggregation of the sweeps.</p></li>
+</ul>
+</div>
+<div class="section" id="the-fractl-parameter-file">
+<h2>The FRACTL parameter file<a class="headerlink" href="#the-fractl-parameter-file" title="Permalink to this headline">¶</a></h2>
+<p>To control FRACTL’s operation, there are several key parameters to be
+modified in order to obtain the desired output.</p>
+<ul class="simple">
+<li><p>minDbz: any values below the minimum reflectivity will be tossed out.</p></li>
+<li><p>minNcp: any values below the minimum NCP will be tossed out. Note
+that both NEXRAD WSR88D and NOAA P-3 tail radars do not have this
+variable currently, so the NCP variable can be replaced by any other
+variables to perform the simple quality control (QC). Both minDbz and
+minNcp are designed for the QC of a real-time analysis.</p></li>
+<li><p>testMode: the default test mode is MODE_ZETA. The testMode option is
+designed for the developers to test and debug.</p></li>
+<li><p>zGrid: specify vertical grid spacing “incr” or “min, max, incr” which
+represents the lowest level, the highest level, and constant spacing
+of the vertical level respectively.</p></li>
+<li><p>yGrid: similar as zGrid. It specifies the grid parameters in y.</p></li>
+<li><p>xGrid: similar as zGrid. It specifies the grid parameters in x.</p></li>
+<li><p>gridType: mesh is for stand-alone analysis, while mish is as a
+background field for SAMURAI input. For the current release, we
+recommend the users to use mesh for the analysis. The mish gridType
+is experimental and still under development.</p></li>
+<li><p>projLat0: the latitude of the reference point (0,0).</p></li>
+<li><p>projLon0: the longitude of the reference point (0,0).</p></li>
+<li><p>numNbrMax: the maximum points for the nearest neighbor algorithm to
+consider at each grid point.</p></li>
+<li><p>inDir: input directory for searching for files. Files will be
+searched for in this directory.</p></li>
+<li><p>fileRegex: regular expression to select files in inDir. If input file
+format is CfRadial (DORADE), specify it as “^cfrad (^swp)”.</p></li>
+<li><p>outTxt: specify the directory of a output summary file which contains
+verification of grid results.</p></li>
+<li><p>outNc: specify the directory of a output netCDF file which is the
+result of the analysis.</p></li>
+<li><p>radialName: specify the variable name of radial velocity.</p></li>
+<li><p>dbzName: specify the variable name of reflectivity.</p></li>
+<li><p>ncpName: specify the variable name of NCP. If there is no NCP
+variable, you can specify any other variable to perform the QC. This
+variable corresponds to minNcp for the threshold.</p></li>
+<li><p>uvInterp: set the wind interpolation method for u and v. The
+specified interpolation method will be applied before calculating the
+vertical velocity. The default mode is INTERP_NONE.</p></li>
+</ul>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+      
+        <p>
+        «&#160;&#160;<a href="README_source_mac.html">Installing an LROSE Source Release (Mac)</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="docs.html">Contents</a>
+        </p>
+
+      </div>
+
+
+<div id="templatemo_footer_wrapper">
+	<div id="templatemo_footer">
+
+        <div class="clear"></div>
+        <div id="templatemo_copyright">
+			Copyright © 2018 Colorado State University <!-- Credit: www.templatemo.com -->
+		</div>
+    </div> <!-- END of templatemo_footer -->
+</div> <!-- END of templatemo_footer_wrapper -->
+
+  </body>
+</html>
