@@ -291,7 +291,7 @@ to the NW, varying as sin(locx).</p>
 <div class="section" id="epsilon">
 <h3>epsilon<a class="headerlink" href="#epsilon" title="Permalink to this headline">¶</a></h3>
 <blockquote>
-<div><p>Type: double</p>
+<div><p>Type: double. It is set for checking whether the grid specification is valid or not. If abs(gridmin - gridinc * (gridmin / gridinc)) is larger than epsilon, FRACTL will return an error message.</p>
 </div></blockquote>
 <p><strong>epsilon = 1e-06</strong></p>
 </div>
@@ -302,7 +302,7 @@ to the NW, varying as sin(locx).</p>
 <h3>maxDeltaAltKm<a class="headerlink" href="#maxdeltaaltkm" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><p>in km. Default 0.</p>
-<p>Type: double</p>
+<p>Type: double. Maximum absolute delta altitude of observations (for aircraft).</p>
 </div></blockquote>
 <p><strong>maxDeltaAltKm = 0</strong></p>
 </div>
@@ -310,7 +310,7 @@ to the NW, varying as sin(locx).</p>
 <h3>maxAbsElevDeg<a class="headerlink" href="#maxabselevdeg" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><p>in degree.</p>
-<p>Type: double</p>
+<p>Type: double. Maximum absolute elevation angle observations.</p>
 </div></blockquote>
 <p><strong>maxAbsElevDeg = 0</strong></p>
 </div>
@@ -318,7 +318,7 @@ to the NW, varying as sin(locx).</p>
 <h3>minRadialDistKm<a class="headerlink" href="#minradialdistkm" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><p>in km.</p>
-<p>Type: double</p>
+<p>Type: double. Minimum radial distance of observations (for aircraft)</p>
 </div></blockquote>
 <p><strong>minRadialDistKm = 0</strong></p>
 </div>
@@ -352,7 +352,7 @@ to the NW, varying as sin(locx).</p>
 <h3>forceOk<a class="headerlink" href="#forceok" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><p>y/n.</p>
-<p>Type: string</p>
+<p>Type: string. Force ncp and dbz to be ok on all points (forceOk is not allowed with testMode zeta).</p>
 </div></blockquote>
 <p><strong>forceOk = “n”</strong></p>
 </div>
@@ -478,7 +478,7 @@ fileName altKmMsl latDeg lonDeg
 <h3>uvSteps<a class="headerlink" href="#uvsteps" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><dl class="simple">
-<dt>Applies to all dimensions. Use uvMultiSteps for dimension specific</dt><dd><p>steps.</p>
+<dt>How many steps to use in the filtering. This option applies to all dimensions. Use uvMultiSteps for dimension specific</dt><dd><p>steps.</p>
 </dd>
 </dl>
 <p>Type: int</p>
