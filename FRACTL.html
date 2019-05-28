@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>fract Parameter Descriptions &#8212; NSF LROSE Blaze documentation</title>
+    <title>FRACTL Parameter Descriptions &#8212; NSF LROSE Blaze documentation</title>
     <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -381,7 +381,7 @@ to the NW, varying as sin(locx).</p>
 <div><p>Any radx supported format, or output of Radx2Grid.</p>
 <p>Type: string</p>
 </div></blockquote>
-<p><strong>inDir = “/bell-scratch/tcha/APAR/Test_Data/hurricane/20190322/fractl/lhsandrhs/”</strong></p>
+<p><strong>inDir = “./data/”</strong></p>
 </div>
 <div class="section" id="fileregex">
 <h3>fileRegex<a class="headerlink" href="#fileregex" title="Permalink to this headline">¶</a></h3>
@@ -407,7 +407,7 @@ fileName altKmMsl latDeg lonDeg
 <div><p>Has verification of grid results.</p>
 <p>Type: string</p>
 </div></blockquote>
-<p><strong>outTxt = “/bell-scratch/tcha/APAR/Test_Data/hurricane/fractl/res.raw.txt”</strong></p>
+<p><strong>outTxt = “./res.raw.txt”</strong></p>
 </div>
 <div class="section" id="outnc">
 <h3>outNc<a class="headerlink" href="#outnc" title="Permalink to this headline">¶</a></h3>
@@ -418,7 +418,7 @@ fileName altKmMsl latDeg lonDeg
 </dl>
 <p>Type: string</p>
 </div></blockquote>
-<p><strong>outNc = “./20190322_lhsandrhs.nc”</strong></p>
+<p><strong>outNc = “./output.nc”</strong></p>
 </div>
 </div>
 <div class="section" id="field">
@@ -429,7 +429,7 @@ fileName altKmMsl latDeg lonDeg
 <div><p>VEL for NEXRAD, VG for Eldora, VE for CSU-CHILL.</p>
 <p>Type: string</p>
 </div></blockquote>
-<p><strong>radialName = “VELTRU”</strong></p>
+<p><strong>radialName = “VG”</strong></p>
 </div>
 <div class="section" id="dbzname">
 <h3>dbzName<a class="headerlink" href="#dbzname" title="Permalink to this headline">¶</a></h3>
@@ -437,15 +437,15 @@ fileName altKmMsl latDeg lonDeg
 <div><p>REF for NEXRAD, DBZ for Eldora, DZ for CSU-CHILL.</p>
 <p>Type: string</p>
 </div></blockquote>
-<p><strong>dbzName = “Zhh”</strong></p>
+<p><strong>dbzName = “REF”</strong></p>
 </div>
 <div class="section" id="ncpname">
 <h3>ncpName<a class="headerlink" href="#ncpname" title="Permalink to this headline">¶</a></h3>
 <blockquote>
-<div><p>Not available for NEXRAD, NCP for Eldora, NC for CSU-CHILL.</p>
+<div><p>Not available for NEXRAD, NCP for Eldora, NC for CSU-CHILL.If there is no NCP variable, the user can specify any other variable to perform the QC. This variable corresponds to minNcp for the threshold.</p>
 <p>Type: string</p>
 </div></blockquote>
-<p><strong>ncpName = “VELUNF”</strong></p>
+<p><strong>ncpName = “NCP”</strong></p>
 </div>
 </div>
 <div class="section" id="filter">
