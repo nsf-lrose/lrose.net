@@ -1,0 +1,561 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>FRACTL Parameter Descriptions &#8212; NSF LROSE Blaze documentation</title>
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Fast Reorder and CEDRIC Technique in LROSE (FRACTL)" href="howtorun_fractl.html" />
+<link href="_static/templatemo_lite.css" rel="stylesheet" type="text/css" />
+
+  </head><body>
+<div id="templatemo_wrapper">
+    <div id="templatemo_header">
+    	<div id="site_title"><a href="http://nsf-lrose.github.io">Lidar Radar Open Software Environment</a></div>
+        <div id="templatemo_menu">
+            <ul>
+                <li><a href="index.html" class="selected home">Home</a></li>
+                <li><a href="software.html" class="services">Software</a></li>
+                <li><a href="docs.html" class="gallery">Documentation</a></li>
+                <li class="last"><a href="help.html" class="news">Help</a></li>
+            </ul>
+        </div> <!-- end of templatemo_menu -->
+    </div>
+</div> <!-- END of templatemo_wrapper -->
+
+      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
+          <span>NSF LROSE Blaze documentation</span></a></h1>
+        <h2 class="heading"><span>fract Parameter Descriptions</span></h2>
+      </div>
+      <div class="topnav" role="navigation" aria-label="top navigation">
+      
+        <p>
+        «&#160;&#160;<a href="howtorun_fractl.html">Fast Reorder and CEDRIC Technique in LROSE (FRACTL)</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="docs.html">Contents</a>
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="fract-parameter-descriptions">
+<h1>FRACTL Parameter Descriptions<a class="headerlink" href="#fract-parameter-descriptions" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p>Fractl calculates U, V, and W wind components from 2 or more Doppler.</p>
+</div></blockquote>
+<div class="section" id="debuggin">
+<h2>DEBUGGING<a class="headerlink" href="#debuggin" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="debug">
+<h3>debug<a class="headerlink" href="#debug" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Debug option.</p>
+<p>If set, debug messages will be printed appropriately.</p>
+<p>Type: enum</p>
+</div></blockquote>
+<p>Options:</p>
+<ul class="simple">
+<li><p>DEBUG_OFF</p></li>
+<li><p>DEBUG_NORM</p></li>
+<li><p>DEBUG_VERBOSE</p></li>
+<li><p>DEBUG_EXTRA</p></li>
+</ul>
+<p><strong>debug = DEBUG_OFF</strong></p>
+</div>
+<div class="section" id="detailspec">
+<h3>detailSpec<a class="headerlink" href="#detailspec" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>detail spec used for debugging only.
+Example: “5,20,30,0.1”.</p>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>detailSpec = “not_set”</strong></p>
+</div>
+</div>
+<div class="section" id="minimum-value">
+<h2>MINIMUM VALUES<a class="headerlink" href="#minimum-value" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="mindbz">
+<h3>minDbz<a class="headerlink" href="#mindbz" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Minimum dBZ value for valid data.</p>
+<p>Any value below that will be tossed out.
+Example: -20.</p>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>minDbz = -20</strong></p>
+</div>
+<div class="section" id="minncp">
+<h3>minNcp<a class="headerlink" href="#minncp" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Minimum NCP value for valid data.</p>
+<p>Any value below that will be tossed out.
+Example: 0.3.</p>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>minNcp = 0</strong></p>
+</div>
+</div>
+<div class="section" id="test-mod">
+<h2>TEST MODE<a class="headerlink" href="#test-mod" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="testmode">
+<h3>testMode<a class="headerlink" href="#testmode" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Test mode.</p>
+<blockquote>
+<div><dl class="simple">
+<dt>MODE_ALPHA:</dt><dd><p>Use simple synthetic wind data.
+Skip the redar files.
+Must specify synWinds: W,V,U
+Obs are located at the verif cell centers.</p>
+</dd>
+<dt>MODE_BETA:</dt><dd><p>Use simple synthetic wind data.
+Read swp files and use swp obs locations,
+but replace radial vel with synthetic.
+Must specify synWinds: W,V,U
+radFiles beg,lim
+Use radar files i: beg &lt;= i &lt; lim.
+If beg == lim == 0, read all files</p>
+</dd>
+<dt>MODE_ZETA:</dt><dd><p>Operational: use specified radar data.
+Specify synWinds: 0,0,0
+radFiles beg,lim
+Use radar files i: beg &lt;= i &lt; lim.
+If beg == lim == 0, read all files</p>
+</dd>
+<dt>MODE_ZETA_BELTRAMI:</dt><dd><p>Like zeta, but compare the results with
+the test Beltrami flow and print statistics.
+Specify synWinds: 0,0,0
+This is only useful for swp files generated
+by Michael Bell’s Beltrami flow simulation.</p>
+</dd>
+<dt>MODE_GAMMA:</dt><dd><p>Like zeta, but compare the results with
+the constant flow and print statistics.
+Specify synWinds: 0,0,0.</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>Type: enum</p>
+</div></blockquote>
+<p>Options:</p>
+<ul class="simple">
+<li><p>MODE_NONE</p></li>
+<li><p>MODE_ALPHA</p></li>
+<li><p>MODE_BETA</p></li>
+<li><p>MODE_ZETA</p></li>
+<li><p>MODE_ZETA_BELTRAMI</p></li>
+<li><p>MODE_GAMMA</p></li>
+</ul>
+<p><strong>testMode = MODE_ZETA</strong></p>
+</div>
+<div class="section" id="radfiles">
+<h3>radFiles<a class="headerlink" href="#radfiles" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Use radar files i: start &lt;= i &lt; limit.
+Read all files if start == limit == 0.</p>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>radFiles = “0,0”</strong></p>
+</div>
+</div>
+<div class="section" id="syn-win">
+<h2>SYN WIND<a class="headerlink" href="#syn-win" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="synwinds">
+<h3>synWinds<a class="headerlink" href="#synwinds" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><blockquote>
+<div><p>Specify a comma sep triplet: W,V,U
+If a wind spec is numeric,</p>
+<blockquote>
+<div><p>use that constant uniform value.</p>
+</div></blockquote>
+<dl>
+<dt>Else the wind spec is the name for</dt><dd><p>one of SYNFUNC_* values:
+“sinx”: wind component = sin(locx)
+“siny”: wind component = sin(locy)
+“sinz”: wind component = sin(locz)</p>
+</dd>
+<dt>Example:</dt><dd><p>-synWinds 3,sinx,sinx
+Means uniform Z wind at 3 m/s.
+Both V and U winds = sin(locx),</p>
+<blockquote>
+<div><p>so the wind would be from the SW
+to the NW, varying as sin(locx).</p>
+</div></blockquote>
+</dd>
+</dl>
+</div></blockquote>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>synWinds = “0,0,0”</strong></p>
+</div>
+</div>
+<div class="section" id="grid-spe">
+<h2>GRID SPEC<a class="headerlink" href="#grid-spe" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="zgrid">
+<h3>zGrid<a class="headerlink" href="#zgrid" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="simple">
+<dt>“min,max,incr”</dt><dd><p>To get min and max from the data, specify only the increment.</p>
+</dd>
+</dl>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>zGrid = “0.0,16.0,0.5”</strong></p>
+</div>
+<div class="section" id="ygrid">
+<h3>yGrid<a class="headerlink" href="#ygrid" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>“min,max,incr” or “incr”.</p>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>yGrid = “-150.0,250.0,1”</strong></p>
+</div>
+<div class="section" id="xgrid">
+<h3>xGrid<a class="headerlink" href="#xgrid" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>“min,max,incr” or “incr”.</p>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>xGrid = “-200.0,100.0,1”</strong></p>
+</div>
+</div>
+<div class="section" id="grid-typ">
+<h2>GRID_TYPE<a class="headerlink" href="#grid-typ" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="gridtype">
+<h3>gridType<a class="headerlink" href="#gridtype" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Mesh for stand-alone. Mish for Samurai input.</p>
+<p>Type: enum</p>
+</div></blockquote>
+<p>Options:</p>
+<ul class="simple">
+<li><p>GRID_MESH</p></li>
+<li><p>GRID_MISH</p></li>
+</ul>
+<p><strong>gridType = GRID_MESH</strong></p>
+</div>
+</div>
+<div class="section" id="projectio">
+<h2>PROJECTION<a class="headerlink" href="#projectio" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="projname">
+<h3>projName<a class="headerlink" href="#projname" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Must be transverseMercador.</p>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>projName = “transverseMercator”</strong></p>
+</div>
+<div class="section" id="projlat0">
+<h3>projLat0<a class="headerlink" href="#projlat0" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>For example: 16.5.</p>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>projLat0 = 34.675063013242</strong></p>
+</div>
+<div class="section" id="projlon0">
+<h3>projLon0<a class="headerlink" href="#projlon0" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>For example: 148.0.</p>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>projLon0 = -99.8960354021649</strong></p>
+</div>
+<div class="section" id="radaralt">
+<h3>radarAlt<a class="headerlink" href="#radaralt" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>only needed for pre gridded mode.</p>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>radarAlt = -1</strong></p>
+</div>
+</div>
+<div class="section" id="mis">
+<h2>MISC<a class="headerlink" href="#mis" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="basew">
+<h3>baseW<a class="headerlink" href="#basew" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Type: double</p>
+</div></blockquote>
+<p><strong>baseW = 0</strong></p>
+</div>
+<div class="section" id="epsilon">
+<h3>epsilon<a class="headerlink" href="#epsilon" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Type: double. It is set for checking whether the grid specification is valid or not. If abs(gridmin - gridinc * (gridmin / gridinc)) is larger than epsilon, FRACTL will return an error message.</p>
+</div></blockquote>
+<p><strong>epsilon = 1e-06</strong></p>
+</div>
+</div>
+<div class="section" id="limit">
+<h2>LIMITS<a class="headerlink" href="#limit" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="maxdeltaaltkm">
+<h3>maxDeltaAltKm<a class="headerlink" href="#maxdeltaaltkm" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>in km. Default 0.</p>
+<p>Type: double. Maximum absolute delta altitude of observations (for aircraft).</p>
+</div></blockquote>
+<p><strong>maxDeltaAltKm = 0</strong></p>
+</div>
+<div class="section" id="maxabselevdeg">
+<h3>maxAbsElevDeg<a class="headerlink" href="#maxabselevdeg" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>in degree.</p>
+<p>Type: double. Maximum absolute elevation angle observations.</p>
+</div></blockquote>
+<p><strong>maxAbsElevDeg = 0</strong></p>
+</div>
+<div class="section" id="minradialdistkm">
+<h3>minRadialDistKm<a class="headerlink" href="#minradialdistkm" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>in km.</p>
+<p>Type: double. Minimum radial distance of observations (for aircraft)</p>
+</div></blockquote>
+<p><strong>minRadialDistKm = 0</strong></p>
+</div>
+<div class="section" id="numnbrmax">
+<h3>numNbrMax<a class="headerlink" href="#numnbrmax" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Type: int</p>
+</div></blockquote>
+<p><strong>numNbrMax = 100</strong></p>
+</div>
+<div class="section" id="maxdistbase">
+<h3>maxDistBase<a class="headerlink" href="#maxdistbase" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>max point distance = base + factor * aircraftDist.</p>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>maxDistBase = 1</strong></p>
+</div>
+<div class="section" id="maxdistfactor">
+<h3>maxDistFactor<a class="headerlink" href="#maxdistfactor" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>max point distance = base + factor * aircraftDist.</p>
+<p>Type: double</p>
+</div></blockquote>
+<p><strong>maxDistFactor = 0.016666</strong></p>
+</div>
+</div>
+<div class="section" id="flag">
+<h2>FLAGS<a class="headerlink" href="#flag" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="forceok">
+<h3>forceOk<a class="headerlink" href="#forceok" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>y/n.</p>
+<p>Type: string. Force ncp and dbz to be ok on all points (forceOk is not allowed with testMode zeta).</p>
+</div></blockquote>
+<p><strong>forceOk = “n”</strong></p>
+</div>
+<div class="section" id="useeigen">
+<h3>useEigen<a class="headerlink" href="#useeigen" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>y: use Eigen, n: use Cramer.</p>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>useEigen = “y”</strong></p>
+</div>
+<div class="section" id="pregridded">
+<h3>preGridded<a class="headerlink" href="#pregridded" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>(NOT WORKING YET) Data is pre-gridded.</p>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>preGridded = “n”</strong></p>
+</div>
+</div>
+<div class="section" id="files-and-directorie">
+<h2>FILES AND DIRECTORIES<a class="headerlink" href="#files-and-directorie" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="indir">
+<h3>inDir<a class="headerlink" href="#indir" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Any radx supported format, or output of Radx2Grid.</p>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>inDir = “./data/”</strong></p>
+</div>
+<div class="section" id="fileregex">
+<h3>fileRegex<a class="headerlink" href="#fileregex" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>for example ‘^swp’.</p>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>fileRegex = “^cfrad”</strong></p>
+</div>
+<div class="section" id="filelist">
+<h3>fileList<a class="headerlink" href="#filelist" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>One entry per line
+fileName altKmMsl latDeg lonDeg
+# in the first column is a comment.</p>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>fileList = “not_set”</strong></p>
+</div>
+<div class="section" id="outtxt">
+<h3>outTxt<a class="headerlink" href="#outtxt" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Has verification of grid results.</p>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>outTxt = “./res.raw.txt”</strong></p>
+</div>
+<div class="section" id="outnc">
+<h3>outNc<a class="headerlink" href="#outnc" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="simple">
+<dt>If outNc ends in a slash we make a subdir and write to</dt><dd><p>yyyymmdd/ncf_yyyymmdd_hhmmss.nc.</p>
+</dd>
+</dl>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>outNc = “./output.nc”</strong></p>
+</div>
+</div>
+<div class="section" id="field">
+<h2>FIELDS<a class="headerlink" href="#field" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="radialname">
+<h3>radialName<a class="headerlink" href="#radialname" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>VEL for NEXRAD, VG for Eldora, VE for CSU-CHILL.</p>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>radialName = “VG”</strong></p>
+</div>
+<div class="section" id="dbzname">
+<h3>dbzName<a class="headerlink" href="#dbzname" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>REF for NEXRAD, DBZ for Eldora, DZ for CSU-CHILL.</p>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>dbzName = “REF”</strong></p>
+</div>
+<div class="section" id="ncpname">
+<h3>ncpName<a class="headerlink" href="#ncpname" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Not available for NEXRAD, NCP for Eldora, NC for CSU-CHILL.If there is no NCP variable, the user can specify any other variable to perform the QC. This variable corresponds to minNcp for the threshold.</p>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>ncpName = “NCP”</strong></p>
+</div>
+</div>
+<div class="section" id="filter">
+<h2>FILTERS<a class="headerlink" href="#filter" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="uvfilter">
+<h3>uvFilter<a class="headerlink" href="#uvfilter" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Type: enum</p>
+</div></blockquote>
+<p>Options:</p>
+<ul class="simple">
+<li><p>FILTER_NONE</p></li>
+<li><p>FILTER_LEISE</p></li>
+</ul>
+<p><strong>uvFilter = FILTER_NONE</strong></p>
+</div>
+<div class="section" id="wfilter">
+<h3>wFilter<a class="headerlink" href="#wfilter" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Type: enum</p>
+</div></blockquote>
+<p>Options:</p>
+<ul class="simple">
+<li><p>FILTER_NONE</p></li>
+<li><p>FILTER_LEISE</p></li>
+</ul>
+<p><strong>wFilter = FILTER_NONE</strong></p>
+</div>
+<div class="section" id="uvsteps">
+<h3>uvSteps<a class="headerlink" href="#uvsteps" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="simple">
+<dt>How many steps to use in the filtering. This option applies to all dimensions. Use uvMultiSteps for dimension specific steps.</p>
+</dd>
+</dl>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>uvSteps = 1</strong></p>
+</div>
+<div class="section" id="uvmultistep">
+<h3>uvMultiStep<a class="headerlink" href="#uvmultistep" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Comma separated steps.
+Example: “1,2,1”.</p>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>uvMultiStep = “not_set”</strong></p>
+</div>
+<div class="section" id="wsteps">
+<h3>wSteps<a class="headerlink" href="#wsteps" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="simple">
+<dt>Applies to all dimensions. Use wMultiStep for dimension specific</dt><dd><p>steps.</p>
+</dd>
+</dl>
+<p>Type: int</p>
+</div></blockquote>
+<p><strong>wSteps = 1</strong></p>
+</div>
+<div class="section" id="wmultistep">
+<h3>wMultiStep<a class="headerlink" href="#wmultistep" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Comma separated steps.
+Example: “1,2,1”.</p>
+<p>Type: string</p>
+</div></blockquote>
+<p><strong>wMultiStep = “not_set”</strong></p>
+</div>
+</div>
+<div class="section" id="interpolatio">
+<h2>INTERPOLATION<a class="headerlink" href="#interpolatio" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="uvinterp">
+<h3>uvInterp<a class="headerlink" href="#uvinterp" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Applied before calculating W.</p>
+<p>Type: enum</p>
+</div></blockquote>
+<p>Options:</p>
+<ul class="simple">
+<li><p>INTERP_NONE</p></li>
+<li><p>INTERP_LEISE</p></li>
+<li><p>INTERP_RADAR_WIND</p></li>
+</ul>
+<p><strong>uvInterp = INTERP_NONE</strong></p>
+</div>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+      
+        <p>
+        «&#160;&#160;<a href="howtorun_fractl.html">Fast Reorder and CEDRIC Technique in LROSE (FRACTL)</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="docs.html">Contents</a>
+        </p>
+
+      </div>
+
+
+<div id="templatemo_footer_wrapper">
+	<div id="templatemo_footer">
+
+        <div class="clear"></div>
+        <div id="templatemo_copyright">
+			Copyright © 2018 Colorado State University <!-- Credit: www.templatemo.com -->
+		</div>
+    </div> <!-- END of templatemo_footer -->
+</div> <!-- END of templatemo_footer_wrapper -->
+
+  </body>
+</html>
