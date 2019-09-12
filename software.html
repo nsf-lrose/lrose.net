@@ -7,7 +7,7 @@ http://www.templatemo.com/preview/templatemo_377_blue_tech
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>LROSE Registration</title>
+<title>NSF LROSE Blaze</title>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <link href="templatemo_style.css" rel="stylesheet" type="text/css" />
@@ -23,38 +23,93 @@ function clearText(field)
 
 <div id="templatemo_wrapper">
 	<div id="templatemo_header">
-    	<div id="site_title"><a href="http://nsf-lrose.github.io">Lidar Radar Open Software Environment</a></div>
+    	 <div id="site_title"><a href="http://nsf-lrose.github.io">Lidar Radar Open Software Environment</a></div>
         <div id="templatemo_menu">
             <ul>
                 <li><a href="index.html" class="selected home">Home</a></li>
                 <li><a href="software.html" class="services">Software</a></li>
-                <li><a href="docs.html" class="gallery">Documentation</a></li>
+                <li><a href="http://wiki.lrose.net" class="gallery">Documentation</a></li>
                 <li class="last"><a href="help.html" class="news">Help</a></li>
             </ul>
         </div> <!-- end of templatemo_menu -->
     </div> <!-- END of header -->
-     <!-- END of middle -->
+    <div id="templatemo_display">
+		<div class="content_wrapper content_mb_60">
+			<div class="col_4">
+			   <h2>"Virtual Toolbox" Installation</h2>
+			   <p>The Virtual Toolbox has all the latest LROSE-Blaze packages installed, with no compilation or dependencies other than Docker required.</p>
+			</div>
+			<div class="col_2 no_margin_right">
+				<h2><img src="images/docker.png" alt="Icon" width="100" class="img_fr"/></h2>
+					<ol>
+					<li>Download, install, and run <a href="https://www.docker.com/get-started" style="color:#0a6298">Docker</a></li>
+					<li>In a terminal, grab the LROSE-Blaze image:
+						<p><code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">pull</span> <span class="pre">nsflrose/lrose-blaze</span></code></p>
+						<p>This should pull the <strong>latest</strong> tag.</p></li>
+					<li>Download the <a href="https://github.com/nsf-lrose/lrose-blaze/releases/download/lrose-blaze-20190105/lrose" style="color:#0a6298" download>lrose</a> wrapper script</li>
+					<li>Copy the lrose script somewhere in your executable path
+						<p><code class="docutils literal notranslate">cp lrose /usr/local/bin/</code></p>
+					</li>
+					<li>Make sure the script is executable:
+						<p><code class="docutils literal notranslate">chmod +x /usr/local/bin/lrose</code></p>
+					</li>
+					<li>You are done with installation! Go to the <a href="docs.html" style="color:#0a6298">Documentation</a> to learn how to run LROSE-Blaze</li>
+					</ol>
+			</div>
+		</div>
+		<div class="content_wrapper content_mb_60">
+			<div class="col_4">
+			   <h2>Mac Homebrew Installation</h2>
+			   <p>For Native applications on the Mac, the recommended method is to use Homebrew. The formula contains all the necessary dependencies and build instructions.</p>
+			</div>
+			<div class="col_2 no_margin_right">
+				<img src="images/homebrew-256x256.png" alt="Icon" width="100" class="img_fr"/>
+					<ol>
+					<li>Download, install, and run <a href="https://brew.sh/" style="color:#0a6298">Homebrew</a></li>
+					<li>Download the LROSE-Blaze formula <a href="https://github.com/nsf-lrose/lrose-blaze/releases/download/lrose-blaze-20190105/lrose-blaze.rb" style="color:#0a6298" download>lrose-blaze.rb</a></li>
+					<li>In a terminal, install LROSE-Blaze:
+						<p><code class="docutils literal notranslate"><span class="pre">brew install lrose-blaze.rb</span></code></p>
+					</li>
+					<li>You are done with installation! Go to the <a href="docs.html" style="color:#0a6298">Documentation</a> to learn how to run LROSE-Blaze</li>
+					</ol>
+			</div>
+		</div>
+		<div class="content_wrapper content_mb_60">
+			<div class="col_4">
+			   <h2>Source Installation</h2>
+			   <p>Source compilation on Linux or the Mac is best performed using a supplied Python script. All dependencies should be installed prior to building LROSE-Blaze.</p>
+			</div>
+			<div class="col_3">
+				<h2>Linux Build
+				<img src="images/Tux.png" alt="Icon" width="100" class="img_fr"/></h2>
+					<ol>
+					<li>Download the <a href="https://github.com/nsf-lrose/lrose-blaze/releases/download/lrose-blaze-20190105/lrose-blaze-20190105-full.tar.gz" style="color:#0a6298">Linux source tarfile</a></li>
+					<li>Follow the instructions in the <a href="docs.html" style="color:#0a6298">web documentation</a>, or in the docs/README_source_linux.md</li>
+					</ol>
+			</div>
+			<div class="col_3 no_margin_right">
+				<h2>Mac Build
+				<img src="images/200px-Apple_logo_black.png" alt="Icon" width="100" class="img_fr"/></h2>
+					<ol>
+					<li>Download the <a href="https://github.com/nsf-lrose/lrose-blaze/releases/download/lrose-blaze-20190105/lrose-blaze-20190105-full-mac_osx.tar.gz" style="color:#0a6298">Mac source tarfile</a></li>
+					<li>Follow the instructions in the <a href="docs.html" style="color:#0a6298">web documentation</a>, or in the docs/README_source_mac.md</li>
+					</ol>
+			</div>
+		</div>
+    </div> <!-- END of middle -->
     <div id="templatemo_main">
-    	<div class="content_wrapper content_mb_60">
-		<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScx_X7RUPuRC4PPA3kGD3ismFptOBwWKeTabRsBLGy9h5f3Nw/viewform?embedded=true" width="900" height="1600" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
-	    <div class="clear"></div>
-        </div>
-   </div>
-	<div class="text">
-		<p>If you have already registered, you can go directly to the <a href="lrose-blaze.html" class="news">download page</a>. We highly encourage users to register to ensure notification about critical bug fixes</p>
-	</div>
+        <div class="clear"></div>
+    </div>
 </div> <!-- END of templatemo_wrapper -->
+
 <div id="templatemo_footer_wrapper">
 	<div id="templatemo_footer">
 
-        <div class="clear"></div>
         <div id="templatemo_copyright">
-			Copyright © 2018 Colorado State University and National Center for Atmospheric Research<!-- Credit: www.templatemo.com -->
+			Copyright © 2018 Colorado State University and National Center for Atmospheric Research <!-- Credit: www.templatemo.com -->
 		</div>
     </div> <!-- END of templatemo_footer -->
 </div> <!-- END of templatemo_footer_wrapper -->
-
- <!-- END of templatemo_footer_wrapper -->
 
 </body>
 </html>
