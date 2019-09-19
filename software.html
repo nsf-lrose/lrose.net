@@ -7,7 +7,7 @@ http://www.templatemo.com/preview/templatemo_377_blue_tech
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>NSF LROSE Blaze</title>
+<title>NSF LROSE Cyclone</title>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <link href="templatemo_style.css" rel="stylesheet" type="text/css" />
@@ -23,7 +23,7 @@ function clearText(field)
 
 <div id="templatemo_wrapper">
 	<div id="templatemo_header">
-    	 <div id="site_title"><a href="http://nsf-lrose.github.io">Lidar Radar Open Software Environment</a></div>
+    	 <div id="site_title"><a href="http://lrose.net">Lidar Radar Open Software Environment</a></div>
         <div id="templatemo_menu">
             <ul>
                 <li><a href="index.html" class="selected home">Home</a></li>
@@ -34,26 +34,32 @@ function clearText(field)
         </div> <!-- end of templatemo_menu -->
     </div> <!-- END of header -->
     <div id="templatemo_display">
+      <div class="content_wrapper content_mb_60">
+           <p>
+  			   <h1 style="color:#0a6298">Installation Instructions for latest "Cyclone" Release</h1>
+  			   <h2>Click <a href="http://lrose.net/lrose-blaze.html" style="color:#0a6298">here</a> for installation of stable "Blaze" Release</h2>
+           <h2>Click <a href="http://lrose.net/register.html" style="color:#0a6298">here</a> to register and receive critical software updates</h2>
+      </div>
 		<div class="content_wrapper content_mb_60">
 			<div class="col_4">
 			   <h2>"Virtual Toolbox" Installation</h2>
-			   <p>The Virtual Toolbox has all the latest LROSE-Blaze packages installed, with no compilation or dependencies other than Docker required.</p>
+			   <p>The Virtual Toolbox has all the latest LROSE-Cyclone packages installed, with no compilation or dependencies other than Docker required.</p>
 			</div>
 			<div class="col_2 no_margin_right">
 				<h2><img src="images/docker.png" alt="Icon" width="100" class="img_fr"/></h2>
 					<ol>
 					<li>Download, install, and run <a href="https://www.docker.com/get-started" style="color:#0a6298">Docker</a></li>
-					<li>In a terminal, grab the LROSE-Blaze image:
-						<p><code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">pull</span> <span class="pre">nsflrose/lrose-blaze</span></code></p>
+					<li>In a terminal, grab the LROSE-Cyclone image:
+						<p><code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">pull</span> <span class="pre">nsflrose/lrose-cyclone</span></code></p>
 						<p>This should pull the <strong>latest</strong> tag.</p></li>
-					<li>Download the <a href="https://github.com/nsf-lrose/lrose-blaze/releases/download/lrose-blaze-20190105/lrose" style="color:#0a6298" download>lrose</a> wrapper script</li>
+					<li>Download the <a href="https://github.com/nsf-lrose/lrose-cyclone/releases/download/lrose-cyclone-072619/lrose" style="color:#0a6298" download>lrose</a> wrapper script</li>
 					<li>Copy the lrose script somewhere in your executable path
 						<p><code class="docutils literal notranslate">cp lrose /usr/local/bin/</code></p>
 					</li>
 					<li>Make sure the script is executable:
 						<p><code class="docutils literal notranslate">chmod +x /usr/local/bin/lrose</code></p>
 					</li>
-					<li>You are done with installation! Go to the <a href="docs.html" style="color:#0a6298">Documentation</a> to learn how to run LROSE-Blaze</li>
+					<li>You are done with installation! Go to the <a href="docs.html" style="color:#0a6298">Documentation</a> to learn how to run LROSE-Cyclone</li>
 					</ol>
 			</div>
 		</div>
@@ -66,24 +72,42 @@ function clearText(field)
 				<img src="images/homebrew-256x256.png" alt="Icon" width="100" class="img_fr"/>
 					<ol>
 					<li>Download, install, and run <a href="https://brew.sh/" style="color:#0a6298">Homebrew</a></li>
-					<li>Download the LROSE-Blaze formula <a href="https://github.com/nsf-lrose/lrose-blaze/releases/download/lrose-blaze-20190105/lrose-blaze.rb" style="color:#0a6298" download>lrose-blaze.rb</a></li>
-					<li>In a terminal, install LROSE-Blaze:
-						<p><code class="docutils literal notranslate"><span class="pre">brew install lrose-blaze.rb</span></code></p>
+					<li>Download the LROSE-Cyclone formula <a href="https://github.com/nsf-lrose/lrose-cyclone/releases/download/lrose-cyclone-072619/lrose-cyclone.rb" style="color:#0a6298" download>lrose-cyclone.rb</a></li>
+					<li>In a terminal, install LROSE-Cyclone:
+						<p><code class="docutils literal notranslate"><span class="pre">brew install lrose-cyclone.rb</span></code></p>
 					</li>
-					<li>You are done with installation! Go to the <a href="docs.html" style="color:#0a6298">Documentation</a> to learn how to run LROSE-Blaze</li>
+					<li>You are done with installation! Go to the <a href="docs.html" style="color:#0a6298">Documentation</a> to learn how to run LROSE-Cyclone</li>
 					</ol>
 			</div>
 		</div>
+    <div class="content_wrapper content_mb_60">
+			<div class="col_4">
+			   <h2>Linux Binary Installation</h2>
+			   <p>A binary package is available for Ubuntu version 16.04.</p>
+			</div>
+			<div class="col_2 no_margin_right">
+				<img src="images/homebrew-256x256.png" alt="Icon" width="100" class="img_fr"/>
+					<ol>
+					<li>Download the LROSE-Cyclone Ubuntu Debian package <a href="https://github.com/nsf-lrose/lrose-cyclone/releases/download/lrose-cyclone-072619/lrose_cyclone_ubuntu_16.04.deb" style="color:#0a6298" download>lrose-cyclone.rb</a></li>
+					<li>In a terminal, install LROSE-Cyclone:
+						<p><code class="docutils literal notranslate"><span class="pre">sudo apt install ./lrose_cyclone_ubuntu_16.04.deb</span></code></p>
+					</li>
+					<li>You are done with installation! Go to the <a href="docs.html" style="color:#0a6298">Documentation</a> to learn how to run LROSE-Cyclone</li>
+					</ol>
+			</div>
+		</div>
+    </div>
+    <div id="templatemo_display">
 		<div class="content_wrapper content_mb_60">
 			<div class="col_4">
 			   <h2>Source Installation</h2>
-			   <p>Source compilation on Linux or the Mac is best performed using a supplied Python script. All dependencies should be installed prior to building LROSE-Blaze.</p>
+			   <p>Source compilation on Linux or the Mac is best performed using a supplied Python script. All dependencies should be installed prior to building LROSE-Cyclone.</p>
 			</div>
 			<div class="col_3">
 				<h2>Linux Build
 				<img src="images/Tux.png" alt="Icon" width="100" class="img_fr"/></h2>
 					<ol>
-					<li>Download the <a href="https://github.com/nsf-lrose/lrose-blaze/releases/download/lrose-blaze-20190105/lrose-blaze-20190105-full.tar.gz" style="color:#0a6298">Linux source tarfile</a></li>
+					<li>Download the <a href="https://github.com/nsf-lrose/lrose-cyclone/archive/lrose-cyclone-072619.tar.gz" style="color:#0a6298">Linux source tarfile</a></li>
 					<li>Follow the instructions in the <a href="docs.html" style="color:#0a6298">web documentation</a>, or in the docs/README_source_linux.md</li>
 					</ol>
 			</div>
@@ -91,7 +115,7 @@ function clearText(field)
 				<h2>Mac Build
 				<img src="images/200px-Apple_logo_black.png" alt="Icon" width="100" class="img_fr"/></h2>
 					<ol>
-					<li>Download the <a href="https://github.com/nsf-lrose/lrose-blaze/releases/download/lrose-blaze-20190105/lrose-blaze-20190105-full-mac_osx.tar.gz" style="color:#0a6298">Mac source tarfile</a></li>
+					<li>Download the <a href="https://github.com/nsf-lrose/lrose-cyclone/releases/download/lrose-cyclone-072619/lrose-cyclone-20190726.homebrew.tgz" style="color:#0a6298">Mac source tarfile</a></li>
 					<li>Follow the instructions in the <a href="docs.html" style="color:#0a6298">web documentation</a>, or in the docs/README_source_mac.md</li>
 					</ol>
 			</div>
