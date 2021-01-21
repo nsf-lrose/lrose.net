@@ -37,12 +37,12 @@ function clearText(field)
       <div class="content_wrapper content_mb_60">
            <p>
   			   <h1 style="color:#0a6298">Installation Instructions for latest "Elle" Release</h1>
-	      		   <h2>Click <a href="http://lrose.net/lrose-blaze.html" style="color:#0a6298">here</a> for installation of stable "Blaze" Release</h2>
-  			   <h2>Click <a href="http://lrose.net/lrose-cyclone.html" style="color:#0a6298">here</a> for installation of stable "Cyclone" Release</h2>
-           <h2>Click <a href="http://lrose.net/register.html" style="color:#0a6298">here</a> to register and receive critical software updates</h2>
-	   <h2>Please uninstall any previous versions of LROSE before installing Elle. Old header files may cause problems with the build or installation.</h2>
+	   	 		 <h2>Please uninstall any previous versions of LROSE before installing Elle. Old header files may cause problems with the build or installation. To uninstall previous versions, type the following commands in a terminal: </h2>
+					 <li style="margin-top:-10px"><code class="docutils literal notranslate"><span class="pre">brew uninstall lrose-core</span></code></li>
+					 <li><code class="docutils literal notranslate"><span class="pre">brew uninstall lrose-cyclone</span></code></li>
+					 <li><code class="docutils literal notranslate"><span class="pre">brew uninstall lrose-blaze</span></code></li>
       </div>
-		<div class="content_wrapper content_mb_60">
+		<div class="content_wrapper content_mb_60" style="margin-top:-35px">
 			<div class="col_4">
 			   <h2>Mac Homebrew Installation</h2>
 			   <p>For Native applications on the Mac, the recommended method is to use Homebrew. The formula contains all the necessary dependencies and build instructions.</p>
@@ -52,7 +52,7 @@ function clearText(field)
 					<ol>
 					<li>Download, install, and run <a href="https://brew.sh/" style="color:#0a6298">Homebrew</a></li>
 					<li>Download the lrose-core formula <a href="https://github.com/NCAR/lrose-core/releases/download/lrose-core-20200701/lrose-core.rb" style="color:#0a6298" download>lrose-core.rb</a></li>
-					<li>In a terminal, install lrose-core:
+					<li>Go to the directory stored lrose-core.rb, and install lrose-core by typing the following command in a terminal:
 						<p><code class="docutils literal notranslate"><span class="pre">brew install lrose-core.rb</span></code></p>
 					</li>
 					<li>You are done with installation! Go to the <a href="docs.html" style="color:#0a6298">Documentation</a> to learn how to run LROSE-Elle</li>
@@ -60,7 +60,7 @@ function clearText(field)
 			</div>
 		</div>
 
-    <div class="content_wrapper content_mb_60" style="margin-top: -30px">
+    <div class="content_wrapper content_mb_60" style="margin-top: -35px">
 			<div class="col_4">
 			   <h2>Source Installation</h2>
 			   <p>Source compilation on Linux or the Mac is best performed using a supplied Python script. All dependencies should be installed prior to building lrose-core. </p>
@@ -84,13 +84,21 @@ function clearText(field)
 
 			</div>
 		</div>
+
+		<div class="content_wrapper content_mb_60" style="margin-top: -38px">
+			<h2>Previous LROSE versions can be found here: </h2>
+			<li style="margin-top:-12px">Click <a href="http://lrose.net/lrose-cyclone.html" style="color:#0a6298">here</a> for installation of stable "Cyclone" Release (released in 2019)</li>
+			<li>Click <a href="http://lrose.net/lrose-blaze.html" style="color:#0a6298">here</a> for installation of stable "Blaze" Release (released in 2018)</li>
+			<li>Click <a href="http://lrose.net/register.html" style="color:#0a6298">here</a> to register and receive critical software updates</li>
+		</div>
    </div>
 
-
-    <div id="templatemo_main">
-        <div class="clear"></div>
-    </div>
+	 <div id="templatemo_main">
+	 		<div class="clear"></div>
+	 </div>
 </div> <!-- END of templatemo_wrapper -->
+
+
 
 <div id="templatemo_footer_wrapper">
 	<div id="templatemo_footer">
